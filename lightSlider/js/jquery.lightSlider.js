@@ -136,7 +136,11 @@
                 $children = $el.children();
                 length = $children.length; 
             }
+            if(this.doCss()){
+                $slide.addClass('usingCss');
+            }
             refresh.calL();
+            $children.first().addClass('active');
             if(settings.mode==="slide"){
                 refresh.calSW();
                 refresh.sSW();
@@ -144,9 +148,11 @@
                 var height = $children.height();
                 $el.css('height', height);
                 $el.addClass('csFade');
+                if(!this.doCss()){
+                    $children.not(".active").css('display','none');    
+                }
             }
             $slide.css({'max-width':'100%','position':'relative'});
-            $children.first().addClass('active');
         },
         pager:function(){
             var $this = this;
@@ -213,9 +219,17 @@
             settings.onSliderLoad.call( this );
         },
         active: function(ob,t){
+            if(this.doCss() && settings.mode==="fade"){
+                if(!$slide.hasClass('on')){
+                    $slide.addClass('on');
+                }
+            }
             var sc=0;
             if(scene*settings.slideMove<length){
                 ob.removeClass('active');
+                if(!this.doCss() && settings.mode==="fade"){
+                    ob.fadeOut(settings.speed);    
+                }
                 t===true?sc=scene:sc=scene*settings.slideMove;
                 if (t===true) {
                     var l = ob.length;
@@ -224,10 +238,17 @@
                         sc = nl;
                     }
                 };
+                if(!this.doCss() && settings.mode==="fade"){
+                    ob.eq(sc).fadeIn(settings.speed);
+                }
                 ob.eq(sc).addClass('active');
             }else{
                 ob.removeClass('active');  
                 ob.eq(ob.length-1).addClass('active');  
+                if(!this.doCss() && settings.mode==="fade"){
+                    ob.fadeOut(settings.speed);   
+                    ob.eq(sc).fadeIn(settings.speed); 
+                }
             }
         },
         move:function(ob,v){
@@ -289,34 +310,32 @@
             }
         },
         enableTouch : function(){
-            if ( isTouch ){
+            if (isTouch){
                 var startCoords = {}, 
-                endCoords = {};                 
-                $slide.on('touchstart', function(e){
-                    $(this).addClass('touch-lS');
+                    endCoords = {}; 
+                $slide.on('touchstart.lightSlider', function(e) {
                     endCoords = e.originalEvent.targetTouches[0];
                     startCoords.pageX = e.originalEvent.targetTouches[0].pageX;
                     startCoords.pageY = e.originalEvent.targetTouches[0].pageY;
-                    $('.touch-lS').on('touchmove',function(e){
-                        endCoords = e.originalEvent.targetTouches[0];
-                    }); 
-                    return false;
-                    }).on('touchend',function(e){
-                        var distance = endCoords.pageX - startCoords.pageX,
-                            swipeThreshold = settings.swipeThreshold,
-                            distanceY = endCoords.pageY - startCoords.pageY,
-                            offset = $slide.offset().top;
-                        if( distance >= swipeThreshold ){
-                            $el.goToPrevSlide();
-                        }
-                        else if( distance <= - swipeThreshold ){
-                            $el.goToNextSlide();
-                        }else if(distanceY < -50){
-                            $("html, body").animate({ scrollTop: offset+$slide.height() },'slow');
-                        }else if(distanceY > 50){
-                            $("html, body").animate({ scrollTop: offset-150 },'slow');    
-                        }
-                        $slide.find('.touch-lS').off('touchmove').removeClass('touch-lS');                      
+                });
+                $slide.on('touchmove.lightSlider', function(e) {
+                    var orig = e.originalEvent;
+                    endCoords = orig.targetTouches[0];
+                    var xMovement = Math.abs(endCoords.pageX - startCoords.pageX);
+                    var yMovement = Math.abs(endCoords.pageY - startCoords.pageY);
+                    if((xMovement * 3) > yMovement){
+                        e.preventDefault();
+                    }
+                });
+                $slide.on('touchend.lightSlider', function(e) {
+                    var distance = endCoords.pageX - startCoords.pageX,
+                    swipeThreshold = settings.swipeThreshold;
+                    if( distance >= swipeThreshold ){
+                        $el.goToPrevSlide();
+                    }
+                    else if( distance <= - swipeThreshold ){
+                        $el.goToNextSlide();
+                    }
                 });
             }
         },
@@ -413,11 +432,13 @@
                     }
                 }
             }else{
-                if (settings.speed !==''){
-                    $el.css('transition-duration', settings.speed+'ms');    
-                }
-                if (settings.easing!==''){
-                    $el.css('transition-timing-function', settings.easing);       
+                if(plugin.doCss()){
+                    if (settings.speed !==''){
+                        $el.css('transition-duration', settings.speed+'ms');    
+                    }
+                    if (settings.easing!==''){
+                        $el.css('transition-timing-function', settings.easing);       
+                    }
                 }
             }
         }
@@ -434,7 +455,6 @@
     }
     $el.refresh = function () {
         refresh.init();    
-
     };
     $el.goToSlide = function (s) {
         scene = s;
