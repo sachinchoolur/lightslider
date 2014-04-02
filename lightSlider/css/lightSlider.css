@@ -1,0 +1,116 @@
+.csSlideWrapper {
+  overflow: hidden;
+}
+.csSlideWrapper .csSlide {
+  -webkit-transform: translate(0px, 0px);
+  -ms-transform: translate(0px, 0px);
+  transform: translate(0px, 0px);
+  -webkit-transition: all 1s;
+  transition: all 1s;
+  -webkit-transition-duration: inherit;
+  transition-duration: inherit;
+  -webkit-transition-timing-function: inherit;
+  transition-timing-function: inherit;
+}
+.csSlideWrapper .csFade {
+  position: relative;
+  -webkit-transition-duration: 1s;
+  transition-duration: 1s;
+  -webkit-transition-timing-function: ease;
+  transition-timing-function: ease;
+}
+.csSlideWrapper .csFade > li {
+  position: absolute !important;
+  top: 0;
+  left: 0;
+  opacity: 0;
+  z-index: 9;
+  -webkit-transition-delay: 0s;
+  transition-delay: 0s;
+  -webkit-transition-duration: inherit;
+  transition-duration: inherit;
+  -webkit-transition-property: opacity;
+  transition-property: opacity;
+  -webkit-transition-timing-function: inherit;
+  transition-timing-function: inherit;
+}
+.csSlideWrapper .csFade > li.active {
+  opacity: 1;
+  z-index: 10;
+}
+.csSlideWrapper .csPager.cSpg {
+  margin: 10px 0 0;
+  padding: 0;
+  text-align: center;
+}
+.csSlideWrapper .csPager.cSpg > li {
+  cursor: pointer;
+  display: inline-block;
+  padding: 0 5px;
+}
+.csSlideWrapper .csPager.cSpg > li a {
+  background-color: #222222;
+  border-radius: 30px;
+  display: inline-block;
+  height: 8px;
+  overflow: hidden;
+  text-indent: -999em;
+  width: 8px;
+  -webkit-transition: all 0.5s linear 0s;
+  transition: all 0.5s linear 0s;
+}
+.csSlideWrapper .csPager.cSpg > li:hover a,
+.csSlideWrapper .csPager.cSpg > li.active a {
+  background-color: #428bca;
+}
+.cS-hidden {
+  height: 1px;
+  opacity: 0;
+  filter: alpha(opacity=0);
+  overflow: hidden;
+}
+.csSlideWrapper .media {
+  opacity: 0.8;
+}
+.csSlideWrapper .media.active {
+  opacity: 1;
+}
+.csPager.cSpg .active a {
+  background-color: #000000;
+  border: 0 none;
+  color: #FFFFFF;
+}
+
+
+.csSlideWrapper .csPager.cSGallery{
+	list-style: none outside none;
+	padding-left:0;
+    margin-left: 0;	
+}
+.csSlideWrapper .csPager.cSGallery li{
+	opacity:0.7;
+	 -webkit-transition-delay: 0s;
+	  transition-delay: 0s;
+	  -webkit-transition-duration: 0.35s;
+	  transition-duration: 0.35s;
+	  -webkit-transition-property: opacity;
+	  transition-property: opacity;
+	  -webkit-transition-timing-function: ease;
+	  transition-timing-function: ease;
+}
+.csSlideWrapper .csPager.cSGallery li.active{
+	opacity:1;
+}
+.csSlideWrapper .csPager.cSGallery img{
+	display: block;
+    height: auto;
+    max-width: 100%;
+}
+.csSlideWrapper .csPager.cSGallery:before,
+.csSlideWrapper .csPager.cSGallery:after {
+  content: " ";
+  display: table;
+}
+.csSlideWrapper .csPager.cSGallery:after {
+  clear: both;
+}
