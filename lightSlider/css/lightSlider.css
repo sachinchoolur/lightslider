@@ -1,6 +1,9 @@
 .csSlideWrapper {
   overflow: hidden;
 }
+.csSlideWrapper > ul {
+  list-style:none;
+}
 .csSlideWrapper .csSlide {
   -webkit-transform: translate(0px, 0px);
   -ms-transform: translate(0px, 0px);
@@ -80,12 +83,16 @@
   border: 0 none;
   color: #FFFFFF;
 }
-
-
 .csSlideWrapper .csPager.cSGallery{
 	list-style: none outside none;
 	padding-left:0;
-    margin-left: 0;	
+  margin-left: 0;
+  -webkit-touch-callout: none;
+  -webkit-user-select: none;
+  -khtml-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
 }
 .csSlideWrapper .csPager.cSGallery li{
 	opacity:0.7;
