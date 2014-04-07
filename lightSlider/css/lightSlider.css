@@ -1,8 +1,15 @@
-.csSlideWrapper {
+/** /!!! core css Should not edit !!!/**/
+
+.csSlideOuter {
   overflow: hidden;
 }
-.csSlideWrapper > ul {
-  list-style:none;
+.lightSlider:before,
+.lightSlider:after {
+  content: " ";
+  display: table;
+}
+.csSlideWrapper > ul:after {
+  clear: both;
 }
 .csSlideWrapper .csSlide {
   -webkit-transform: translate(0px, 0px);
@@ -28,6 +35,7 @@
   left: 0;
   opacity: 0;
   z-index: 9;
+  margin-right: 0;
   -webkit-transition-delay: 0s;
   transition-delay: 0s;
   -webkit-transition-duration: inherit;
@@ -41,17 +49,20 @@
   opacity: 1;
   z-index: 10;
 }
-.csSlideWrapper .csPager.cSpg {
+/** /!!! End of core css Should not edit !!!/**/
+
+/* Pager */
+.csSlideOuter .csPager.cSpg {
   margin: 10px 0 0;
   padding: 0;
   text-align: center;
 }
-.csSlideWrapper .csPager.cSpg > li {
+.csSlideOuter .csPager.cSpg > li {
   cursor: pointer;
   display: inline-block;
   padding: 0 5px;
 }
-.csSlideWrapper .csPager.cSpg > li a {
+.csSlideOuter .csPager.cSpg > li a {
   background-color: #222222;
   border-radius: 30px;
   display: inline-block;
@@ -62,31 +73,23 @@
   -webkit-transition: all 0.5s linear 0s;
   transition: all 0.5s linear 0s;
 }
-.csSlideWrapper .csPager.cSpg > li:hover a,
-.csSlideWrapper .csPager.cSpg > li.active a {
+.csSlideOuter .csPager.cSpg > li:hover a,
+.csSlideOuter .csPager.cSpg > li.active a {
   background-color: #428bca;
 }
-.cS-hidden {
-  height: 1px;
-  opacity: 0;
-  filter: alpha(opacity=0);
-  overflow: hidden;
-}
-.csSlideWrapper .media {
+.csSlideOuter .media {
   opacity: 0.8;
 }
-.csSlideWrapper .media.active {
+.csSlideOuter .media.active {
   opacity: 1;
 }
-.csPager.cSpg .active a {
-  background-color: #000000;
-  border: 0 none;
-  color: #FFFFFF;
-}
-.csSlideWrapper .csPager.cSGallery{
+/* End of pager */
+
+/** Gallery */
+.csSlideOuter .csPager.cSGallery{
 	list-style: none outside none;
 	padding-left:0;
-  margin-left: 0;
+  margin: 0;
   -webkit-touch-callout: none;
   -webkit-user-select: none;
   -khtml-user-select: none;
@@ -94,7 +97,7 @@
   -ms-user-select: none;
   user-select: none;
 }
-.csSlideWrapper .csPager.cSGallery li{
+.csSlideOuter .csPager.cSGallery li{
 	opacity:0.7;
 	 -webkit-transition-delay: 0s;
 	  transition-delay: 0s;
@@ -105,19 +108,48 @@
 	  -webkit-transition-timing-function: ease;
 	  transition-timing-function: ease;
 }
-.csSlideWrapper .csPager.cSGallery li.active{
+.csSlideOuter .csPager.cSGallery li.active{
 	opacity:1;
 }
-.csSlideWrapper .csPager.cSGallery img{
+.csSlideOuter .csPager.cSGallery img{
 	display: block;
     height: auto;
     max-width: 100%;
 }
-.csSlideWrapper .csPager.cSGallery:before,
-.csSlideWrapper .csPager.cSGallery:after {
+.csSlideOuter .csPager.cSGallery:before,
+.csSlideOuter .csPager.cSGallery:after {
   content: " ";
   display: table;
 }
-.csSlideWrapper .csPager.cSGallery:after {
+.csSlideOuter .csPager.cSGallery:after {
   clear: both;
+}
+/* End of Gallery*/
+
+/* slider actions */
+.csAction > a {
+  width: 32px;
+  display: block;
+  top: 50%;
+  height: 32px;
+  background-image: url('../img/controls.png');
+  cursor: pointer;
+  position: absolute;
+  z-index: 99;
+  margin-top: -16px;
+}
+.csAction > .csPrev{
+  background-position: 0 0;
+  left: 10px;
+}
+.csAction > .csNext{
+  background-position: -32px 0;
+  right: 10px;
+}
+
+.cS-hidden {
+  height: 1px;
+  opacity: 0;
+  filter: alpha(opacity=0);
+  overflow: hidden;
 }
