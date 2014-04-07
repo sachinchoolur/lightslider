@@ -28,7 +28,7 @@ How to use lightSlider?
 --------------------
 
 ### The code ###
-add the Following code to the <head> of your document.
+add the Following code to the &lt;head&gt; of your document.
 ```html
 <link type="text/css" rel="stylesheet" href="css/lightSlider.css" />
 <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
