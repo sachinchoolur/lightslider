@@ -272,10 +272,11 @@ $(document).ready(function() {
                         <pre class="prettyprint linenums">
 &lt;script type="text/javascript"&gt;
   $(document).ready(function() {
-    var slider = $("#lightSlider").lightSlider(); 
+    var slider = $("#lightSlider").lightSlider();
     slider.goToSlide(3);
     slider.goToPrevSlide();
     slider.goToNextSlide();
+    slider.getCurrentSlideCount();
     slider.refresh();
   });
 &lt;/script&gt;</pre>
