@@ -3688,3 +3688,20 @@ td.visible-print {
     outline: 2px solid #CD3420;
     outline-offset: -2px;
 }
+
+
+
+/*share*/
+.share{
+    text-align: center;
+    margin-top: 40px;
+}
+.share > *{
+    display: inline-block;
+    vertical-align: middle;
+    margin-right: 10px;
+}
+.share .facebook{
+    position: relative;
+    top: -3px;
+}
