@@ -13,15 +13,18 @@ JQuery lightSlider is a lightweight responsive Content slider ( 5KB minified )
 Main Features
 ----------------
 
-+   Responsive layout.
++   Fully responsive - will adapt to any device.
 +   Supports touch devices and swiping.
-+   Semantic and easy to use markup.
++   Gallery mode to create an image slideshow with thumbnails
++   Small file size (6kb) (minified), fully themed, simple to implement.
 +   CSS transitions with jQuery fallback.
-+   Lightweight (6kb) (minified).
++   Full callback API and public methods.
++   Auto play and auto loop to create a content carousel.
++   Keyboard, arrows and dots navigation.
 +   Chrome, Safari, Firefox, Opera, IE7+, IOS, Android, windows phone.
 +   Slide and Fade Effects.
 +   Multiple instances on one page.
-+   Image Gallery suport.
+
 
 
 How to use lightSlider?
