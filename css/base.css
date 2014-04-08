@@ -770,10 +770,16 @@ address {
 }
 
 .pageHead .title {
-    font-family: 'Roboto Slab', serif;
-    font-size: 44px;
-    font-weight: 300;
-    margin: 0;
+    font-size: 32px;
+    font-weight: bold;
+}
+@media (min-width: 768px) {
+    .pageHead .title {
+        font-family: 'Roboto Slab', serif;
+        font-size: 44px;
+        font-weight: 300;
+        margin: 0;
+    }
 }
 
 .pageHead .desc {
@@ -788,12 +794,16 @@ address {
 .hero .install > *:last-child {
     margin-bottom: 0;
 }
-
-.install > h2 {
-    font-family: 'Roboto Slab', serif;
-    font-size: 31px;
-    font-weight: 400;
-    margin: 0 0 35px;
+.install > h2{
+    font-size: 24px;
+}
+@media (min-width: 768px) {
+    .install > h2 {
+        font-family: 'Roboto Slab', serif;
+        font-size: 31px;
+        font-weight: 400;
+        margin: 0 0 35px;
+    }
 }
 
 .install > h2 .btn {

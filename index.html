@@ -6,7 +6,7 @@
 <meta charset="utf-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="description" content="JQuery lightSlider is a lightweight responsive Content slider" />
+<meta name="description" content="JQuery lightSlider is a lightweight touchable responsive Content slider " />
 <link rel="shortcut icon" href="static/img/favicon.ico">
 <link href="css/base.css" rel="stylesheet">
 <link rel="stylesheet" href="lightSlider/css/lightSlider.css" />
@@ -48,7 +48,6 @@
                         <li><a href="examples.html">Examples</a></li>
                         <li><a href="settings.html">Settings</a></li>
                         <li><a href="https://github.com/sachinchoolur/lightslider">Github</a></li>
-                        <li><a href="#">Help</a></li>
                     </ul>
                 </div>
             </div>
@@ -74,7 +73,7 @@
                 <div class="col-sm-12">
                     <section class="pageHead">
                         <h2 class="title">JQuery lightSlider </h2>
-                        <p class="desc">JQuery lightSlider is a lightweight responsive Content slider <small style="color:#CD3420; font-size:14px;">( 5KB minified )</small></p>
+                        <p class="desc">JQuery lightSlider is a lightweight touchable responsive Content slider <small style="color:#CD3420; font-size:14px;">( 5KB minified )</small></p>
                         <div class="share">
                             <div class="plus">
                                 <!-- Place this tag where you want the +1 button to render. -->
@@ -93,7 +92,7 @@
                                 <div class="fb-like" data-href="http://sachinchoolur.github.io/lightslider/" data-layout="button" data-action="like" data-show-faces="true" data-share="true"></div>
                             </div>
                             <div class="twitter">
-                                <a href="https://twitter.com/share" class="twitter-share-button" data-url="http://sachinchoolur.github.io/lightslider/" data-via="sachinchoolur">Tweet</a>
+                                <a href="https://twitter.com/share" class="twitter-share-button" data-url="http://sachinchoolur.github.io/lightslider/" data-text="JQuery lightSlider is a lightweight touchable responsive Content slider" data-via="sachinchoolur" data-count="none">Tweet</a>
 <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');</script>
                             </div>
                         </div>
@@ -102,7 +101,7 @@
                 <div class="col-sm-6">
                     <h2>Image Gallery</h2>
                     <div class="clearfix" style="max-width:474px;">
-                        <ul id="lightSlider" class="gallery list-unstyled">
+                        <ul id="lightSlider" class="gallery list-unstyled cS-hidden">
                             <li data-thumb="img/thumb/cS-1.jpg"> <a href="#">
                                 <img src="img/cS-1.jpg" />
                                 </a> </li>
@@ -298,12 +297,19 @@ $(document).ready(function() {
             gallery:true,
             minSlide:1,
             maxSlide:1,
-            auto:true     
+            auto:true,
+            onSliderLoad: function() {
+                $('#lightSlider').removeClass('cS-hidden');
+            }     
         });
         $('#content-slider').lightSlider({
             minSlide:1,
             maxSlide:1,
-            keyPress:false  
+            keyPress:false,
+            controls:false,
+            onSliderLoad: function() {
+                $('#content-slider').removeClass('cS-hidden');
+            } 
         })
         var clk = true;
         $('.btn-navbar').on('click',function(){
