@@ -91,11 +91,11 @@
                     $el.after('<div class="csAction"><a class="csPrev">' + settings.prevHtml + '</a><a class="csNext">' + settings.nextHtml + '</a></div>');
                     var $prev = $slide.find('.csPrev');
                     var $next = $slide.find('.csNext');
-                    $prev.bind('click touchend', function () {
+                    $prev.bind('click', function () {
                         $el.goToPrevSlide();
                         clearInterval(interval);
                     });
-                    $next.bind('click touchend', function () {
+                    $next.bind('click', function () {
                         $el.goToNextSlide();
                         clearInterval(interval);
                     });
