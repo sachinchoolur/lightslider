@@ -309,6 +309,18 @@ $(document).ready(function() {
                                 <li> <a href="javascript:void(0)">
                                     <img src="img/cS-6.jpg" />
                                     </a> </li>
+                                <li> <a href="javascript:void(0)">
+                                    <img src="img/cS-7.jpg" />
+                                    </a> </li>
+                                <li> <a href="javascript:void(0)">
+                                    <img src="img/cS-8.jpg" />
+                                    </a> </li>
+                                <li> <a href="javascript:void(0)">
+                                    <img src="img/cS-9.jpg" />
+                                    </a> </li>
+                                <li> <a href="javascript:void(0)">
+                                    <img src="img/cS-10.jpg" />
+                                    </a> </li>
                             </ul>
                             <div class="buttons" style="margin-top: 20px;">
                            		<button class="btn btn-success" type="button" id="goToSlide">Go To Slide</button>
@@ -316,6 +328,8 @@ $(document).ready(function() {
                                 <button class="btn btn-success" type="button" id="goToNextSlide">Go To Next Slide</button>
                             	<button class="btn btn-success" type="button" id="getCurrentSlideCount">getCurrentSlideCount</button>
                             	<button class="btn btn-success" type="button" id="refresh">Refresh</button>
+                                <button class="btn btn-success" type="button" id="play">Play</button>
+                                <button class="btn btn-success" type="button" id="pause">Pause</button>
                             </div>
                         </div>
                         <div class="call">
@@ -342,6 +356,12 @@ $(document).ready(function() {
         var newEl = ' &lt;li&gt; &lt;a href="javascript:void(0)"&gt;&lt;img src="img/cS-1.jpg" /&gt;&lt;/a&gt; &lt;/li&gt;';
         $('#publicMethods').prepend(newEl);
         slider.refresh();
+    });
+    $('#play').click(function(){
+        slider.play();    
+    });
+    $('#pause').click(function(){
+        slider.pause();    
     });
   });</pre>
                         </div>
@@ -403,6 +423,12 @@ $(document).ready(function() {
             var newEl = ' <li> <a href="javascript:void(0)"><img src="img/cS-1.jpg" /></a> </li>';
             $('#publicMethods').prepend(newEl);
             slider.refresh();
+        });
+        $('#play').click(function(){
+            slider.play();    
+        });
+        $('#pause').click(function(){
+            slider.pause();    
         });
         var clk = true;
         $('.btn-navbar').on('click',function(){

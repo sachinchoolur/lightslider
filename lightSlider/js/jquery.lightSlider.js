@@ -461,6 +461,16 @@
             }, settings.speed);
             on = true;
         };
+        $el.play = function () {
+            clearInterval(interval);
+            $el.goToNextSlide();
+            interval = setInterval(function () {
+                $el.goToNextSlide();
+            }, settings.pause);
+        };
+        $el.pause = function(){
+            clearInterval(interval);
+        };
         $el.refresh = function () {
             refresh.init();
         };
