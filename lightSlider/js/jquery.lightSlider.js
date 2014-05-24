@@ -233,7 +233,7 @@
                 var sc = 0;
                 if (scene * settings.slideMove < length) {
                     ob.removeClass('active');
-                    if (!this.doCss() && settings.mode === "fade") {
+                    if (!this.doCss() && settings.mode === "fade" && t === false) {
                         ob.fadeOut(settings.speed);
                     }
                     t === true ? sc = scene : sc = scene * settings.slideMove;
@@ -244,14 +244,14 @@
                             sc = nl;
                         }
                     }
-                    if (!this.doCss() && settings.mode === "fade") {
+                    if (!this.doCss() && settings.mode === "fade" && t === false) {
                         ob.eq(sc).fadeIn(settings.speed);
                     }
                     ob.eq(sc).addClass('active');
                 } else {
                     ob.removeClass('active');
                     ob.eq(ob.length - 1).addClass('active');
-                    if (!this.doCss() && settings.mode === "fade") {
+                    if (!this.doCss() && settings.mode === "fade" && t === false) {
                         ob.fadeOut(settings.speed);
                         ob.eq(sc).fadeIn(settings.speed);
                     }
@@ -300,14 +300,16 @@
                 case 'right':
                     position = elWidth - settings.thumbWidth;
                 }
-                var thumbSlide = scene * ((settings.thumbWidth + settings.thumbMargin)) - (position);
-                if ((thumbSlide + elWidth) > pagerWidth) {
-                    thumbSlide = pagerWidth - elWidth - settings.thumbMargin;
-                } else if (thumbSlide < 0) {
-                    thumbSlide = 0;
+                if(pagerWidth>elWidth){
+                    var thumbSlide = scene * ((settings.thumbWidth + settings.thumbMargin)) - (position);
+                    if ((thumbSlide + pagerWidth ) > elWidth) {
+                        thumbSlide = pagerWidth - elWidth - settings.thumbMargin;
+                    } else if (thumbSlide < 0) {
+                        thumbSlide = 0;
+                    }
+                    var $pager = $slide.parent().find('.csPager');
+                    this.move($pager, thumbSlide);
                 }
-                var $pager = $slide.parent().find('.csPager');
-                this.move($pager, thumbSlide);
             },
             auto: function () {
                 if (settings.auto) {
@@ -460,6 +462,16 @@
                 settings.onAfterSlide.call(this);
             }, settings.speed);
             on = true;
+        };
+        $el.play = function () {
+            clearInterval(interval);
+            $el.goToNextSlide();
+            interval = setInterval(function () {
+                $el.goToNextSlide();
+            }, settings.pause);
+        };
+        $el.pause = function(){
+            clearInterval(interval);
         };
         $el.refresh = function () {
             refresh.init();
