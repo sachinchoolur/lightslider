@@ -300,7 +300,7 @@
                 case 'right':
                     position = elWidth - settings.thumbWidth;
                 }
-                if(pagerWidth>elWidth){
+                //if(pagerWidth>elWidth){
                     var thumbSlide = scene * ((settings.thumbWidth + settings.thumbMargin)) - (position);
                     if ((thumbSlide + pagerWidth ) > elWidth) {
                         thumbSlide = pagerWidth - elWidth - settings.thumbMargin;
@@ -309,7 +309,7 @@
                     }
                     var $pager = $slide.parent().find('.csPager');
                     this.move($pager, thumbSlide);
-                }
+                //}
             },
             auto: function () {
                 if (settings.auto) {
