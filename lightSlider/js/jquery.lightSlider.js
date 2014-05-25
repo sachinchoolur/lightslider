@@ -300,16 +300,14 @@
                 case 'right':
                     position = elWidth - settings.thumbWidth;
                 }
-                //if(pagerWidth>elWidth){
-                    var thumbSlide = scene * ((settings.thumbWidth + settings.thumbMargin)) - (position);
-                    if ((thumbSlide + pagerWidth ) > elWidth) {
-                        thumbSlide = pagerWidth - elWidth - settings.thumbMargin;
-                    } else if (thumbSlide < 0) {
-                        thumbSlide = 0;
-                    }
-                    var $pager = $slide.parent().find('.csPager');
-                    this.move($pager, thumbSlide);
-                //}
+                var thumbSlide = scene * ((settings.thumbWidth + settings.thumbMargin)) - (position);
+                if ((thumbSlide + elWidth) > pagerWidth) {
+                    thumbSlide = pagerWidth - elWidth - settings.thumbMargin;
+                } else if (thumbSlide < 0) {
+                    thumbSlide = 0;
+                }
+                var $pager = $slide.parent().find('.csPager');
+                this.move($pager, thumbSlide);
             },
             auto: function () {
                 if (settings.auto) {
