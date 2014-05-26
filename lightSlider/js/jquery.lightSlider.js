@@ -303,7 +303,8 @@
                 var thumbSlide = scene * ((settings.thumbWidth + settings.thumbMargin)) - (position);
                 if ((thumbSlide + elWidth) > pagerWidth) {
                     thumbSlide = pagerWidth - elWidth - settings.thumbMargin;
-                } else if (thumbSlide < 0) {
+                }
+                if (thumbSlide < 0) {
                     thumbSlide = 0;
                 }
                 var $pager = $slide.parent().find('.csPager');
