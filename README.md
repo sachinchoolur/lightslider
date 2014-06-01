@@ -8,7 +8,7 @@ Demo
 
 Description
 ----------------
-JQuery lightSlider is a lightweight responsive Content slider ( 5KB minified )
+JQuery lightSlider is a lightweight responsive Content slider with carousel thumbnails navigation ( 5KB minified )
 
 Main Features
 ----------------
