@@ -748,10 +748,7 @@ address {
     margin-right: 6px;
 }
 
-.hasActive .gallery li.active {
-    outline: 2px solid #FF0000;
-    outline-offset: -2px;
-}
+
 
 .gallery li img {
     height: auto;

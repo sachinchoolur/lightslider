@@ -24,12 +24,6 @@
 .csSlideWrapper .csFade {
 	position: relative;
 }
-.csSlideWrapper.usingCss .csFade {
-	-webkit-transition-duration: 1s;
-	transition-duration: 1s;
-	-webkit-transition-timing-function: ease;
-	transition-timing-function: ease;
-}
 .csSlideWrapper .csFade > li {
 	position: absolute !important;
 	top: 0;

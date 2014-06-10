@@ -14,6 +14,7 @@
         slideMove: 1,
         minSlide: 1,
         maxSlide: 8,
+        proportion:'',
         mode: "slide",
         useCSS: true,
         speed: 1000, //ms'
@@ -39,6 +40,10 @@
         onBeforePrevSlide: function () {}
     };
     $.fn.lightSlider = function (options) {
+        if(this.length > 1){
+            this.each(function(){$(this).lightSlider(options)});
+            return this;
+        }
         var plugin = {};
         var settings = $.extend(true, {}, defaults, options);
         var $el = this;
@@ -112,8 +117,10 @@
                     max = (elWidth - ((settings.maxSlide * settings.slideMargin) - settings.slideMargin)) / settings.maxSlide;
                     if (settings.slideWidth === '') {
                         slideWidth = min;
+                        settings.slideMove = settings.minSlide;
                     } else if (min < settings.slideWidth) {
                         slideWidth = min;
+                        settings.slideMove = settings.minSlide;
                     } else if (max > settings.slideWidth) {
                         slideWidth = max;
                     } else {
@@ -146,8 +153,13 @@
                     refresh.calSW();
                     refresh.sSW();
                 } else {
-                    var height = $children.height();
-                    $el.css('height', height);
+                    if(settings.proportion !== ''){
+                        $el.css({'height':'0px','padding-bottom':settings.proportion});    
+                    }else{
+                        var height = $children.height();
+                        var proportion = (height * 100)/elWidth;
+                        $el.css({'height':'0px','padding-bottom':proportion+'%'});    
+                    }
                     $el.addClass('csFade');
                     if (!this.doCss()) {
                         $children.not(".active").css('display', 'none');
@@ -197,7 +209,7 @@
                         pagerWidth = i * (settings.thumbMargin + settings.thumbWidth);
                         $cSouter.find('.csPager').css({
                             'width': pagerWidth + 'px',
-                            'transform': 'translate(0px, 0px)',
+                            'transform': 'translate3d(0px, 0px, 0px)',
                             'transition': '1s all'
                         });
                     }
@@ -259,7 +271,7 @@
             },
             move: function (ob, v) {
                 if (this.doCss()) {
-                    ob.css('transform', 'translate(-' + v + 'px, 0px)');
+                    ob.css('transform', 'translate3d(-' + v + 'px, 0px, 0px)');
                 } else {
                     ob.css('position', 'relative').animate({
                         left: -v + 'px'
@@ -399,9 +411,20 @@
             } else {
                 if (settings.loop === true) {
                     settings.onBeforePrevSlide.call(this);
-                    var l = length;
-                    l = l - 1;
-                    scene = parseInt(l / settings.slideMove, 10);
+                    if(settings.mode==='slide'){
+                        var v = 0;
+                        for (var i = 0; i < length; i++) {
+                            v = i * ((slideWidth + settings.slideMargin) * settings.slideMove);
+                            if ((v) >= w - elWidth - settings.slideMargin) {
+                                break;
+                            }
+                        }
+                        scene = i;
+                    }else{
+                        var l = length;
+                        l = l - 1;
+                        scene = parseInt(l / settings.slideMove, 10);
+                    }
                     $el.mode();
                     if (settings.gallery === true) {
                         plugin.slideThumb();
@@ -410,7 +433,12 @@
             }
         };
         $el.goToNextSlide = function () {
-            if ((scene * settings.slideMove) < length - settings.slideMove) {
+            var nextI = true;
+            if(settings.mode === 'slide'){
+                var _slideValue = scene * ((slideWidth + settings.slideMargin) * settings.slideMove);
+                var nextI = _slideValue < w-elWidth-settings.slideMargin;
+            }
+            if (((scene * settings.slideMove) < length - settings.slideMove) && nextI) {
                 settings.onBeforeNextSlide.call(this);
                 scene++;
                 $el.mode();

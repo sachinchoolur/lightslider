@@ -69,7 +69,7 @@
                     <section class="install">
                         <h2>Minimum and Maximum Slides</h2>
                         <div class="demo hasActive">
-                            <ul id="minMax" class="gallery list-unstyled clearfix">
+                            <ul id="minMax" class="gallery list-unstyled clearfix cS-hidden">
                                 <li> <a href="javascript:void(0)">
                                     <img src="img/cS-1.jpg" />
                                     </a> </li>
@@ -112,7 +112,7 @@
             	<section class="install">
                         <h2>SlideMove</h2>
                         <div class="demo hasActive">
-                            <ul id="slideMove" class="gallery list-unstyled clearfix">
+                            <ul id="slideMove" class="gallery list-unstyled clearfix cS-hidden">
                                 <li> <a href="javascript:void(0)">
                                     <img src="img/cS-1.jpg" />
                                     </a> </li>
@@ -384,23 +384,33 @@ $(document).ready(function() {
         $('#fade').lightSlider({
             minSlide:1,
             maxSlide:1,
-            mode:'fade'
+            mode:'fade',
+            proportion:'71.3%'
         }); 
         $('#minMax').lightSlider({
             minSlide:2,
             maxSlide:4,
             slideMargin:4,
-            slideWidth:200
+            slideWidth:200,
+            loop:false,
+            onSliderLoad: function() {
+                $('#minMax').removeClass('cS-hidden');
+            } 
         });   
 		$('#slideMove').lightSlider({
             slideMove:2,
 			slideMargin:4,
-            slideWidth:200
+            slideWidth:200,
+            loop:false,
+            onSliderLoad: function() {
+                $('#slideMove').removeClass('cS-hidden');
+            } 
         });
 		$('#imageGallery').lightSlider({
             gallery:true,
             minSlide:1,
             maxSlide:1,
+            loop:false,
 			currentPagerPosition:'left'  
         });
 		var slider = $('#publicMethods').lightSlider({
