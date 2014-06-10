@@ -1,6 +1,6 @@
 /** ==========================================================
 
-* jquery lightSlider.js v1.0
+* jquery lightSlider.js v1.0.0
 * http://sachinchoolur.github.io/lightslider/
 * Released under the Apache License - http://opensource.org/licenses/Apache-2.0
 
