@@ -1,4 +1,4 @@
-/** /!!! core css Should not edit !!!/**/
+/** /!!! core css do not edit !!!/**/
 
 .csSlideOuter {
 	overflow: hidden;
@@ -30,6 +30,7 @@
 	left: 0;
 	z-index: 9;
 	margin-right: 0;
+	width: 100%;
 }
 .csSlideWrapper.usingCss .csFade > li {
 	opacity: 0;
@@ -69,6 +70,8 @@
 	overflow: hidden;
 	text-indent: -999em;
 	width: 8px;
+	position: relative;
+	z-index: 99;
 	-webkit-transition: all 0.5s linear 0s;
 	transition: all 0.5s linear 0s;
 }
