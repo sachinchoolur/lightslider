@@ -826,8 +826,11 @@ address {
 
 .cSdemo > li {
     height: 300px;
+    overflow: hidden;
 }
-
+.cSdemo > li ul {
+    list-style-type: disc;
+}
 .cSdemo > li .center {
     width: 98%;
     display: inline-block;

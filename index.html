@@ -135,36 +135,64 @@
                 </div>
                 <div class="col-sm-5 col-sm-offset-1">
                     <h2>Content Slider</h2>
-                    <div class="clearfix" style="max-width:400px;">
+                    <div class="clearfix" style="max-width:390px;">
                         <ul id="content-slider" class="list-unstyled clearfix cSdemo" >
                             <li>
                                 <div class="center">
-                                    <h3>First Slide</h3>
-                                    <p>Lorem ipsum Nisi irure id nulla proident Duis eiusmod qui ad magna cillum amet commodo laborum cillum in ut dolor voluptate nostrud ex reprehenderit anim nulla commodo tempor et anim qui velit voluptate adipisicing in velit Duis dolor aute.</p>
+                                    <h3>features</h3>
+                                    <div class="features">
+                                        <ul class="pdl0">
+                                            <li>Fully responsive - will adapt to any device.</li>
+                                            <li>Supports touch devices and swiping.</li>
+                                            <li>Gallery mode to create an image slideshow with thumbnails</li>
+                                            <li>Add or remove slides dynamically.</li>
+                                        </ul>
+                                    </div>
                                 </div>
                                 <span class="h100"></span>
                             </li>
                             <li>
                                 <div class="center">
-                                    <h3>Second Slide</h3>
-                                    <p>Lorem ipsum Do dolor sit Ut consectetur aliquip et mollit sunt proident mollit culpa fugiat voluptate officia sint in reprehenderit cillum esse veniam labore cillum irure cillum Excepteur ad esse non eiusmod aute.</p>
+                                    <h3>features</h3>
+                                    <div class="features">
+                                        <ul class="pdl0">
+                                            <li>Small file size (6kb) (minified), fully themed, simple to implement.</li>
+                                            <li>CSS transitions with jQuery fallback.</li>
+                                            <li>Full callback API and public methods.</li>
+                                        </ul>
+                                    </div>
                                 </div>
                                 <span class="h100"></span>
                             </li>
                             <li>
                                 <div class="center">
-                                    <h3>Third Slide</h3>
-                                    <p>Lorem ipsum Commodo id anim dolor do aliquip eiusmod quis sed et nisi exercitation nulla quis eiusmod enim ad laborum sed minim sunt irure cupidatat consequat aute do Ut.</p>
+                                    <h3>features</h3>
+                                    <div class="features">
+                                        <ul class="pdl0">
+                                            <li>Auto play and auto loop to create a content carousel.</li>
+                                            <li>Keyboard, arrows and dots navigation.</li>
+                                            <li>Chrome, Safari, Firefox, Opera, IE7+, IOS, Android, windows phone.</li>
+                                        </ul>
+                                    </div>
                                 </div>
                                 <span class="h100"></span>
                             </li>
                             <li>
                                 <div class="center">
-                                    <h3>Fourth Slide</h3>
-                                    <p>Lorem ipsum Id sit labore consectetur in incididunt sit ut mollit cupidatat sint anim reprehenderit labore laboris sed laboris sed elit consequat ea ad veniam in mollit eu sunt reprehenderit amet eu officia nisi minim esse sunt ut aliqua veniam ut.</p>
+                                    <h3>features</h3>
+                                    <div class="features">
+                                        <ul class="pdl0">
+                                            <li>Slide and Fade Effects.</li>
+                                            <li>Multiple instances on one page.</li>
+                                            <li>Slide anything (youtube, vimeo , google map ...)</li>
+                                            <li>Full Support</li>
+                                        </ul>
+                                    </div>
                                 </div>
                                 <span class="h100"></span>
                             </li>
+                            
+                            
                         </ul>
                     </div>
                 </div>
@@ -260,6 +288,8 @@ $(document).ready(function() {
     slider.goToNextSlide();
     slider.getCurrentSlideCount();
     slider.refresh();
+    slider.play(); 
+    slider.pause();    
   });
 &lt;/script&gt;</pre>
                     </div>
