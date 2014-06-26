@@ -34,7 +34,7 @@
         swipeThreshold: 40,
         onBeforeStart: function () {},
         onSliderLoad: function () {},
-        onBefroreSlide: function () {},
+        onBeforeSlide: function () {},
         onAfterSlide: function () {},
         onBeforeNextSlide: function () {},
         onBeforePrevSlide: function () {}
@@ -479,7 +479,7 @@
                     }
                 }
             }
-            settings.onBefroreSlide.call(this);
+            settings.onBeforeSlide.call(this);
             if (settings.mode === "slide") {
                 plugin.slide();
             } else {
