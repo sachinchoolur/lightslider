@@ -134,26 +134,24 @@
 // ex swipeThreshold: 100, (in px);
 </pre>
 
-<pre class="prettyprint linenums">onOpen: function() {},
-// Executes immediately after the slider is loaded</pre>
+<pre class="prettyprint linenums">onBeforeStart: function() {},
+// Executes before slider start loading</pre>
 
-<pre class="prettyprint linenums">onSlideBefore: function() {},
+<pre class="prettyprint linenums">onSliderLoad: function() {},
+// Executes immediately after the slider is fully loaded.</pre>
+
+<pre class="prettyprint linenums">onBeforeSlide: function() {},
 // Executes immediately before each slide transition.</pre>
 
-<pre class="prettyprint linenums">onSlideAfter: function() {},
+<pre class="prettyprint linenums">onAfterSlide: function() {},
 // Executes immediately after each slide transition.</pre>
 
-<pre class="prettyprint linenums">onSlideNext: function() {},
+<pre class="prettyprint linenums">onBeforeNextSlide: function() {},
 // Executes immediately before each "Next" slide transition.</pre>
 
-<pre class="prettyprint linenums">onSlidePrev: function() {},
+<pre class="prettyprint linenums">onBeforePrevSlide: function() {},
 // Executes immediately before each "Prev" slide transition. </pre>
 
-<pre class="prettyprint linenums">onBeforeClose: function(){},
-// Executes immediately before the start of the close process.</pre>
-
-<pre class="prettyprint linenums">onCloseAfter: function(){}
-// Executes immediately once Colorbox is closed.</pre>
 
 
 <pre class="prettyprint linenums">goToSlide();
@@ -175,6 +173,18 @@
 //Refresh slider
 //var slider = $('.lightSlider').lightSlider();
 //slider.refresh();
+</pre>
+
+<pre class="prettyprint linenums">play();
+//play Slide
+//var slider = $('.lightSlider').lightSlider();
+//slider.play(); 
+</pre>
+
+<pre class="prettyprint linenums">pause();
+//pause Slide
+//var slider = $('.lightSlider').lightSlider();
+//slider.pause(); 
 </pre>
 
                 </section>

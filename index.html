@@ -269,7 +269,7 @@ $(document).ready(function() {
 
         onBeforeStart: function(){},
         onSliderLoad: function() {},
-        onBefroreSlide:function(){},
+        onBeforeSlide:function(){},
         onAfterSlide:function(){},
         onBeforeNextSlide: function(){},
         onBeforePrevSlide: function(){}
@@ -321,6 +321,7 @@ $(document).ready(function() {
             minSlide:1,
             maxSlide:1,
             keyPress:false,
+            auto:true,
             controls:false,
             onSliderLoad: function() {
                 $('#content-slider').removeClass('cS-hidden');
