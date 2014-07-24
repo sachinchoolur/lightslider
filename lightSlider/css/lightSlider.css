@@ -1,4 +1,4 @@
-/** /!!! core css do not edit !!!/**/
+/** /!!! core css Should not edit !!!/**/
 
 .csSlideOuter {
 	overflow: hidden;
@@ -7,7 +7,7 @@
 	content: " ";
 	display: table;
 }
-.csSlideWrapper > ul:after {
+.csSlideWrapper > .lightSlider:after {
 	clear: both;
 }
 .csSlideWrapper .csSlide {
@@ -24,7 +24,7 @@
 .csSlideWrapper .csFade {
 	position: relative;
 }
-.csSlideWrapper .csFade > li {
+.csSlideWrapper .csFade > * {
 	position: absolute !important;
 	top: 0;
 	left: 0;
@@ -32,7 +32,7 @@
 	margin-right: 0;
 	width: 100%;
 }
-.csSlideWrapper.usingCss .csFade > li {
+.csSlideWrapper.usingCss .csFade > * {
 	opacity: 0;
 	-webkit-transition-delay: 0s;
 	transition-delay: 0s;
@@ -43,10 +43,10 @@
 	-webkit-transition-timing-function: inherit;
 	transition-timing-function: inherit;
 }
-.csSlideWrapper .csFade > li.active {
+.csSlideWrapper .csFade > *.active {
 	z-index: 10;
 }
-.csSlideWrapper.usingCss .csFade > li.active {
+.csSlideWrapper.usingCss .csFade > *.active {
 	opacity: 1;
 }
 /** /!!! End of core css Should not edit !!!/**/

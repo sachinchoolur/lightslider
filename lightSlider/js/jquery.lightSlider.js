@@ -104,6 +104,9 @@
                         $el.goToNextSlide();
                         clearInterval(interval);
                     });
+                    if($children.length<=1){
+                        $('.csAction').hide();
+                    }
                 }
             },
             initialStyle: function () {
@@ -199,9 +202,15 @@
                         if (settings.mode === 'slide') {
                             if ((v) >= w - elWidth - settings.slideMargin) {
                                 i = i + 1;
+                                if(i<=1){
+                                    pagers = null;    
+                                }
                                 break;
                             }
                         }
+                    }
+                    if(maxSlide<=1){
+                        pagers = null;    
                     }
                     var $cSouter = $slide.parent();
                     $cSouter.find('.csPager').html(pagers);
