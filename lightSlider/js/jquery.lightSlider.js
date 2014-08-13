@@ -219,6 +219,7 @@
                         $cSouter.find('.csPager').css({
                             'width': pagerWidth + 'px',
                             'transform': 'translate3d(0px, 0px, 0px)',
+                            '-webkit-transform': 'translate3d(0px, 0px, 0px)',
                             'transition': '1s all'
                         });
                     }
@@ -280,7 +281,11 @@
             },
             move: function (ob, v) {
                 if (this.doCss()) {
-                    ob.css('transform', 'translate3d(-' + v + 'px, 0px, 0px)');
+                    ob.css({
+                        'transform': 'translate3d(-' + v + 'px, 0px, 0px)',
+                        '-webkit-transform': 'translate3d(-' + v + 'px, 0px, 0px)'
+                        });
+                    
                 } else {
                     ob.css('position', 'relative').animate({
                         left: -v + 'px'
