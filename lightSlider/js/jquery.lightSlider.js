@@ -32,6 +32,7 @@
         thumbMargin: 3,
         currentPagerPosition: 'middle',
         swipeThreshold: 40,
+        pagerPosition: 'bottom',
         onBeforeStart: function () {},
         onSliderLoad: function () {},
         onBeforeSlide: function () {},
@@ -157,11 +158,11 @@
                     refresh.sSW();
                 } else {
                     if(settings.proportion !== ''){
-                        $el.css({'height':'0px','padding-bottom':settings.proportion});    
+                        $el.css({'height':'0px','padding-bottom':settings.proportion});
                     }else{
                         var height = $children.height();
                         var proportion = (height * 100)/elWidth;
-                        $el.css({'height':'0px','padding-bottom':proportion+'%'});    
+                        $el.css({'height':'0px','padding-bottom':proportion+'%'});
                     }
                     $el.addClass('csFade');
                     if (!this.doCss()) {
@@ -203,14 +204,14 @@
                             if ((v) >= w - elWidth - settings.slideMargin) {
                                 i = i + 1;
                                 if(i<=1){
-                                    pagers = null;    
+                                    pagers = null;
                                 }
                                 break;
                             }
                         }
                     }
                     if(maxSlide<=1){
-                        pagers = null;    
+                        pagers = null;
                     }
                     var $cSouter = $slide.parent();
                     $cSouter.find('.csPager').html(pagers);
@@ -240,7 +241,12 @@
                     } else {
                         cl = 'cSpg';
                     }
-                    $slide.after('<ul class="csPager ' + cl + '"></ul>');
+
+                    if (settings.pagerPosition == "top")
+                        $slide.before('<ul class="csPager ' + cl + '"></ul>');
+                    else
+                        $slide.after('<ul class="csPager ' + cl + '"></ul>');
+
                     refresh.createPager();
                 }
                 settings.onSliderLoad.call(this);
