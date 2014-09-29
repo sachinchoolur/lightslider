@@ -67,39 +67,73 @@
             <div class="row">
                 <div class="col-xs-12">
                     <section class="install">
-                        <h2>Minimum and Maximum Slides</h2>
+                        <h2>Responsive  <span class="small">Resize your browser to see how responsive option works </span> <span class="small"><b>Window Width:</b> <span id="windowWidh"></span></span> </h2>
                         <div class="demo hasActive">
-                            <ul id="minMax" class="gallery list-unstyled clearfix cS-hidden">
-                                <li> <a href="javascript:void(0)">
-                                    <img src="img/cS-1.jpg" />
-                                    </a> </li>
-                                <li> <a href="javascript:void(0)">
-                                    <img src="img/cS-2.jpg" />
-                                    </a> </li>
-                                <li> <a href="javascript:void(0)">
-                                    <img src="img/cS-3.jpg" />
-                                    </a> </li>
-                                <li> <a href="javascript:void(0)">
-                                    <img src="img/cS-4.jpg" />
-                                    </a> </li>
-                                <li> <a href="javascript:void(0)">
-                                    <img src="img/cS-5.jpg" />
-                                    </a> </li>
-                                <li> <a href="javascript:void(0)">
-                                    <img src="img/cS-6.jpg" />
-                                    </a> </li>
+                            <ul id="responsive" class="gallery content-slider list-unstyled clearfix cS-hidden">
+                                <li>
+                                    <h3>1</h3>
+                                </li>
+                                <li>
+                                    <h3>2</h3>
+                                </li>
+                                <li>
+                                    <h3>3</h3>
+                                </li>
+                                <li>
+                                    <h3>4</h3>
+                                </li>
+                                <li>
+                                    <h3>5</h3>
+                                </li>
+                                <li>
+                                    <h3>6</h3>
+                                </li>
+                                <li>
+                                    <h3>7</h3>
+                                </li>
+                                <li>
+                                    <h3>8</h3>
+                                </li>
+                                <li>
+                                    <h3>9</h3>
+                                </li>
+                                <li>
+                                    <h3>10</h3>
+                                </li>
                             </ul>
                         </div>
                         <div class="call">
                             <pre class="prettyprint linenums" style="margin-top:0;">
   $(document).ready(function() {
-    $('#minMax').lightSlider({
-      minSlide:2,
-      maxSlide:4,
-      slideMargin:5,
-      slideWidth:200
-    }); 
+    $('#responsive').lightSlider({
+        item:4,
+        slideMove:2,
+        easing: 'cubic-bezier(0.25, 0, 0.25, 1)',
+        speed:600,
+        responsive : [
+            {
+                breakpoint:800,
+                settings: {
+                    item:3,
+                    slideMove:1,
+                    slideMargin:6,
+                  }
+            },
+            {
+                breakpoint:480,
+                settings: {
+                    item:2,
+                    slideMove:1
+                  }
+            }
+        ]
+    });  
   });</pre>
+                            <h3>Note</h3>
+                            <ul class="pdl0 note">
+                                <li>You can add as many breakpoints as you want.</li>
+                                <li><b>supports</b> item, slideMove, slideMargin, thumbItem, thumbMargin</li>
+                            </ul>
                         </div>
                     </section>
                 </div>
@@ -110,47 +144,37 @@
         <div class="row">
             <div class="col-xs-12">
             	<section class="install">
-                        <h2>SlideMove</h2>
+                        <h2>rtl mode</h2>
                         <div class="demo hasActive">
-                            <ul id="slideMove" class="gallery list-unstyled clearfix cS-hidden">
-                                <li> <a href="javascript:void(0)">
-                                    <img src="img/cS-1.jpg" />
-                                    </a> </li>
-                                <li> <a href="javascript:void(0)">
-                                    <img src="img/cS-2.jpg" />
-                                    </a> </li>
-                                <li> <a href="javascript:void(0)">
-                                    <img src="img/cS-3.jpg" />
-                                    </a> </li>
-                                <li> <a href="javascript:void(0)">
-                                    <img src="img/cS-4.jpg" />
-                                    </a> </li>
-                                <li> <a href="javascript:void(0)">
-                                    <img src="img/cS-5.jpg" />
-                                    </a> </li>
-                                <li> <a href="javascript:void(0)">
-                                    <img src="img/cS-6.jpg" />
-                                    </a> </li>
-                                <li> <a href="javascript:void(0)">
-                                    <img src="img/cS-7.jpg" />
-                                    </a> </li>
-                                <li> <a href="javascript:void(0)">
-                                    <img src="img/cS-8.jpg" />
-                                    </a> </li>
-                                <li> <a href="javascript:void(0)">
-                                    <img src="img/cS-9.jpg" />
-                                    </a> </li>
+                            <ul id="rtl" class="content-slider list-unstyled clearfix cS-hidden">
+                                <li>
+                                    <h3>1</h3>
+                                </li>
+                                <li>
+                                    <h3>2</h3>
+                                </li>
+                                <li>
+                                    <h3>3</h3>
+                                </li>
+                                <li>
+                                    <h3>4</h3>
+                                </li>
+                                <li>
+                                    <h3>5</h3>
+                                </li>
+                                <li>
+                                    <h3>6</h3>
+                                </li>
                             </ul>
                         </div>
-                        <div class="call">
-                            <pre class="prettyprint linenums" style="margin-top:0;">
-  $(document).ready(function() {
-    $('#slideMove').lightSlider({
-      slideMove:2,
-      slideMargin:4,
-      slideWidth:200
-    }); 
-  });</pre>
+                                
+                    <div class="call">
+                        <pre class="prettyprint linenums" style="margin-top:0;">
+$(document).ready(function() {
+    $('#rtl').lightSlider({
+        rtl:true
+    });
+});</pre>
                         </div>
                     </section>
                 
@@ -221,9 +245,10 @@
   $(document).ready(function() {
     $('#imageGallery').lightSlider({
       gallery:true,
-      minSlide:1,
-      maxSlide:1,
-      currentPagerPosition:'left'  
+      item:1,
+      slideMargin:0,
+      currentPagerPosition:'left',
+      thumbItem:9  
     });  
   });</pre>
 <pre class="prettyprint linenums">
@@ -243,26 +268,109 @@
             </div>
         </div>
     </div>
-    <div class="container-fluid" id="dynamicBlock">
+    <div class="container-fluid">
         <div class="row">
             <div class="col-xs-12">
                 <section class="install">
-                        <h2>Fade Transition</h2>
+                        <h2>AdaptiveHeight</h2>
+                        <div class="row">
+                            <div class="col-sm-6">
+                                <div class="demo hasActive">
+                                    <ul id="adaptive" class="gallery content-slider list-unstyled clearfix cS-hidden">
+                                        <li>
+                                            <h3 style="padding:70px 0">1</h3>
+                                        </li>
+                                        <li>
+                                            <h3 style="padding:80px 0">2</h3>
+                                        </li>
+                                        <li>
+                                            <h3 style="padding:75px 0">3</h3>
+                                        </li>
+                                        <li>
+                                            <h3 style="padding:90px 0">4</h3>
+                                        </li>
+                                        <li>
+                                            <h3 style="padding:78px 0">5</h3>
+                                        </li>
+                                        <li>
+                                            <h3 style="padding:86px 0">6</h3>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+                            <div class="col-sm-6">
+                                
+                    <div class="call">
+                        <pre class="prettyprint linenums" style="margin-top:0;">
+$(document).ready(function() {
+    $('#adaptive').lightSlider({
+        adaptiveHeight:true,
+        item:1,
+        slideMargin:0
+    });
+});</pre>
+                    </div>
+                            </div>
+                        </div>
+                    </section>
+                
+            </div>
+        </div>
+    </div>
+    <div class="hero" style="margin-top:20px;border-top:1px solid #F1F1F1">
+        <div class="container-fluid example">
+            <div class="row">
+                <div class="col-xs-12">
+                    <section class="install">
+                        <h2>Vertical mode</h2>
                         <div class="row">
                             <div class="col-sm-6">
                                 <div class="demo">
-                                    <ul id="fade" class="gallery list-unstyled clearfix">
-                                        <li> <a href="javascript:void(0)">
+                                    <ul id="vertical" class="gallery list-unstyled">
+                                        <li data-thumb="img/thumb/cS-1.jpg"> <a href="javascript:void(0)">
                                             <img src="img/cS-1.jpg" />
                                             </a> </li>
-                                        <li> <a href="javascript:void(0)">
+                                        <li data-thumb="img/thumb/cS-2.jpg"> <a href="javascript:void(0)">
                                             <img src="img/cS-2.jpg" />
                                             </a> </li>
-                                        <li> <a href="javascript:void(0)">
+                                        <li data-thumb="img/thumb/cS-3.jpg"> <a href="javascript:void(0)">
                                             <img src="img/cS-3.jpg" />
                                             </a> </li>
-                                        <li> <a href="javascript:void(0)">
+                                        <li data-thumb="img/thumb/cS-4.jpg"> <a href="javascript:void(0)">
                                             <img src="img/cS-4.jpg" />
+                                            </a> </li>
+                                        <li data-thumb="img/thumb/cS-5.jpg"> <a href="javascript:void(0)">
+                                            <img src="img/cS-5.jpg" />
+                                            </a> </li>
+                                        <li data-thumb="img/thumb/cS-6.jpg"> <a href="javascript:void(0)">
+                                            <img src="img/cS-6.jpg" />
+                                            </a> </li>
+                                        <li data-thumb="img/thumb/cS-7.jpg"> <a href="javascript:void(0)">
+                                            <img src="img/cS-7.jpg" />
+                                            </a> </li>
+                                        <li data-thumb="img/thumb/cS-8.jpg"> <a href="javascript:void(0)">
+                                            <img src="img/cS-8.jpg" />
+                                            </a> </li>
+                                        <li data-thumb="img/thumb/cS-9.jpg"> <a href="javascript:void(0)">
+                                            <img src="img/cS-9.jpg" />
+                                            </a> </li>
+                                        <li data-thumb="img/thumb/cS-10.jpg"> <a href="javascript:void(0)">
+                                            <img src="img/cS-10.jpg" />
+                                            </a> </li>
+                                        <li data-thumb="img/thumb/cS-11.jpg"> <a href="javascript:void(0)">
+                                            <img src="img/cS-11.jpg" />
+                                            </a> </li>
+                                        <li data-thumb="img/thumb/cS-12.jpg"> <a href="javascript:void(0)">
+                                            <img src="img/cS-12.jpg" />
+                                            </a> </li>
+                                        <li data-thumb="img/thumb/cS-13.jpg"> <a href="javascript:void(0)">
+                                            <img src="img/cS-13.jpg" />
+                                            </a> </li>
+                                        <li data-thumb="img/thumb/cS-14.jpg"> <a href="javascript:void(0)">
+                                            <img src="img/cS-14.jpg" />
+                                            </a> </li>
+                                        <li data-thumb="img/thumb/cS-15.jpg"> <a href="javascript:void(0)">
+                                            <img src="img/cS-15.jpg" />
                                             </a> </li>
                                     </ul>
                                 </div>
@@ -270,17 +378,74 @@
                             <div class="col-sm-6">
                                 <div class="call">
                             <pre class="prettyprint linenums" style="margin-top:0;">
-$(document).ready(function() {
-  $('#fade').lightSlider({
-    minSlide:1,
-    maxSlide:1,
-    mode:'fade'
-  });  
-});</pre>
+  $(document).ready(function() {
+    $('#vertical').lightSlider({
+      gallery:true,
+      item:1,
+      vertical:true,
+      verticalHeight:295,
+      vThumbWidth:50,
+      thumbItem:8,
+      thumbMargin:4,
+      slideMargin:0
+    });  
+  });</pre>
+<pre class="prettyprint linenums">
+&lt;ul id="vertical"&gt;
+  &lt;li data-thumb="img/thumb/cS-1.jpg"&gt;
+    &lt;img src="img/cS-1.jpg" /&gt;
+  &lt;/li&gt;
+  &lt;li data-thumb="img/thumb/cS-2.jpg"&gt;
+    &lt;img src="img/cS-2.jpg" /&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;</pre>   
                                 </div>
                             </div>
                         </div>
                     </section>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-xs-12">
+                <section class="install">
+                        <h2>Autoplay with loop</h2>
+                                <div class="demo hasActive">
+                                    <ul id="autoplay" class="gallery content-slider list-unstyled clearfix cS-hidden">
+                                        <li>
+                                            <h3>1</h3>
+                                        </li>
+                                        <li>
+                                            <h3>2</h3>
+                                        </li>
+                                        <li>
+                                            <h3>3</h3>
+                                        </li>
+                                        <li>
+                                            <h3>4</h3>
+                                        </li>
+                                        <li>
+                                            <h3>5</h3>
+                                        </li>
+                                        <li>
+                                            <h3>6</h3>
+                                        </li>
+                                    </ul>
+                                </div>
+                                
+                    <div class="call">
+                        <pre class="prettyprint linenums" style="margin-top:0;">
+$(document).ready(function() {
+  $('#autoplay').lightSlider({
+    auto:true,
+    loop:true
+  });
+});</pre>
+                    </div>
+                    </section>
+                
             </div>
         </div>
     </div>
@@ -328,7 +493,8 @@ $(document).ready(function() {
                                 <button class="btn btn-success" type="button" id="goToPrevSlide">Go To Prev Slide</button>
                                 <button class="btn btn-success" type="button" id="goToNextSlide">Go To Next Slide</button>
                             	<button class="btn btn-success" type="button" id="getCurrentSlideCount">getCurrentSlideCount</button>
-                            	<button class="btn btn-success" type="button" id="refresh">Refresh</button>
+                                <button class="btn btn-success" type="button" id="addSlide">add Slide</button>
+                            	<button class="btn btn-success" type="button" id="removeSlide">remove Slide</button>
                                 <button class="btn btn-success" type="button" id="play">Play</button>
                                 <button class="btn btn-success" type="button" id="pause">Pause</button>
                             </div>
@@ -353,9 +519,13 @@ $(document).ready(function() {
     $('#getCurrentSlideCount').click(function(){
         slider.getCurrentSlideCount(); 
     });
-    $('#refresh').click(function() {
+    $('#addSlide').click(function() {
         var newEl = ' &lt;li&gt; &lt;a href="javascript:void(0)"&gt;&lt;img src="img/cS-1.jpg" /&gt;&lt;/a&gt; &lt;/li&gt;';
         $('#publicMethods').prepend(newEl);
+        slider.refresh();
+    });
+    $('#removeSlide').click(function() {
+        $('#publicMethods').children().last().remove();
         slider.refresh();
     });
     $('#play').click(function(){
@@ -371,9 +541,67 @@ $(document).ready(function() {
             </div>
         </div>
     </div>
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-xs-12">
+                <section class="install">
+                    <h2>Callbacks</h2>
+                    <div class="demo hasActive">
+                        <ul id="callback" class="content-slider list-unstyled clearfix">
+                            <li>
+                                <h3>1</h3>
+                            </li>
+                            <li>
+                                <h3>2</h3>
+                            </li>
+                            <li>
+                                <h3>3</h3>
+                            </li>
+                            <li>
+                                <h3>4</h3>
+                            </li>
+                            <li>
+                                <h3>5</h3>
+                            </li>
+                            <li>
+                                <h3>6</h3>
+                            </li>
+                        </ul>
+                    </div>
+                                
+                    <div class="call">
+                        <pre class="prettyprint linenums" style="margin-top:0;">
+$(document).ready(function() {
+  $('#callback').lightSlider({
+    onBeforeStart: function () {
+        console.log('onBeforeStart');
+    },
+    onSliderLoad: function () {
+        console.log('onSliderLoad');
+    },
+    onBeforeSlide: function () {
+        alert('onBeforeSlide');
+    },
+    onAfterSlide: function () {
+        alert('onAfterSlide');
+    },
+    onBeforeNextSlide: function () {
+        alert('onBeforeNextSlide');
+    },
+    onBeforePrevSlide: function () {
+        alert('onBeforePrevSlide');
+    }
+    });
+});</pre>
+                    </div>
+                    </section>
+                
+            </div>
+        </div>
+    </div>
     
 </div>
-<script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>   
+<script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>  
 <script src="lightSlider/js/jquery.lightSlider.js"></script> 
 <script src="js/prettify.js"></script> 
 <script type="text/javascript">
@@ -381,42 +609,95 @@ $(document).ready(function() {
     
     $(document).ready(function() {
         window.prettyPrint && prettyPrint();
-        $('#fade').lightSlider({
-            minSlide:1,
-            maxSlide:1,
-            mode:'fade',
-            proportion:'71.3%'
-        }); 
-        $('#minMax').lightSlider({
-            minSlide:2,
-            maxSlide:4,
-            slideMargin:4,
-            slideWidth:200,
-            loop:false,
+        $('#windowWidh').text($(window).width());
+        $('#responsive').lightSlider({
+            item:4,
+            slideMove:2,
+            easing: 'cubic-bezier(0.25, 0, 0.25, 1)',
+            speed:600,
+            responsive : [
+                {
+                    breakpoint:800,
+                    settings: {
+                        item:3,
+                        slideMove:1,
+                        slideMargin:6,
+                      }
+                },
+                {
+                    breakpoint:480,
+                    settings: {
+                        item:2,
+                        slideMove:1
+                      }
+                }
+            ],
             onSliderLoad: function() {
-                $('#minMax').removeClass('cS-hidden');
+                $('#responsive').removeClass('cS-hidden');
             } 
         });   
-		$('#slideMove').lightSlider({
-            slideMove:2,
-			slideMargin:4,
-            slideWidth:200,
-            loop:false,
+		$('#adaptive').lightSlider({
+            adaptiveHeight:true,
+            item:1,
+            slideMargin:0,
             onSliderLoad: function() {
-                $('#slideMove').removeClass('cS-hidden');
+                $('#adaptive').removeClass('cS-hidden');
+            } 
+        });
+        $('#autoplay').lightSlider({
+            auto:true,
+            loop:true,
+            onSliderLoad: function() {
+                $('#autoplay').removeClass('cS-hidden');
+            } 
+        });
+        $('#rtl').lightSlider({
+			rtl:true,
+            onSliderLoad: function() {
+                $('#rtl').removeClass('cS-hidden');
             } 
         });
 		$('#imageGallery').lightSlider({
             gallery:true,
-            minSlide:1,
-            maxSlide:1,
-            loop:false,
-			currentPagerPosition:'left'  
+            item:1,
+            thumbItem:9,
+            slideMargin:0,
+            currentPagerPosition:'left'  
+        });
+        $('#callback').lightSlider({
+            onBeforeStart: function () {
+                console.log('onBeforeStart');
+            },
+            onSliderLoad: function () {
+                console.log('onSliderLoad');
+            },
+            onBeforeSlide: function () {
+                alert('onBeforeSlide');
+            },
+            onAfterSlide: function () {
+                alert('onAfterSlide');
+            },
+            onBeforeNextSlide: function () {
+                alert('onBeforeNextSlide');
+            },
+            onBeforePrevSlide: function () {
+                alert('onBeforePrevSlide');
+            }
+        });
+        $('#vertical').lightSlider({
+            gallery:true,
+            item:1,
+            vertical:true,
+            verticalHeight:295,
+            vThumbWidth:50,
+            thumbItem:9,
+            thumbMargin:4,
+            slideMargin:0
         });
 		var slider = $('#publicMethods').lightSlider({
 			slideMargin:4,
             slideWidth:200,
-            loop:false
+            item:4
         });
 		$('#goToSlide').click(function(){
 			slider.goToSlide(3);	
@@ -430,9 +711,13 @@ $(document).ready(function() {
          $('#getCurrentSlideCount').click(function(){
             alert(slider.getCurrentSlideCount());
         });
-		$('#refresh').click(function() {
+		$('#addSlide').click(function() {
             var newEl = ' <li> <a href="javascript:void(0)"><img src="img/cS-1.jpg" /></a> </li>';
             $('#publicMethods').prepend(newEl);
+            slider.refresh();
+        });
+        $('#removeSlide').click(function() {
+            $('#publicMethods').children().last().remove();
             slider.refresh();
         });
         $('#play').click(function(){
@@ -471,6 +756,7 @@ $(document).ready(function() {
             },700); 
         })
         $(window).on("resize orientationchange", function(){
+            $('#windowWidh').text($(window).width())
             if($(window).width() > 767){
                 $("#mast-head").css('display','block'); 
                 site.removeClass('translate');

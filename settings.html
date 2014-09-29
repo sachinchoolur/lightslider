@@ -57,135 +57,272 @@
                 <section class="pageHead">
                     <h2 class="title">JQuery lightSlider Settings</h2>	 	
                 </section>
-                <section class="options">
-<pre class="prettyprint linenums">slideWidth:270
-//width of each slide
-</pre>	
-<pre class="prettyprint linenums">slideMargin : 0
-//Spacing between each slide</pre>	
+                <table class="table table-bordered">
+                  <thead>
+                  <tr>
+                    <th>Name</th>
+                    <th>Expected</th>
+                    <th>Default</th>
+                    <th>Description</th>
+                  </tr>
+                  </thead>
+                  <tbody>
+                    <tr>
+                      <td>item</td>
+                      <td>number</td>
+                      <td>3</td>
+                      <td>number of slides to show at a time</td>
+                    </tr>
+                    <tr>
+                      <td>slideMove</td>
+                      <td>number</td>
+                      <td>1</td>
+                      <td>Number of slides to be moved at a time</td>
+                    </tr>
+                    <tr>
+                      <td>slideMargin</td>
+                      <td>number</td>
+                      <td>10</td>
+                      <td>Spacing between each slide</td>
+                    </tr>
+                    <tr>
+                      <td>class</td>
+                      <td>string</td>
+                      <td>''</td>
+                      <td>Add custom class for slider, can be used to set different style for different sliders</td>
+                    </tr>
+                    <tr>
+                      <td>mode</td>
+                      <td>string</td>
+                      <td>'slide'</td>
+                      <td>Type of transition 'slide' and 'fade'</td>
+                    </tr>
+                    <tr>
+                      <td>useCSS</td>
+                      <td>boolean</td>
+                      <td>true</td>
+                      <td>If true LightSlider will use CSS transitions. if falls jquery animation will be used.</td>
+                    </tr>
+                    <tr>
+                      <td>easing</td>
+                      <td>string</td>
+                      <td>'ease'</td>
+                      <td>The type of "easing". ex: 'linear', 'ease', 'ease-in', 'ease-out', 'ease-in-out', 'cubic-bezier(n,n,n,n)'.</td>
+                    </tr>
+                    <tr>
+                      <td>speed</td>
+                      <td>number</td>
+                      <td>400</td>
+                      <td>Transition duration (in ms). // ex = speed:400;</td>
+                    </tr>
+                    <tr>
+                      <td>auto</td>
+                      <td>boolean</td>
+                      <td>false</td>
+                      <td>If true, the Slider will automatically start to play.</td>
+                    </tr>
+                    <tr>
+                      <td>loop</td>
+                      <td>bolean</td>
+                      <td>false</td>
+                      <td>If false, will disable the ability to loop back to the beginning of the slide when on the last element.</td>
+                    </tr>
+                    <tr>
+                      <td>pause</td>
+                      <td>number</td>
+                      <td>2000</td>
+                      <td>The time (in ms) between each auto transition</td>
+                    </tr>
+                    <tr>
+                      <td>keyPress</td>
+                      <td>boolean</td>
+                      <td>true</td>
+                      <td>Enable keyboard navigation</td>
+                    </tr>
+                    <tr>
+                      <td>controls</td>
+                      <td>boolean</td>
+                      <td>true</td>
+                      <td>If false, prev/next buttons will not be displayed.</td>
+                    </tr>
+                    <tr>
+                      <td>prevHtml</td>
+                      <td>string</td>
+                      <td>''</td>
+                      <td>custom html for prev control</td>
+                    </tr>
+                    <tr>
+                      <td>nextHtml</td>
+                      <td>string</td>
+                      <td>''</td>
+                      <td>custom html for next control</td>
+                    </tr>
+                    <tr>
+                      <td>rtl</td>
+                      <td>boolean</td>
+                      <td>false</td>
+                      <td>Change direction to right-to-left/td>
+                    </tr>
+                    <tr>
+                      <td>adaptiveHeight</td>
+                      <td>boolean</td>
+                      <td>false</td>
+                      <td>Dynamically adjust slider height based on each slide's height</td>
+                    </tr>
+                    <tr>
+                      <td>vertical</td>
+                      <td>boolean</td>
+                      <td>false</td>
+                      <td>change slide's direction from horizontal to Vertical</td>
+                    </tr>
+                    <tr>
+                      <td>verticalHeight</td>
+                      <td>number</td>
+                      <td>500</td>
+                      <td>set height of slider if vertical mode is active and item more than 1</td>
+                    </tr>
+                    <tr>
+                      <td>vThumbWidth</td>
+                      <td>number</td>
+                      <td>100</td>
+                      <td>width of gallery thumbnail while vertical mode active</td>
+                    </tr>
+                    <tr>
+                      <td>thumbItem</td>
+                      <td>number</td>
+                      <td>10</td>
+                      <td>number of gallery thumbnail to show at a time</td>
+                    </tr>
+                    <tr>
+                      <td>pager</td>
+                      <td>boolean</td>
+                      <td>true</td>
+                      <td>Enable pager option</td>
+                    </tr>
+                    <tr>
+                      <td>gallery</td>
+                      <td>boolean</td>
+                      <td>true</td>
+                      <td>Spacing between each slide</td>
+                    </tr>
+                    <tr>
+                      <td>galleryMargin</td>
+                      <td>number</td>
+                      <td>5</td>
+                      <td>Spacing between gallery and slide</td>
+                    </tr>
+                    <tr>
+                      <td>thumbMargin</td>
+                      <td>number</td>
+                      <td>3</td>
+                      <td>Spacing between each thumbnails </td>
+                    </tr>
+                    <tr>
+                      <td>currentPagerPosition</td>
+                      <td>string</td>
+                      <td>'middle'</td>
+                      <td>position of thumbnails . 'left', 'middle', 'right'</td>
+                    </tr>
+                    <tr>
+                      <td>enableTouch</td>
+                      <td>boolean</td>
+                      <td>true</td>
+                      <td>Enables touch support</td>
+                    </tr>
+                    <tr>
+                      <td>enableDrag</td>
+                      <td>boolean</td>
+                      <td>true</td>
+                      <td>Enables desktop mouse drag support</td>
+                    </tr>
+                    <tr>
+                      <td>freeMove</td>
+                      <td>boolean</td>
+                      <td>false</td>
+                      <td>Enable free move(no limit) while swipe or drag</td>
+                    </tr>
+                    <tr>
+                      <td>responsive</td>
+                      <td>object</td>
+                      <td>null</td>
+                      <td>Separate settings per breakpoint.</td>
+                    </tr>
+                  </tbody>
+                </table>
 
-<pre class="prettyprint linenums">slideMove: 1
-//Number of slides to be moved at a time</pre>	
+                <h3>Callbacks</h3>
+                <table class="table table-bordered">
+                    <thead>
+                    <tr>
+                      <th>Name</th>
+                      <th>Description</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    <tr>
+                      <td>onBeforeStart</td>
+                      <td>Executes before slider start loading</td>
+                    </tr>
+                    <tr>
+                      <td>onSliderLoad</td>
+                      <td>Executes immediately after the slider is fully loaded.</td>
+                    </tr>
+                    <tr>
+                      <td>onBeforeSlide</td>
+                      <td>Executes immediately before each slide transition.</td>
+                    </tr>
+                    <tr>
+                      <td>onAfterSlide</td>
+                      <td>Executes immediately after each slide transition.</td>
+                    </tr>
+                    <tr>
+                      <td>onBeforeNextSlide</td>
+                      <td>Executes immediately before each "Next" slide transition.</td>
+                    </tr>
+                    <tr>
+                      <td>onBeforePrevSlide</td>
+                      <td>Executes immediately before each "Prev" slide transition. </td>
+                    </tr>
+                    </tbody>
+                  </table>
 
-<pre class="prettyprint linenums">minSlide: 1,
-//Minimum number of slides should be visible in any resolution..</pre>	
-
-<pre class="prettyprint linenums">maxSlide: 8,
-//Maxinmum number of slides should be visible in any resolution..
-// if minSlide and maxSLide values are same then the slideWidth will be 100%;
-</pre>	
-
-<pre class="prettyprint linenums">pager: true,
-//Enable pager option</pre>
-
-<pre class="prettyprint linenums">controls: true,
-// if controls:false, controls will not be added</pre>	
-
-<pre class="prettyprint linenums">prevHtml:'',
-//custom text for prev control</pre>
-
-<pre class="prettyprint linenums">nextHtml:'',
-//custom text for next control
-</pre>
-
-<pre class="prettyprint linenums">keyPress: true,
-//Enable keyboard navigation </pre>	
-
-<pre class="prettyprint linenums">thumbWidth: 50,
-//Width of each thumbnails 
-//if gallery = true</pre>	
-
-<pre class="prettyprint linenums">thumbMargin:3,
-//Spacing between each thumbnails 
-//if gallery = true</pre>
-
-<pre class="prettyprint linenums">gallery:true,
-//Enable gallery</pre>
-
-<pre class="prettyprint linenums">currentPagerPosition:'middle',
-// position of thumbnails .
-//'left' OR 'middle', 'right'</pre>
-
-<pre class="prettyprint linenums">useCSS:true,
-//If true LightSlider will use CSS transitions. if falls jquery animation will be used.</pre>
-
-<pre class="prettyprint linenums">auto: false,
-//If true, the Slider will automatically start to play.</pre>
-
-<pre class="prettyprint linenums">pause: 2000,
-//The time (in ms) between each auto transition</pre>
-
-<pre class="prettyprint linenums">loop : true,
-//If false, will disable the ability to loop back to the beginning of the slide when on the last element.</pre>
-
-<pre class="prettyprint linenums">easing:'',
-// The type of "easing". ex: 'linear', 'ease', 'ease-in', 'ease-out', 'ease-in-out', 'cubic-bezier(n,n,n,n)'.</pre>
-
-<pre class="prettyprint linenums">speed: 1000,
-// Transition duration (in ms). 
-// ex = speed:'1000';
-</pre>
-
-<pre class="prettyprint linenums">mode: 'slide',
-// Type of transition 'slide' and 'fade'.
-</pre>
-<pre class="prettyprint linenums">swipeThreshold: 10,
-// By setting the swipeThreshold you can set how far the user must swipe for the next/prev slide 
-// ex swipeThreshold: 100, (in px);
-</pre>
-
-<pre class="prettyprint linenums">onBeforeStart: function() {},
-// Executes before slider start loading</pre>
-
-<pre class="prettyprint linenums">onSliderLoad: function() {},
-// Executes immediately after the slider is fully loaded.</pre>
-
-<pre class="prettyprint linenums">onBeforeSlide: function() {},
-// Executes immediately before each slide transition.</pre>
-
-<pre class="prettyprint linenums">onAfterSlide: function() {},
-// Executes immediately after each slide transition.</pre>
-
-<pre class="prettyprint linenums">onBeforeNextSlide: function() {},
-// Executes immediately before each "Next" slide transition.</pre>
-
-<pre class="prettyprint linenums">onBeforePrevSlide: function() {},
-// Executes immediately before each "Prev" slide transition. </pre>
+                  <h3>Public Functions</h3>
+                    <table class="table table-bordered">
+                        <thead>
+                        <tr>
+                          <th>Name</th>
+                          <th>Description</th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        <tr>
+                          <td>goToSlide()</td>
+                          <td>Go to nth slide ex: slider.goToSlide(3)</td>
+                        </tr>
+                        <tr>
+                          <td>goToPrevSlide()</td>
+                          <td>Go to previous slide</td>
+                        </tr>
+                        <tr>
+                          <td>goToNextSlide()</td>
+                          <td>Go to next slide </td>
+                        </tr>
+                        <tr>
+                          <td>refresh</td>
+                          <td>Refresh slider</td>
+                        </tr>
+                        <tr>
+                          <td>play()</td>
+                          <td>play Slide</td>
+                        </tr>
+                        <tr>
+                          <td>pause()</td>
+                          <td>pause Slide </td>
+                        </tr>
+                        </tbody>
+                      </table>
 
 
-
-<pre class="prettyprint linenums">goToSlide();
-//Go to slide
-//var slider = $('.lightSlider').lightSlider();
-//slider.goToSlide(3);</pre>
-
-<pre class="prettyprint linenums">goToPrevSlide();
-//Go to previous slide
-//var slider = $('.lightSlider').lightSlider();
-//slider.goToPrevSlide();</pre>
-
-<pre class="prettyprint linenums">goToNextSlide();
-//Go to next slide
-//var slider = $('.lightSlider').lightSlider();
-//slider.goToNextSlide(3);</pre>
-
-<pre class="prettyprint linenums">refresh();
-//Refresh slider
-//var slider = $('.lightSlider').lightSlider();
-//slider.refresh();
-</pre>
-
-<pre class="prettyprint linenums">play();
-//play Slide
-//var slider = $('.lightSlider').lightSlider();
-//slider.play(); 
-</pre>
-
-<pre class="prettyprint linenums">pause();
-//pause Slide
-//var slider = $('.lightSlider').lightSlider();
-//slider.pause(); 
-</pre>
 
                 </section>
             </div>
