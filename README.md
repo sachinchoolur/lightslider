@@ -19,8 +19,8 @@ Changelog
 +   Vertical mode
 +   MouseDrag support for desktop browsers.
 +   Improved swipe support.
-+   Slide item insted of slideWidth.
-+   ThumbItem insted of thumbwidth.
++   Slide item instead of slideWidth.
++   ThumbItem instead of thumbwidth.
 
 ### Removed ###
 +   slidewidth. 
