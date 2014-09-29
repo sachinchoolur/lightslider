@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+    <title>lightSlider Demo</title>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="description" content="">
+    <link rel="stylesheet"  href="lightSlider/css/lightslider.css"/>
+    <style>
+    	ul{
+			list-style: none outside none;
+		    padding-left: 0;
+		}
+		.content-slider li{
+		    background-color: #ed3020;
+		    text-align: center;
+		    color: #FFF;
+		}
+		.content-slider h3 {
+		    margin: 0;
+		    padding: 70px 0;
+		}
+		.demo{
+			width: 800px;
+		}
+    </style>
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+    <script src="lightSlider/js/jquery.lightSlider.js"></script> 
+    <script>
+    	 $(document).ready(function() {
+			$("#demo").lightSlider();
+		});
+    </script>
+</head>
+<body>
+	<div class="demo">
+        <ul id="demo" class="content-slider">
+            <li>
+                <h3>1</h3>
+            </li>
+            <li>
+                <h3>2</h3>
+            </li>
+            <li>
+                <h3>3</h3>
+            </li>
+            <li>
+                <h3>4</h3>
+            </li>
+            <li>
+                <h3>5</h3>
+            </li>
+            <li>
+                <h3>6</h3>
+            </li>
+        </ul>
+    </div>	
+</body>
