@@ -494,7 +494,6 @@ $(document).ready(function() {
                                 <button class="btn btn-success" type="button" id="goToNextSlide">Go To Next Slide</button>
                             	<button class="btn btn-success" type="button" id="getCurrentSlideCount">getCurrentSlideCount</button>
                                 <button class="btn btn-success" type="button" id="addSlide">add Slide</button>
-                            	<button class="btn btn-success" type="button" id="removeSlide">remove Slide</button>
                                 <button class="btn btn-success" type="button" id="play">Play</button>
                                 <button class="btn btn-success" type="button" id="pause">Pause</button>
                             </div>
@@ -522,10 +521,6 @@ $(document).ready(function() {
     $('#addSlide').click(function() {
         var newEl = ' &lt;li&gt; &lt;a href="javascript:void(0)"&gt;&lt;img src="img/cS-1.jpg" /&gt;&lt;/a&gt; &lt;/li&gt;';
         $('#publicMethods').prepend(newEl);
-        slider.refresh();
-    });
-    $('#removeSlide').click(function() {
-        $('#publicMethods').children().last().remove();
         slider.refresh();
     });
     $('#play').click(function(){
@@ -714,10 +709,6 @@ $(document).ready(function() {
 		$('#addSlide').click(function() {
             var newEl = ' <li> <a href="javascript:void(0)"><img src="img/cS-1.jpg" /></a> </li>';
             $('#publicMethods').prepend(newEl);
-            slider.refresh();
-        });
-        $('#removeSlide').click(function() {
-            $('#publicMethods').children().last().remove();
             slider.refresh();
         });
         $('#play').click(function(){
