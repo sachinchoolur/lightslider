@@ -291,7 +291,7 @@
                         } else {
                             var property = 'width';
                         }
-                        pagerWidth = i * (settings.thumbMargin + thumbWidth);
+                        pagerWidth = (i * (settings.thumbMargin + thumbWidth))+0.5;
                         $cSouter.find('.lSPager').css({
                             property: pagerWidth + 'px',
                             'transition-duration': settings.speed + 'ms'
@@ -570,15 +570,6 @@
                     });
                 }
             },
-            getpager: function() {
-                for (var i = 0; i < length; i++) {
-                    var v = i * ((slideWidth + settings.slideMargin) * settings.slideMove);
-                    if ((v) >= w - elSize - settings.slideMargin) {
-                        break;
-                    }
-                }
-                return i;
-            },
             build: function() {
                 var $this = this;
                 $this.initialStyle();
@@ -649,19 +640,22 @@
             if (scene > 0) {
                 settings.onBeforePrevSlide.call(this);
                 scene--;
+                $el.mode();
                 if (settings.gallery === true) {
                     plugin.slideThumb();
                 }
-                var i = plugin.getpager();
-                if (scene >= i) {
-                    scene = i - 1;
-                }
-                $el.mode();
             } else {
                 if (settings.loop === true) {
                     settings.onBeforePrevSlide.call(this);
                     if (settings.mode === 'slide') {
-                        scene = plugin.getpager();;
+                        var v = 0;
+                        for (var i = 0; i < length; i++) {
+                            v = i * ((slideWidth + settings.slideMargin) * settings.slideMove);
+                            if ((v) >= w - elSize - settings.slideMargin) {
+                                break;
+                            }
+                        }
+                        scene = i;
                     } else {
                         var l = length;
                         l = l - 1;
@@ -695,8 +689,6 @@
                     if (settings.gallery === true) {
                         plugin.slideThumb();
                     }
-                } else {
-                    scene = plugin.getpager();
                 }
             }
         };
@@ -757,7 +749,7 @@
             scene = s;
             $el.mode();
         };
-        $(window).on('resize', function(e) {
+        $(window).on('resize orientationchange', function(e) {
             setTimeout(function() {
                 e.preventDefault();
                 refresh.init();
