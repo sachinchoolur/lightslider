@@ -43,10 +43,10 @@
         responsive: [],
         onBeforeStart: function($el) {},
         onSliderLoad: function($el) {},
-        onBeforeSlide: function($el) {},
-        onAfterSlide: function($el) {},
-        onBeforeNextSlide: function($el) {},
-        onBeforePrevSlide: function($el) {}
+        onBeforeSlide: function($el,scene) {},
+        onAfterSlide: function($el,scene) {},
+        onBeforeNextSlide: function($el,scene) {},
+        onBeforePrevSlide: function($el,scene) {}
     };
     $.fn.lightSlider = function(options) {
         if (this.length > 1) {
@@ -639,7 +639,7 @@
         };
         $el.goToPrevSlide = function() {
             if (scene > 0) {
-                settings.onBeforePrevSlide.call(this, $el);
+                settings.onBeforePrevSlide.call(this, $el, scene);
                 scene--;
                 $el.mode();
                 if (settings.gallery === true) {
@@ -647,7 +647,7 @@
                 }
             } else {
                 if (settings.loop === true) {
-                    settings.onBeforePrevSlide.call(this, $el);
+                    settings.onBeforePrevSlide.call(this, $el, scene);
                     if (settings.mode === 'slide') {
                         var v = 0;
                         for (var i = 0; i < length; i++) {
@@ -676,7 +676,7 @@
                 var nextI = _slideValue < w - elSize - settings.slideMargin;
             }
             if (((scene * settings.slideMove) < length - settings.slideMove) && nextI) {
-                settings.onBeforeNextSlide.call(this, $el);
+                settings.onBeforeNextSlide.call(this, $el, scene);
                 scene++;
                 $el.mode();
                 if (settings.gallery === true) {
@@ -684,7 +684,7 @@
                 }
             } else {
                 if (settings.loop === true) {
-                    settings.onBeforeNextSlide.call(this, $el);
+                    settings.onBeforeNextSlide.call(this, $el, scene);
                     scene = 0;
                     $el.mode();
                     if (settings.gallery === true) {
@@ -719,14 +719,14 @@
                     }
                 }
             }
-            settings.onBeforeSlide.call(this, $el);
+            settings.onBeforeSlide.call(this, $el, scene);
             if (settings.mode === "slide") {
                 plugin.slide();
             } else {
                 plugin.fade();
             }
             setTimeout(function() {
-                settings.onAfterSlide.call(this, $el);
+                settings.onAfterSlide.call(this, $el, scene);
             }, settings.speed);
             on = true;
         };
