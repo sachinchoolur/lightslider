@@ -742,7 +742,6 @@ address {
 }
 
 .gallery li {
-    max-width: 474px;
     display: block;
     float: left;
     margin-right: 6px;

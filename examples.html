@@ -568,25 +568,25 @@ $(document).ready(function() {
                         <pre class="prettyprint linenums" style="margin-top:0;">
 $(document).ready(function() {
   $('#callback').lightSlider({
-    onBeforeStart: function () {
-        console.log('onBeforeStart');
+    onBeforeStart: function (plugin) {
+        console.log('onBeforeStart',plugin);
     },
-    onSliderLoad: function () {
-        console.log('onSliderLoad');
+    onSliderLoad: function (plugin) {
+        plugin.addClass('classAddedBeforeSliderLoad');
     },
-    onBeforeSlide: function () {
+    onBeforeSlide: function (plugin) {
         alert('onBeforeSlide');
     },
-    onAfterSlide: function () {
+    onAfterSlide: function (plugin) {
         alert('onAfterSlide');
     },
-    onBeforeNextSlide: function () {
+    onBeforeNextSlide: function (plugin) {
         alert('onBeforeNextSlide');
     },
-    onBeforePrevSlide: function () {
+    onBeforePrevSlide: function (plugin) {
         alert('onBeforePrevSlide');
     }
-    });
+  });
 });</pre>
                     </div>
                     </section>
@@ -596,7 +596,7 @@ $(document).ready(function() {
     </div>
     
 </div>
-<script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>  
+<script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script> 
 <script src="lightSlider/js/jquery.lightSlider.js"></script> 
 <script src="js/prettify.js"></script> 
 <script type="text/javascript">
@@ -608,7 +608,7 @@ $(document).ready(function() {
         $('#responsive').lightSlider({
             item:4,
             slideMove:2,
-            easing: 'cubic-bezier(0.25, 0, 0.25, 1)',
+            cssEasing: 'cubic-bezier(0.25, 0, 0.25, 1)',
             speed:600,
             responsive : [
                 {
@@ -660,22 +660,22 @@ $(document).ready(function() {
             currentPagerPosition:'left'  
         });
         $('#callback').lightSlider({
-            onBeforeStart: function () {
-                console.log('onBeforeStart');
+            onBeforeStart: function (plugin) {
+                console.log('onBeforeStart',plugin);
             },
-            onSliderLoad: function () {
-                console.log('onSliderLoad');
+            onSliderLoad: function (plugin) {
+                plugin.addClass('classAddedBeforeSliderLoad');
             },
-            onBeforeSlide: function () {
+            onBeforeSlide: function (plugin) {
                 alert('onBeforeSlide');
             },
-            onAfterSlide: function () {
+            onAfterSlide: function (plugin) {
                 alert('onAfterSlide');
             },
-            onBeforeNextSlide: function () {
+            onBeforeNextSlide: function (plugin) {
                 alert('onBeforeNextSlide');
             },
-            onBeforePrevSlide: function () {
+            onBeforePrevSlide: function (plugin) {
                 alert('onBeforePrevSlide');
             }
         });

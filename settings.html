@@ -86,7 +86,7 @@
                       <td>Spacing between each slide</td>
                     </tr>
                     <tr>
-                      <td>class</td>
+                      <td>addClass</td>
                       <td>string</td>
                       <td>''</td>
                       <td>Add custom class for slider, can be used to set different style for different sliders</td>
@@ -104,10 +104,16 @@
                       <td>If true LightSlider will use CSS transitions. if falls jquery animation will be used.</td>
                     </tr>
                     <tr>
-                      <td>easing</td>
+                      <td>cssEasing</td>
                       <td>string</td>
                       <td>'ease'</td>
-                      <td>The type of "easing". ex: 'linear', 'ease', 'ease-in', 'ease-out', 'ease-in-out', 'cubic-bezier(n,n,n,n)'.</td>
+                      <td>Type of easing to be used for css animations</td>
+                    </tr>
+                    <tr>
+                      <td>easing</td>
+                      <td>string</td>
+                      <td>'linear'</td>
+                      <td>Type of easing to be used for jquery animations</td>
                     </tr>
                     <tr>
                       <td>speed</td>
@@ -161,7 +167,7 @@
                       <td>rtl</td>
                       <td>boolean</td>
                       <td>false</td>
-                      <td>Change direction to right-to-left/td>
+                      <td>Change direction to right-to-left</td>
                     </tr>
                     <tr>
                       <td>adaptiveHeight</td>
@@ -250,37 +256,44 @@
                   </tbody>
                 </table>
 
-                <h3>Callbacks</h3>
+                <h3>Callbacks <small>callback parameter plugin = current plugin object</small></h3>
                 <table class="table table-bordered">
                     <thead>
                     <tr>
                       <th>Name</th>
+                      <th>parameter</th>
                       <th>Description</th>
                     </tr>
                     </thead>
                     <tbody>
                     <tr>
                       <td>onBeforeStart</td>
+                      <td>plugin</td>
                       <td>Executes before slider start loading</td>
                     </tr>
                     <tr>
                       <td>onSliderLoad</td>
+                      <td>plugin</td>
                       <td>Executes immediately after the slider is fully loaded.</td>
                     </tr>
                     <tr>
                       <td>onBeforeSlide</td>
+                      <td>plugin</td>
                       <td>Executes immediately before each slide transition.</td>
                     </tr>
                     <tr>
                       <td>onAfterSlide</td>
+                      <td>plugin</td>
                       <td>Executes immediately after each slide transition.</td>
                     </tr>
                     <tr>
                       <td>onBeforeNextSlide</td>
+                      <td>plugin</td>
                       <td>Executes immediately before each "Next" slide transition.</td>
                     </tr>
                     <tr>
                       <td>onBeforePrevSlide</td>
+                      <td>plugin</td> 
                       <td>Executes immediately before each "Prev" slide transition. </td>
                     </tr>
                     </tbody>

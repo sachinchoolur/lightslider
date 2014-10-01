@@ -40,12 +40,12 @@
         freeMove: false,
         swipeThreshold: 40,
         responsive: [],
-        onBeforeStart: function() {},
-        onSliderLoad: function() {},
-        onBeforeSlide: function() {},
-        onAfterSlide: function() {},
-        onBeforeNextSlide: function() {},
-        onBeforePrevSlide: function() {}
+        onBeforeStart: function($el) {},
+        onSliderLoad: function($el) {},
+        onBeforeSlide: function($el) {},
+        onAfterSlide: function($el) {},
+        onBeforeNextSlide: function($el) {},
+        onBeforePrevSlide: function($el) {}
     };
     $.fn.lightSlider = function(options) {
         if (this.length > 1) {
@@ -160,7 +160,7 @@
                 }
             },
             initialStyle: function() {
-                settings.onBeforeStart.call(this);
+                settings.onBeforeStart.call(this, $el);
                 refresh.chbreakpoint();
                 $el.addClass('lightSlider').wrap("<div class='lSSlideOuter " + settings.class + "'><div class='lSSlideWrapper'></div></div>");
                 $slide = $el.parent('.lSSlideWrapper');
@@ -338,7 +338,7 @@
                     }
                     refresh.createPager();
                 }
-                settings.onSliderLoad.call(this);
+                settings.onSliderLoad.call(this, $el);
             },
             active: function(ob, t) {
                 if (this.doCss() && settings.mode === "fade") {
@@ -638,7 +638,7 @@
         };
         $el.goToPrevSlide = function() {
             if (scene > 0) {
-                settings.onBeforePrevSlide.call(this);
+                settings.onBeforePrevSlide.call(this, $el);
                 scene--;
                 $el.mode();
                 if (settings.gallery === true) {
@@ -646,7 +646,7 @@
                 }
             } else {
                 if (settings.loop === true) {
-                    settings.onBeforePrevSlide.call(this);
+                    settings.onBeforePrevSlide.call(this, $el);
                     if (settings.mode === 'slide') {
                         var v = 0;
                         for (var i = 0; i < length; i++) {
@@ -675,7 +675,7 @@
                 var nextI = _slideValue < w - elSize - settings.slideMargin;
             }
             if (((scene * settings.slideMove) < length - settings.slideMove) && nextI) {
-                settings.onBeforeNextSlide.call(this);
+                settings.onBeforeNextSlide.call(this, $el);
                 scene++;
                 $el.mode();
                 if (settings.gallery === true) {
@@ -683,7 +683,7 @@
                 }
             } else {
                 if (settings.loop === true) {
-                    settings.onBeforeNextSlide.call(this);
+                    settings.onBeforeNextSlide.call(this, $el);
                     scene = 0;
                     $el.mode();
                     if (settings.gallery === true) {
@@ -718,14 +718,14 @@
                     }
                 }
             }
-            settings.onBeforeSlide.call(this);
+            settings.onBeforeSlide.call(this, $el);
             if (settings.mode === "slide") {
                 plugin.slide();
             } else {
                 plugin.fade();
             }
             setTimeout(function() {
-                settings.onAfterSlide.call(this);
+                settings.onAfterSlide.call(this, $el);
             }, settings.speed);
             on = true;
         };

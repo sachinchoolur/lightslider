@@ -233,10 +233,11 @@ $(document).ready(function() {
         slideMove: 1,
         slideMargin: 10,
 
-        class: '',
+        addClass: '',
         mode: "slide",
         useCSS: true,
-        easing: 'ease', //'ex cubic-bezier(0.25, 0, 0.25, 1)',//
+        cssEasing: 'ease', //'cubic-bezier(0.25, 0, 0.25, 1)',//
+        easing: 'linear', //'for jquery animation',////
 
         speed: 400, //ms'
         auto: false,
@@ -269,12 +270,12 @@ $(document).ready(function() {
 
         responsive : [],
 
-        onBeforeStart: function () {},
-        onSliderLoad: function () {},
-        onBeforeSlide: function () {},
-        onAfterSlide: function () {},
-        onBeforeNextSlide: function () {},
-        onBeforePrevSlide: function () {}
+        onBeforeStart: function (plugin) {},
+        onSliderLoad: function (plugin) {},
+        onBeforeSlide: function (plugin) {},
+        onAfterSlide: function (plugin) {},
+        onBeforeNextSlide: function (plugin) {},
+        onBeforePrevSlide: function (plugin) {}
     });
 });
 &lt;/script&gt;</pre>
