@@ -12,10 +12,11 @@
         item: 3,
         slideMove: 1,
         slideMargin: 10,
-        class: '',
+        addClass: '',
         mode: "slide",
         useCSS: true,
-        easing: 'ease', //'ex cubic-bezier(0.25, 0, 0.25, 1)',//
+        cssEasing: 'ease', //'cubic-bezier(0.25, 0, 0.25, 1)',//
+        easing: 'linear', //'for jquery animation',//
         speed: 400, //ms'
         auto: false,
         loop: false,
@@ -40,12 +41,12 @@
         freeMove: false,
         swipeThreshold: 40,
         responsive: [],
-        onBeforeStart: function() {},
-        onSliderLoad: function() {},
-        onBeforeSlide: function() {},
-        onAfterSlide: function() {},
-        onBeforeNextSlide: function() {},
-        onBeforePrevSlide: function() {}
+        onBeforeStart: function($el) {},
+        onSliderLoad: function($el) {},
+        onBeforeSlide: function($el) {},
+        onAfterSlide: function($el) {},
+        onBeforeNextSlide: function($el) {},
+        onBeforePrevSlide: function($el) {}
     };
     $.fn.lightSlider = function(options) {
         if (this.length > 1) {
@@ -160,9 +161,9 @@
                 }
             },
             initialStyle: function() {
-                settings.onBeforeStart.call(this);
+                settings.onBeforeStart.call(this, $el);
                 refresh.chbreakpoint();
-                $el.addClass('lightSlider').wrap("<div class='lSSlideOuter " + settings.class + "'><div class='lSSlideWrapper'></div></div>");
+                $el.addClass('lightSlider').wrap("<div class='lSSlideOuter " + settings.addClass + "'><div class='lSSlideWrapper'></div></div>");
                 $slide = $el.parent('.lSSlideWrapper');
                 if (settings.rtl === true) {
                     $slide.parent().addClass('lSrtl');
@@ -338,7 +339,7 @@
                     }
                     refresh.createPager();
                 }
-                settings.onSliderLoad.call(this);
+                settings.onSliderLoad.call(this, $el);
             },
             active: function(ob, t) {
                 if (this.doCss() && settings.mode === "fade") {
@@ -638,7 +639,7 @@
         };
         $el.goToPrevSlide = function() {
             if (scene > 0) {
-                settings.onBeforePrevSlide.call(this);
+                settings.onBeforePrevSlide.call(this, $el);
                 scene--;
                 $el.mode();
                 if (settings.gallery === true) {
@@ -646,7 +647,7 @@
                 }
             } else {
                 if (settings.loop === true) {
-                    settings.onBeforePrevSlide.call(this);
+                    settings.onBeforePrevSlide.call(this, $el);
                     if (settings.mode === 'slide') {
                         var v = 0;
                         for (var i = 0; i < length; i++) {
@@ -675,7 +676,7 @@
                 var nextI = _slideValue < w - elSize - settings.slideMargin;
             }
             if (((scene * settings.slideMove) < length - settings.slideMove) && nextI) {
-                settings.onBeforeNextSlide.call(this);
+                settings.onBeforeNextSlide.call(this, $el);
                 scene++;
                 $el.mode();
                 if (settings.gallery === true) {
@@ -683,7 +684,7 @@
                 }
             } else {
                 if (settings.loop === true) {
-                    settings.onBeforeNextSlide.call(this);
+                    settings.onBeforeNextSlide.call(this, $el);
                     scene = 0;
                     $el.mode();
                     if (settings.gallery === true) {
@@ -703,8 +704,8 @@
                         if (settings.speed !== '') {
                             $slide.css('transition-duration', settings.speed + 'ms');
                         }
-                        if (settings.easing !== '') {
-                            $slide.css('transition-timing-function', settings.easing);
+                        if (settings.cssEasing !== '') {
+                            $slide.css('transition-timing-function', settings.cssEasing);
                         }
                     }
                 } else {
@@ -712,20 +713,20 @@
                         if (settings.speed !== '') {
                             $el.css('transition-duration', settings.speed + 'ms');
                         }
-                        if (settings.easing !== '') {
-                            $el.css('transition-timing-function', settings.easing);
+                        if (settings.cssEasing !== '') {
+                            $el.css('transition-timing-function', settings.cssEasing);
                         }
                     }
                 }
             }
-            settings.onBeforeSlide.call(this);
+            settings.onBeforeSlide.call(this, $el);
             if (settings.mode === "slide") {
                 plugin.slide();
             } else {
                 plugin.fade();
             }
             setTimeout(function() {
-                settings.onAfterSlide.call(this);
+                settings.onAfterSlide.call(this, $el);
             }, settings.speed);
             on = true;
         };
