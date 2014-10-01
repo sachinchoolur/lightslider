@@ -86,53 +86,54 @@ add the Following code to the &lt;head&gt; of your document.
 <script type="text/javascript">
     $(document).ready(function() {
         $("#lightSlider").lightSlider({
-        item: 3,
-        slideMove: 1,
-        slideMargin: 10,
+            item: 3,
+            slideMove: 1,
+            slideMargin: 10,
 
-        class: '',
-        mode: "slide",
-        useCSS: true,
-        easing: 'ease', //'ex cubic-bezier(0.25, 0, 0.25, 1)',//
+            addClass: '',
+            mode: "slide",
+            useCSS: true,
+            cssEasing: 'ease', //'cubic-bezier(0.25, 0, 0.25, 1)',//
+            easing: 'linear', //'for jquery animation',////
 
-        speed: 400, //ms'
-        auto: false,
-        loop: false,
-        pause: 2000,
+            speed: 400, //ms'
+            auto: false,
+            loop: false,
+            pause: 2000,
 
-        keyPress: true,
-        controls: true,
-        prevHtml: '',
-        nextHtml: '',
+            keyPress: true,
+            controls: true,
+            prevHtml: '',
+            nextHtml: '',
 
-        rtl:false,
-        adaptiveHeight:false,
+            rtl:false,
+            adaptiveHeight:false,
 
-        vertical:false,
-        verticalHeight:500,
-        vThumbWidth:100,
+            vertical:false,
+            verticalHeight:500,
+            vThumbWidth:100,
 
-        thumbItem:10,
-        pager: true,
-        gallery: false,
-        galleryMargin: 5,
-        thumbMargin: 5,
-        currentPagerPosition: 'middle',
+            thumbItem:10,
+            pager: true,
+            gallery: false,
+            galleryMargin: 5,
+            thumbMargin: 5,
+            currentPagerPosition: 'middle',
 
-        enableTouch:true,
-        enableDrag:true,
-        freeMove:false,
-        swipeThreshold: 40,
+            enableTouch:true,
+            enableDrag:true,
+            freeMove:false,
+            swipeThreshold: 40,
 
-        responsive : [],
+            responsive : [],
 
-        onBeforeStart: function () {},
-        onSliderLoad: function () {},
-        onBeforeSlide: function () {},
-        onAfterSlide: function () {},
-        onBeforeNextSlide: function () {},
-        onBeforePrevSlide: function () {}
-    });
+            onBeforeStart: function (plugin) {},
+            onSliderLoad: function (plugin) {},
+            onBeforeSlide: function (plugin, scene) {},
+            onAfterSlide: function (plugin, scene) {},
+            onBeforeNextSlide: function (plugin, scene) {},
+            onBeforePrevSlide: function (plugin, scene) {}
+        });
     });
 </script>
 ```

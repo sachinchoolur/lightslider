@@ -574,17 +574,21 @@ $(document).ready(function() {
     onSliderLoad: function (plugin) {
         plugin.addClass('classAddedBeforeSliderLoad');
     },
-    onBeforeSlide: function (plugin) {
+    onBeforeSlide: function (plugin,scene) {
         alert('onBeforeSlide');
+        console.log(scene);
     },
-    onAfterSlide: function (plugin) {
+    onAfterSlide: function (plugin,scene) {
         alert('onAfterSlide');
+        console.log(scene);
     },
-    onBeforeNextSlide: function (plugin) {
+    onBeforeNextSlide: function (plugin,scene) {
         alert('onBeforeNextSlide');
+        console.log(scene);
     },
-    onBeforePrevSlide: function (plugin) {
+    onBeforePrevSlide: function (plugin,scene) {
         alert('onBeforePrevSlide');
+        console.log(scene);
     }
   });
 });</pre>
@@ -666,17 +670,21 @@ $(document).ready(function() {
             onSliderLoad: function (plugin) {
                 plugin.addClass('classAddedBeforeSliderLoad');
             },
-            onBeforeSlide: function (plugin) {
+            onBeforeSlide: function (plugin,scene) {
                 alert('onBeforeSlide');
+                console.log(scene);
             },
-            onAfterSlide: function (plugin) {
+            onAfterSlide: function (plugin,scene) {
                 alert('onAfterSlide');
+                console.log(scene);
             },
-            onBeforeNextSlide: function (plugin) {
+            onBeforeNextSlide: function (plugin,scene) {
                 alert('onBeforeNextSlide');
+                console.log(scene);
             },
-            onBeforePrevSlide: function (plugin) {
+            onBeforePrevSlide: function (plugin,scene) {
                 alert('onBeforePrevSlide');
+                console.log(scene);
             }
         });
         $('#vertical').lightSlider({

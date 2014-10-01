@@ -256,7 +256,7 @@
                   </tbody>
                 </table>
 
-                <h3>Callbacks <small>callback parameter plugin = current plugin object</small></h3>
+                <h3>Callbacks <small>callback parameter plugin = current plugin object; scene = current scene</small></h3>
                 <table class="table table-bordered">
                     <thead>
                     <tr>
@@ -278,22 +278,22 @@
                     </tr>
                     <tr>
                       <td>onBeforeSlide</td>
-                      <td>plugin</td>
+                      <td>plugin,scene</td>
                       <td>Executes immediately before each slide transition.</td>
                     </tr>
                     <tr>
                       <td>onAfterSlide</td>
-                      <td>plugin</td>
+                      <td>plugin,scene</td>
                       <td>Executes immediately after each slide transition.</td>
                     </tr>
                     <tr>
                       <td>onBeforeNextSlide</td>
-                      <td>plugin</td>
+                      <td>plugin,scene</td>
                       <td>Executes immediately before each "Next" slide transition.</td>
                     </tr>
                     <tr>
                       <td>onBeforePrevSlide</td>
-                      <td>plugin</td> 
+                      <td>plugin,scene</td> 
                       <td>Executes immediately before each "Prev" slide transition. </td>
                     </tr>
                     </tbody>
