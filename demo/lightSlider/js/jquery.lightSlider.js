@@ -12,10 +12,11 @@
         item: 3,
         slideMove: 1,
         slideMargin: 10,
-        class: '',
+        addClass: '',
         mode: "slide",
         useCSS: true,
-        easing: 'ease', //'ex cubic-bezier(0.25, 0, 0.25, 1)',//
+        cssEasing: 'ease', //'cubic-bezier(0.25, 0, 0.25, 1)',//
+        easing: 'linear', //'for jquery animation',//
         speed: 400, //ms'
         auto: false,
         loop: false,
@@ -162,7 +163,7 @@
             initialStyle: function() {
                 settings.onBeforeStart.call(this, $el);
                 refresh.chbreakpoint();
-                $el.addClass('lightSlider').wrap("<div class='lSSlideOuter " + settings.class + "'><div class='lSSlideWrapper'></div></div>");
+                $el.addClass('lightSlider').wrap("<div class='lSSlideOuter " + settings.addClass + "'><div class='lSSlideWrapper'></div></div>");
                 $slide = $el.parent('.lSSlideWrapper');
                 if (settings.rtl === true) {
                     $slide.parent().addClass('lSrtl');
@@ -703,8 +704,8 @@
                         if (settings.speed !== '') {
                             $slide.css('transition-duration', settings.speed + 'ms');
                         }
-                        if (settings.easing !== '') {
-                            $slide.css('transition-timing-function', settings.easing);
+                        if (settings.cssEasing !== '') {
+                            $slide.css('transition-timing-function', settings.cssEasing);
                         }
                     }
                 } else {
@@ -712,8 +713,8 @@
                         if (settings.speed !== '') {
                             $el.css('transition-duration', settings.speed + 'ms');
                         }
-                        if (settings.easing !== '') {
-                            $el.css('transition-timing-function', settings.easing);
+                        if (settings.cssEasing !== '') {
+                            $el.css('transition-timing-function', settings.cssEasing);
                         }
                     }
                 }
