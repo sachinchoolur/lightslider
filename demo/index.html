@@ -28,7 +28,10 @@
     <script src="lightSlider/js/jquery.lightSlider.js"></script> 
     <script>
     	 $(document).ready(function() {
-			$("#demo").lightSlider();
+			$("#demo").lightSlider({
+                loop:true,
+                keyPress:true
+            });
 		});
     </script>
 </head>
