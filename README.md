@@ -70,7 +70,7 @@ $ bower install lightslider
 
 ### npm
 
-You can also find all lightslider on [npm](http://npmjs.org).
+You can also find lightslider on [npm](http://npmjs.org).
 
 ```sh
 $ npm install lightslider
