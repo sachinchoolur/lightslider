@@ -60,6 +60,22 @@ Main Features
 How to use lightSlider?
 --------------------
 
+### Bower
+
+Install lightslider using the [Bower](http://bower.io) package manager.
+
+```sh
+$ bower install lightslider
+```
+
+### npm
+
+You can also find all lightslider on [npm](http://npmjs.org).
+
+```sh
+$ npm install lightslider
+```
+
 ### The code ###
 add the Following code to the &lt;head&gt; of your document.
 ```html
