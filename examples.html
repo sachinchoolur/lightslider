@@ -6,14 +6,29 @@
 <meta charset="utf-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="description" content="JQuery lightSlider is a lightweight responsive Content slider" />
+<meta name="description" content="JQuery lightSlider examples" />
 <link rel="shortcut icon" href="static/img/favicon.ico">
 <link href="css/base.css" rel="stylesheet">
 <link rel="stylesheet" href="lightSlider/css/lightSlider.css" />
 <link rel="stylesheet" href="css/prettify.css" />
+<link rel="stylesheet" href="http://sachinchoolur.github.io/lightGallery/light-gallery/css/lightGallery.css" />
 <link href='http://fonts.googleapis.com/css?family=Cinzel+Decorative:400,700,900' rel='stylesheet' type='text/css'>
 <link href='http://fonts.googleapis.com/css?family=Dosis:200,300,400,500,600,700,800|Roboto+Slab:400,300,700,100' rel='stylesheet' type='text/css'>
 <link href='http://fonts.googleapis.com/css?family=Roboto:400,100,100italic,300,300italic,400italic,500,500italic,700,700italic,900,900italic|Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800' rel='stylesheet' type='text/css'>
+<style type="text/css">
+    .item-a { width:200px; }
+    .item-b { width:340px; }
+    .item-c { width:290px; }
+    .item-d { width:220px; }
+    .item-e { width:350px; }
+    @media (max-width: 768px) {
+        .item-a { width:100px; }
+        .item-b { width:240px; }
+        .item-c { width:190px; }
+        .item-d { width:120px; }
+        .item-e { width:250px; }
+    }
+</style>
 <!--[if lt IE 9]>
   <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
   <script src="https://oss.maxcdn.com/libs/respond.js/1.3.0/respond.min.js"></script>
@@ -67,7 +82,7 @@
             <div class="row">
                 <div class="col-xs-12">
                     <section class="install">
-                        <h2>Responsive  <span class="small">Resize your browser to see how responsive option works </span> <span class="small"><b>Window Width:</b> <span id="windowWidh"></span></span> </h2>
+                        <h2>Responsive  <span class="small">Resize your browser to see how responsive option works </span> <span class="small"><b>Window Width:</b> <span class="windowWidh"></span></span> </h2>
                         <div class="demo hasActive">
                             <ul id="responsive" class="gallery content-slider list-unstyled clearfix cS-hidden">
                                 <li>
@@ -140,6 +155,124 @@
             </div>
         </div>
     </div>
+    <div class="hero" style="margin-top:20px;border-top:1px solid #F1F1F1">
+        <div class="container-fluid example">
+            <div class="row">
+                <div class="col-xs-12">
+                    <section class="install">
+                        <h2>Auto width <span class="small">this is responsive too! </span> <span class="small"><b>Window Width:</b> <span class="windowWidh"></span></span></h2>
+                                <div class="demo">
+                                    <ul id="autoWidth" class="content-slider list-unstyled cS-hidden">
+                                        <li class="item-a">
+                                            <h3>1 
+                                                <small style="color: white;" class="hidden-xs">Width : 200</small>
+                                                <small style="color: white;" class="hidden-sm hidden-md hidden-lg">Width : 100</small>
+                                            </h3>
+                                        </li>
+                                        <li class="item-b">
+                                            <h3>2<small style="color: white;" class="hidden-xs">Width : 340</small>
+                                                <small style="color: white;" class="hidden-sm hidden-md hidden-lg">Width : 240</small></h3>
+                                        </li>
+                                        <li class="item-c">
+                                            <h3>3<small style="color: white;" class="hidden-xs">Width : 290</small>
+                                                <small style="color: white;" class="hidden-sm hidden-md hidden-lg">Width : 190</small></h3>
+                                        </li>
+                                        <li class="item-d">
+                                            <h3>4<small style="color: white;" class="hidden-xs">Width : 220</small>
+                                                <small style="color: white;" class="hidden-sm hidden-md hidden-lg">Width : 120</small></h3>
+                                        </li>
+                                        <li class="item-e">
+                                            <h3>5<small style="color: white;" class="hidden-xs">Width : 350</small>
+                                                <small style="color: white;" class="hidden-sm hidden-md hidden-lg">Width : 150</small></h3>
+                                        </li>
+                                        <li class="item-d">
+                                            <h3>6<small style="color: white;" class="hidden-xs">Width : 220</small>
+                                                <small style="color: white;" class="hidden-sm hidden-md hidden-lg">Width : 120</small></h3>
+                                        </li>
+                                        <li class="item-c">
+                                            <h3>7<small style="color: white;" class="hidden-xs">Width : 290</small>
+                                                <small style="color: white;" class="hidden-sm hidden-md hidden-lg">Width : 190</small></h3>
+                                        </li>
+                                        <li class="item-e">
+                                            <h3>8<small style="color: white;" class="hidden-xs">Width : 350</small>
+                                                <small style="color: white;" class="hidden-sm hidden-md hidden-lg">Width : 150</small></h3>
+                                        </li>
+                                        <li class="item-a">
+                                            <h3>9<small style="color: white;" class="hidden-xs">Width : 200</small>
+                                                <small style="color: white;" class="hidden-sm hidden-md hidden-lg">Width : 100</small></h3>
+                                        </li>
+                                        <li class="item-b">
+                                            <h3>10<small style="color: white;" class="hidden-xs">Width : 340</small>
+                                                <small style="color: white;" class="hidden-sm hidden-md hidden-lg">Width : 240</small></h3>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <div class="call">
+                            <pre class="prettyprint linenums">
+  $(document).ready(function() {
+    $('#autoWidth').lightSlider({
+        autoWidth:true,
+        loop:true,
+        onSliderLoad: function() {
+            $('#autoWidth').removeClass('cS-hidden');
+        } 
+    });  
+  });</pre>
+<pre class="prettyprint linenums">
+&lt;ul id="autoWidth" class="cs-hidden"&gt;
+  &lt;li class="item-a"&gt;&lt;/li&gt;
+  &lt;li class="item-b"&gt;&lt;/li&gt;
+  &lt;li class="item-c"&gt;&lt;/li&gt;
+  &lt;li class="item-d"&gt;&lt;/li&gt;
+  &lt;li class="item-e"&gt;&lt;/li&gt;
+&lt;/ul&gt;</pre>   
+                                </div>    
+                                </div>
+                                <div class="col-md-6"> 
+                                    <div class="call">
+                            <pre class="prettyprint linenums">
+.item-a { width:200px; }
+.item-b { width:340px; }
+.item-c { width:290px; }
+.item-d { width:220px; }
+.item-e { width:350px; }
+@media (max-width: 768px) {
+    .item-a { width:100px; }
+    .item-b { width:240px; }
+    .item-c { width:190px; }
+    .item-d { width:120px; }
+    .item-e { width:250px; }
+}
+</pre>  
+                           
+                                </div>
+                            </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-sm-12">
+                                     <h3>Note</h3>
+                            <ul class="pdl0 note">
+                                <li>cS-hidden is a utility css class to prevent displaying slider before execution (Optional) </li>
+                                <li>It should remove once the slider is fully loaded </li>
+                            </ul> 
+                                <pre class="prettyprint linenums">
+.cS-hidden {
+    height: 1px;
+    opacity: 0;
+    filter: alpha(opacity=0);
+    overflow: hidden;
+}
+</pre>
+                                </div>
+                            </div>
+                    </section>
+                </div>
+            </div>
+        </div>
+    </div>
     <div class="container-fluid">
         <div class="row">
             <div class="col-xs-12">
@@ -183,57 +316,65 @@ $(document).ready(function() {
     </div>
     <div class="hero" style="margin-top:20px;border-top:1px solid #F1F1F1">
         <div class="container-fluid example">
-            <div class="row">
+            <div class="row" >
                 <div class="col-xs-12">
                 	<section class="install">
-                        <h2>Image Gallery</h2>
+                        <h2>Integrate with <a target="_blank" href="http://sachinchoolur.github.io/lightGallery/">lightGallery</a></h2>
+                        <div class="row" style="margin-bottom:0;">
+                            <div class="col-sm-12">
+                                <p>Include lightGallery.js and lightGallery.css into your document.</p>
+                        <pre class="prettyprint linenums">
+&lt;link type="text/css" rel="stylesheet" href="css/lightSlider.css" /&gt;                  
+&lt;script src="js/lightSlider.js"&gt;&lt;/script&gt;
+                            </div>
+                        </div>
                         <div class="row">
                             <div class="col-sm-6">
                                 <div class="demo">
                                     <ul id="imageGallery" class="gallery list-unstyled">
-                                        <li data-thumb="img/thumb/cS-1.jpg"> <a href="javascript:void(0)">
+                                        <li data-thumb="img/thumb/cS-1.jpg" data-src="http://sachinchoolur.github.io/lightslider/img/cS-1.jpg"> <a href="javascript:void(0)">
                                             <img src="img/cS-1.jpg" />
                                             </a> </li>
-                                        <li data-thumb="img/thumb/cS-2.jpg"> <a href="javascript:void(0)">
+                                        <li data-thumb="img/thumb/cS-2.jpg" data-src="http://sachinchoolur.github.io/lightslider/img/cS-2.jpg"> <a href="javascript:void(0)">
                                             <img src="img/cS-2.jpg" />
                                             </a> </li>
-                                        <li data-thumb="img/thumb/cS-3.jpg"> <a href="javascript:void(0)">
+                                        <li data-thumb="img/thumb/cS-3.jpg" data-src="http://sachinchoolur.github.io/lightslider/img/cS-3.jpg"> <a href="javascript:void(0)">
                                             <img src="img/cS-3.jpg" />
                                             </a> </li>
-                                        <li data-thumb="img/thumb/cS-4.jpg"> <a href="javascript:void(0)">
+                                        <li data-thumb="img/thumb/cS-4.jpg" data-src="http://sachinchoolur.github.io/lightslider/img/cS-4.jpg"> <a href="javascript:void(0)">
                                             <img src="img/cS-4.jpg" />
                                             </a> </li>
-                                        <li data-thumb="img/thumb/cS-5.jpg"> <a href="javascript:void(0)">
+                                        <li data-thumb="img/thumb/cS-5.jpg" data-src="http://sachinchoolur.github.io/lightslider/img/cS-5.jpg"> <a href="javascript:void(0)">
                                             <img src="img/cS-5.jpg" />
                                             </a> </li>
-                                        <li data-thumb="img/thumb/cS-6.jpg"> <a href="javascript:void(0)">
+                                        <li data-thumb="img/thumb/cS-6.jpg" data-src="http://sachinchoolur.github.io/lightslider/img/cS-6.jpg"> <a href="javascript:void(0)">
                                             <img src="img/cS-6.jpg" />
                                             </a> </li>
-                                        <li data-thumb="img/thumb/cS-7.jpg"> <a href="javascript:void(0)">
+                                        <li data-thumb="img/thumb/cS-7.jpg" data-src="http://sachinchoolur.github.io/lightslider/img/cS-7.jpg"> <a href="javascript:void(0)">
                                             <img src="img/cS-7.jpg" />
                                             </a> </li>
-                                        <li data-thumb="img/thumb/cS-8.jpg"> <a href="javascript:void(0)">
+                                        <li data-thumb="img/thumb/cS-8.jpg" data-src="http://sachinchoolur.github.io/lightslider/img/cS-8.jpg"> <a href="javascript:void(0)">
                                             <img src="img/cS-8.jpg" />
                                             </a> </li>
-                                        <li data-thumb="img/thumb/cS-9.jpg"> <a href="javascript:void(0)">
+                                        <li data-thumb="img/thumb/cS-9.jpg" data-src="http://sachinchoolur.github.io/lightslider/img/cS-9.jpg"> <a href="javascript:void(0)">
                                             <img src="img/cS-9.jpg" />
                                             </a> </li>
-                                        <li data-thumb="img/thumb/cS-10.jpg"> <a href="javascript:void(0)">
+                                        <li data-thumb="img/thumb/cS-10.jpg" data-src="http://sachinchoolur.github.io/lightslider/img/cS-10.jpg"> <a href="javascript:void(0)">
                                             <img src="img/cS-10.jpg" />
                                             </a> </li>
-                                        <li data-thumb="img/thumb/cS-11.jpg"> <a href="javascript:void(0)">
+                                        <li data-thumb="img/thumb/cS-11.jpg" data-src="http://sachinchoolur.github.io/lightslider/img/cS-11.jpg"> <a href="javascript:void(0)">
                                             <img src="img/cS-11.jpg" />
                                             </a> </li>
-                                        <li data-thumb="img/thumb/cS-12.jpg"> <a href="javascript:void(0)">
+                                        <li data-thumb="img/thumb/cS-12.jpg" data-src="http://sachinchoolur.github.io/lightslider/img/cS-12.jpg"> <a href="javascript:void(0)">
                                             <img src="img/cS-12.jpg" />
                                             </a> </li>
-                                        <li data-thumb="img/thumb/cS-13.jpg"> <a href="javascript:void(0)">
+                                        <li data-thumb="img/thumb/cS-13.jpg" data-src="http://sachinchoolur.github.io/lightslider/img/cS-13.jpg"> <a href="javascript:void(0)">
                                             <img src="img/cS-13.jpg" />
                                             </a> </li>
-                                        <li data-thumb="img/thumb/cS-14.jpg"> <a href="javascript:void(0)">
+                                        <li data-thumb="img/thumb/cS-14.jpg" data-src="http://sachinchoolur.github.io/lightslider/img/cS-14.jpg"> <a href="javascript:void(0)">
                                             <img src="img/cS-14.jpg" />
                                             </a> </li>
-                                        <li data-thumb="img/thumb/cS-15.jpg"> <a href="javascript:void(0)">
+                                        <li data-thumb="img/thumb/cS-15.jpg" data-src="http://sachinchoolur.github.io/lightslider/img/cS-15.jpg"> <a href="javascript:void(0)">
                                             <img src="img/cS-15.jpg" />
                                             </a> </li>
                                     </ul>
@@ -244,19 +385,22 @@ $(document).ready(function() {
                             <pre class="prettyprint linenums" style="margin-top:0;">
   $(document).ready(function() {
     $('#imageGallery').lightSlider({
-      gallery:true,
-      item:1,
-      slideMargin:0,
-      currentPagerPosition:'left',
-      thumbItem:9  
+        gallery:true,
+        item:1,
+        thumbItem:9,
+        slideMargin:0,
+        currentPagerPosition:'left',
+        onSliderLoad: function(plugin) {
+            plugin.lightGallery();
+        }   
     });  
   });</pre>
 <pre class="prettyprint linenums">
 &lt;ul id="imageGallery"&gt;
-  &lt;li data-thumb="img/thumb/cS-1.jpg"&gt;
+  &lt;li data-thumb="img/thumb/cS-1.jpg" data-src="img/largeImage.jpg"&gt;
     &lt;img src="img/cS-1.jpg" /&gt;
   &lt;/li&gt;
-  &lt;li data-thumb="img/thumb/cS-2.jpg"&gt;
+  &lt;li data-thumb="img/thumb/cS-2.jpg" data-src="img/largeImage1.jpg"&gt;
     &lt;img src="img/cS-2.jpg" /&gt;
   &lt;/li&gt;
 &lt;/ul&gt;</pre>   
@@ -306,7 +450,8 @@ $(document).ready(function() {
     $('#adaptive').lightSlider({
         adaptiveHeight:true,
         item:1,
-        slideMargin:0
+        slideMargin:0,
+        loop:true
     });
 });</pre>
                     </div>
@@ -411,7 +556,9 @@ $(document).ready(function() {
         <div class="row">
             <div class="col-xs-12">
                 <section class="install">
-                        <h2>Autoplay with loop</h2>
+                        <h2>Autoplay with loop, pause on hover, display slide count</h2>
+                                <h4 style="margin:0 0 10px 0;"><span id="current">1</span> of <span id="total"></span></h4>
+                                
                                 <div class="demo hasActive">
                                     <ul id="autoplay" class="gallery content-slider list-unstyled clearfix cS-hidden">
                                         <li>
@@ -438,10 +585,20 @@ $(document).ready(function() {
                     <div class="call">
                         <pre class="prettyprint linenums" style="margin-top:0;">
 $(document).ready(function() {
-  $('#autoplay').lightSlider({
-    auto:true,
-    loop:true
-  });
+    var autoplaySlider = $('#autoplay').lightSlider({
+        auto:true,
+        loop:true
+        onBeforeSlide: function (el) {
+            $('#current').text(el.getCurrentSlideCount());
+        } 
+    });
+    $('#total').text(autoplaySlider.getTotalSlideCount());
+    $('#autoplay').parent().on('mouseenter',function(){
+        autoplaySlider.pause();
+    });
+    $('#autoplay').parent().on('mouseleave',function(){
+        autoplaySlider.play();
+    });
 });</pre>
                     </div>
                     </section>
@@ -568,29 +725,25 @@ $(document).ready(function() {
                         <pre class="prettyprint linenums" style="margin-top:0;">
 $(document).ready(function() {
   $('#callback').lightSlider({
-    onBeforeStart: function (plugin) {
-        console.log('onBeforeStart',plugin);
+    onBeforeStart: function (el) {
+        console.log('onBeforeStart',el);
     },
-    onSliderLoad: function (plugin) {
-        plugin.addClass('classAddedBeforeSliderLoad');
+    onSliderLoad: function (el) {
+        el.addClass('classAddedBeforeSliderLoad');
     },
-    onBeforeSlide: function (plugin,scene) {
+    onBeforeSlide: function (el) {
         alert('onBeforeSlide');
-        console.log(scene);
     },
-    onAfterSlide: function (plugin,scene) {
+    onAfterSlide: function (el) {
         alert('onAfterSlide');
-        console.log(scene);
     },
-    onBeforeNextSlide: function (plugin,scene) {
+    onBeforeNextSlide: function (el) {
         alert('onBeforeNextSlide');
-        console.log(scene);
     },
-    onBeforePrevSlide: function (plugin,scene) {
+    onBeforePrevSlide: function (el) {
         alert('onBeforePrevSlide');
-        console.log(scene);
     }
-  });
+});
 });</pre>
                     </div>
                     </section>
@@ -602,16 +755,18 @@ $(document).ready(function() {
 </div>
 <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script> 
 <script src="lightSlider/js/jquery.lightSlider.js"></script> 
+<script src="http://sachinchoolur.github.io/lightGallery/light-gallery/js/lightGallery.js"></script> 
 <script src="js/prettify.js"></script> 
 <script type="text/javascript">
 	var site = $('#site');
     
     $(document).ready(function() {
         window.prettyPrint && prettyPrint();
-        $('#windowWidh').text($(window).width());
+        $('.windowWidh').text($(window).width());
         $('#responsive').lightSlider({
             item:4,
             slideMove:2,
+            loop:true,
             cssEasing: 'cubic-bezier(0.25, 0, 0.25, 1)',
             speed:600,
             responsive : [
@@ -635,20 +790,38 @@ $(document).ready(function() {
                 $('#responsive').removeClass('cS-hidden');
             } 
         });   
-		$('#adaptive').lightSlider({
+		$('#autoWidth').lightSlider({
+            autoWidth:true,
+            loop:true,
+            onSliderLoad: function() {
+                $('#autoWidth').removeClass('cS-hidden');
+            } 
+        });
+        $('#adaptive').lightSlider({
             adaptiveHeight:true,
             item:1,
             slideMargin:0,
+            loop:true,
             onSliderLoad: function() {
                 $('#adaptive').removeClass('cS-hidden');
             } 
         });
-        $('#autoplay').lightSlider({
+        var autoplaySlider = $('#autoplay').lightSlider({
             auto:true,
             loop:true,
             onSliderLoad: function() {
                 $('#autoplay').removeClass('cS-hidden');
+            },
+            onBeforeSlide: function (el) {
+                $('#current').text(el.getCurrentSlideCount());
             } 
+        });
+        $('#total').text(autoplaySlider.getTotalSlideCount());
+        $('#autoplay').parent().on('mouseenter',function(){
+            autoplaySlider.pause();
+        });
+        $('#autoplay').parent().on('mouseleave',function(){
+            autoplaySlider.play();
         });
         $('#rtl').lightSlider({
 			rtl:true,
@@ -661,30 +834,29 @@ $(document).ready(function() {
             item:1,
             thumbItem:9,
             slideMargin:0,
-            currentPagerPosition:'left'  
+            currentPagerPosition:'left',
+            onSliderLoad: function(el) {
+                el.lightGallery();
+            }   
         });
         $('#callback').lightSlider({
-            onBeforeStart: function (plugin) {
-                console.log('onBeforeStart',plugin);
+            onBeforeStart: function (el) {
+                console.log('onBeforeStart',el);
             },
-            onSliderLoad: function (plugin) {
-                plugin.addClass('classAddedBeforeSliderLoad');
+            onSliderLoad: function (el) {
+                el.addClass('classAddedBeforeSliderLoad');
             },
-            onBeforeSlide: function (plugin,scene) {
+            onBeforeSlide: function (el) {
                 alert('onBeforeSlide');
-                console.log(scene);
             },
-            onAfterSlide: function (plugin,scene) {
+            onAfterSlide: function (el) {
                 alert('onAfterSlide');
-                console.log(scene);
             },
-            onBeforeNextSlide: function (plugin,scene) {
+            onBeforeNextSlide: function (el) {
                 alert('onBeforeNextSlide');
-                console.log(scene);
             },
-            onBeforePrevSlide: function (plugin,scene) {
+            onBeforePrevSlide: function (el) {
                 alert('onBeforePrevSlide');
-                console.log(scene);
             }
         });
         $('#vertical').lightSlider({

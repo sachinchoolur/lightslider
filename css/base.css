@@ -3959,3 +3959,21 @@ ul.note {
     font-size: 14px;
     line-height: 1.7;
 }
+
+.number {
+    background: none repeat scroll 0 0 white;
+    border-radius: 100%;
+    color: red;
+    display: inline-block;
+    font-size: 16px;
+    font-weight: bold;
+    height: 30px;
+    line-height: 1.9;
+    margin: 50px 0 15px;
+    width: 30px;
+}
+.content-slider h4 {
+    margin: 0;
+    font-size: 14px;
+    padding: 0 0 50px;
+}

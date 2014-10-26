@@ -6,7 +6,7 @@
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="description" content="Jquery lightGallery is a lightweight jQuery lightbox gallery for displaying image and video gallery" />
+<meta name="description" content="Jquery lightGallery settings" />
 <link rel="shortcut icon" href="static/img/favicon.ico">
 <link href="css/base.css" rel="stylesheet">
 <link rel="stylesheet" href="light-gallery/css/lightGallery.css" />
@@ -74,6 +74,12 @@
                       <td>number of slides to show at a time</td>
                     </tr>
                     <tr>
+                      <td>autoWidth: false,</td>
+                      <td>boolean</td>
+                      <td>false</td>
+                      <td>Custom width for each slide</td>
+                    </tr>
+                    <tr>
                       <td>slideMove</td>
                       <td>number</td>
                       <td>1</td>
@@ -134,6 +140,12 @@
                       <td>If false, will disable the ability to loop back to the beginning of the slide when on the last element.</td>
                     </tr>
                     <tr>
+                      <td>slideEndAnimatoin</td>
+                      <td>bolean</td>
+                      <td>true</td>
+                      <td>Enable slideEnd animation</td>
+                    </tr>
+                    <tr>
                       <td>pause</td>
                       <td>number</td>
                       <td>2000</td>
@@ -142,7 +154,7 @@
                     <tr>
                       <td>keyPress</td>
                       <td>boolean</td>
-                      <td>true</td>
+                      <td>false</td>
                       <td>Enable keyboard navigation</td>
                     </tr>
                     <tr>
@@ -244,7 +256,7 @@
                     <tr>
                       <td>freeMove</td>
                       <td>boolean</td>
-                      <td>false</td>
+                      <td>true</td>
                       <td>Enable free move(no limit) while swipe or drag</td>
                     </tr>
                     <tr>
@@ -256,7 +268,7 @@
                   </tbody>
                 </table>
 
-                <h3>Callbacks <small>callback parameter plugin = current plugin object; scene = current scene</small></h3>
+                <h3>Callbacks <small>callback parameter el = current plugin object; </small></h3>
                 <table class="table table-bordered">
                     <thead>
                     <tr>
@@ -268,32 +280,32 @@
                     <tbody>
                     <tr>
                       <td>onBeforeStart</td>
-                      <td>plugin</td>
+                      <td>el</td>
                       <td>Executes before slider start loading</td>
                     </tr>
                     <tr>
                       <td>onSliderLoad</td>
-                      <td>plugin</td>
+                      <td>el</td>
                       <td>Executes immediately after the slider is fully loaded.</td>
                     </tr>
                     <tr>
                       <td>onBeforeSlide</td>
-                      <td>plugin,scene</td>
+                      <td>el</td>
                       <td>Executes immediately before each slide transition.</td>
                     </tr>
                     <tr>
                       <td>onAfterSlide</td>
-                      <td>plugin,scene</td>
+                      <td>el</td>
                       <td>Executes immediately after each slide transition.</td>
                     </tr>
                     <tr>
                       <td>onBeforeNextSlide</td>
-                      <td>plugin,scene</td>
+                      <td>el</td>
                       <td>Executes immediately before each "Next" slide transition.</td>
                     </tr>
                     <tr>
                       <td>onBeforePrevSlide</td>
-                      <td>plugin,scene</td> 
+                      <td>el</td> 
                       <td>Executes immediately before each "Prev" slide transition. </td>
                     </tr>
                     </tbody>

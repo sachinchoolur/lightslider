@@ -6,7 +6,7 @@
 <meta charset="utf-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="description" content="JQuery lightSlider is a lightweight touchable responsive Content slider " />
+<meta name="description" content="JQuery lightSlider is a lightweight responsive Content carousel with animated thumbnails navigation" />
 <link rel="shortcut icon" href="static/img/favicon.ico">
 <link href="css/base.css" rel="stylesheet">
 <link rel="stylesheet" href="lightSlider/css/lightSlider.css" />
@@ -74,7 +74,7 @@
                 <div class="col-sm-12">
                     <section class="pageHead">
                         <h2 class="title">JQuery lightSlider </h2>
-                        <p class="desc">JQuery lightSlider is a lightweight responsive Content slider with carousel thumbnails navigation <small style="color:#CD3420; font-size:14px;">( 7KB minified )</small></p>
+                        <p class="desc">jQuery lightSlider is a lightweight responsive content carousel with animated thumbnails navigation <small style="color:#CD3420; font-size:14px;">( 7KB minified )</small></p>
                         <div class="share" style="margin-top:20px;">
                             <div  class="github" style="margin:0;"><iframe src="http://ghbtns.com/github-btn.html?user=sachinchoolur&repo=lightslider&type=watch" height="30" width="70" frameborder="0" scrolling="0" style="width:70px; height: 30px;" allowTransparency="true"></iframe></div>
                             <div  class="github" style="margin:-9px 0 0 0;"><a href="https://twitter.com/share" class="twitter-share-button" data-url="http://sachinchoolur.github.io/lightGallery/" data-text="jQuery lightSlider - Lightweight touchable responsive content slider." data-via="sachinchoolur" data-count="none" data-hashtags="lightSlider">Tweet</a>
@@ -83,7 +83,7 @@
                     </section>
                 </div>
                 <div class="col-sm-6">
-                    <h2>Demo</h2>
+                    <h2>Demo <small>Try it <a style="margin-left:5px;" target="_blank" href="http://jsfiddle.net/sachin377/2patspw2/">JsFiddle</a><a style="margin-left:5px;" target="_blank" href="http://codepen.io/sachinchoolur/pen/Ihoev">Codepen</a></small></h2>
                     <div class="clearfix" style="max-width:474px;">
                         <ul id="lightSlider" class="gallery list-unstyled cS-hidden">
                             <li data-thumb="img/thumb/cS-1.jpg"> <a href="#">
@@ -143,14 +143,14 @@
                             <li>Gallery mode to create an image slideshow with thumbnails</li>
                             <li>Supports swipe and mouseDrag</li>
                             <li>Add or remove slides dynamically.</li>
-                            <li>Small file size (7kb) (minified), fully themed, simple to implement.</li>
+                            <li>Small file size (9kb) (minified), fully themed, simple to implement.</li>
                             <li>CSS transitions with jQuery fallback.</li>
                             <li>Full callback API and public methods.</li>
-                            <li>Auto play and auto loop to create a content carousel.</li>
+                            <li>Auto play and infinite loop to create a content carousel.</li>
                             <li>Keyboard, arrows and dots navigation.</li>
                             <li>Chrome, Safari, Firefox, Opera, IE7+, IOS, Android, windows phone.</li>
                             <li>Slide and Fade Effects.</li>
-                            <li>Vertical Slide, Adaptiveheight, Rtl support...</li>
+                            <li>Auto width, Vertical Slide, Adaptiveheight, Rtl support...</li>
                             <li>Multiple instances on one page.</li>
                             <li>Slide anything (youtube, vimeo , google map ...)</li>
                         </ul>
@@ -231,7 +231,8 @@
 $(document).ready(function() {
     $("#lightSlider").lightSlider({
         item: 3,
-        slideMove: 1,
+        autoWidth: false,
+        slideMove: 1, // slidemove will be 1 if loop is true
         slideMargin: 10,
 
         addClass: '',
@@ -243,9 +244,10 @@ $(document).ready(function() {
         speed: 400, //ms'
         auto: false,
         loop: false,
+        slideEndAnimatoin: true,
         pause: 2000,
 
-        keyPress: true,
+        keyPress: false,
         controls: true,
         prevHtml: '',
         nextHtml: '',
@@ -266,17 +268,17 @@ $(document).ready(function() {
 
         enableTouch:true,
         enableDrag:true,
-        freeMove:false,
+        freeMove:true,
         swipeThreshold: 40,
 
         responsive : [],
 
-        onBeforeStart: function (plugin) {},
-        onSliderLoad: function (plugin) {},
-        onBeforeSlide: function (plugin, scene) {},
-        onAfterSlide: function (plugin, scene) {},
-        onBeforeNextSlide: function (plugin, scene) {},
-        onBeforePrevSlide: function (plugin, scene) {}
+        onBeforeStart: function (el) {},
+        onSliderLoad: function (el) {},
+        onBeforeSlide: function (el) {},
+        onAfterSlide: function (el) {},
+        onBeforeNextSlide: function (el) {},
+        onBeforePrevSlide: function (el) {}
     });
 });
 &lt;/script&gt;</pre>
@@ -304,6 +306,11 @@ $(document).ready(function() {
             <a href="https://twitter.com/share" class="twitter-share-button" data-url="http://sachinchoolur.github.io/lightGallery/" data-text="jQuery lightSlider - Lightweight touchable responsive content slider." data-via="sachinchoolur" data-count="none" data-hashtags="lightSlider">Tweet</a>
     <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');</script>
         </div>
+                <div style="float: left; margin-top: 10px; margin-bottom: 40px; margin-left:20px;">
+            <script src="//platform.linkedin.com/in.js" type="text/javascript"></script>
+<script type="IN/MemberProfile" data-id="https://www.linkedin.com/pub/sachin-n/36/6a8/7b8" data-format="hover" data-text="Sachin N" data-related="false"></script>
+        </div>
+
 
 </div>
                 </section>
@@ -313,7 +320,7 @@ $(document).ready(function() {
 </div>
 
 <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script> 
-<script src="lightSlider/js/jquery.lightSlider.js"></script> 
+<script src="lightSlider/js/jquery.lightSlider.min.js"></script> 
 <script src="js/prettify.js"></script> 
 <script type="text/javascript">
 	var site = $('#site');
@@ -325,7 +332,9 @@ $(document).ready(function() {
             item:1,
             thumbItem:9,
             slideMargin: 0,
+            speed:500,
             auto:true,
+            loop:true,
             onSliderLoad: function() {
                 $('#lightSlider').removeClass('cS-hidden');
             }     
@@ -333,7 +342,7 @@ $(document).ready(function() {
         $('#content-slider').lightSlider({
             keyPress:false,
             item:4,
-            loop:false,
+            loop:true,
             onSliderLoad: function() {
                 $('#content-slider').removeClass('cS-hidden');
             } 
