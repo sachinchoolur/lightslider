@@ -8,9 +8,9 @@ Demo
 
 Description
 ----------------
-JQuery lightSlider is a lightweight responsive Content slider with carousel thumbnails navigation ( 9KB minified )
+JQuery lightSlider is a lightweight responsive Content slider with carousel thumbnails navigation
 
-Changelog
+whats new
 ----------------
 ### Version 1.1.1 ###
 +   Infinite loop.
@@ -62,7 +62,7 @@ How to use lightSlider?
 
 ### Bower
 
-Install lightslider using the [Bower](http://bower.io) package manager.
+You can Install lightslider using the [Bower](http://bower.io) package manager.
 
 ```sh
 $ bower install lightslider
