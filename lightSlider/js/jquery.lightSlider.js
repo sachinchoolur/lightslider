@@ -728,10 +728,11 @@
                             endCoords = (settings.vertical === true) ? e.pageY : e.pageX;
                             var distance = endCoords - startCoords;
                             if (Math.abs(distance) >= settings.swipeThreshold) {
-                                $(e.target).on('click.ls', function (e) {
+                                $(window).on('click.ls', function(e) {
                                     e.preventDefault();
                                     e.stopImmediatePropagation();
                                     e.stopPropagation();
+                                    $(window).off('click.ls');
                                 });
                             }
 
@@ -995,8 +996,15 @@
             return $slide.find('.lslide').length;
         };
         $el.goToSlide = function (s) {
-            scene = s;
+            if (settings.loop) {
+                scene = (s + $el.find('.clone.left').length -1);
+            }else{
+                scene = s;
+            }
             $el.mode(false);
+            if (settings.gallery === true) {
+                plugin.slideThumb();
+            }
         };
         $(window).on('resize orientationchange', function (e) {
             setTimeout(function () {
