@@ -313,11 +313,11 @@
                         this.move($el, slideValue);
                     }
                     if (settings.vertical === false) {
-                        this.setHeight($el, false);
+                        this.setHeight($el, false, true);
                     }
 
                 } else {
-                    this.setHeight($el, true);
+                    this.setHeight($el, true, true);
                     $el.addClass('lSFade');
                     if (!this.doCss()) {
                         $children.not(".active").css('display', 'none');
@@ -376,7 +376,7 @@
                     if (!settings.vertical && settings.gallery) {
                         var $pgr = $slide.parent().find('.lSGallery');
                         setTimeout(function () {
-                            $this.setHeight($pgr, false);
+                            $this.setHeight($pgr, false, false);
                         });
                     }
                     if (settings.gallery === true) {
@@ -424,9 +424,15 @@
                     refresh.init();
                 }, 0);
             },
-            setHeight: function (ob, fade) {
+            setHeight: function (ob, fade, loop) {
+                var obj = null;
+                if (loop) {
+                    obj = ob.children(".lslide ").first();
+                }else{
+                    obj = ob.children().first();
+                }
                 var setCss = function () {
-                    var tH = ob.children().height(),
+                    var tH = obj.height(),
                         tP = 0,
                         tHT = tH;
                     if (fade) {
@@ -439,7 +445,7 @@
                     });
                 };
                 setCss();
-                ob.children().first().find('img').load(function () {
+                obj.find('img').load(function () {
                     setTimeout(function(){
                         setCss();
                     },100);
