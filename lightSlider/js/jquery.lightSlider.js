@@ -419,7 +419,7 @@
                     $slide.parent().find('.lSPager').css(gMargin, settings.galleryMargin + 'px');
                     refresh.createPager();
                 }
-                settings.onSliderLoad.call(this, $el);
+                
                 setTimeout(function () {
                     refresh.init();
                 }, 0);
@@ -1012,6 +1012,9 @@
                 plugin.slideThumb();
             }
         };
+        setTimeout(function(){
+            settings.onSliderLoad.call(this, $el);
+        },10);
         $(window).on('resize orientationchange', function (e) {
             setTimeout(function () {
                 e.preventDefault();
