@@ -7,9 +7,9 @@
   ],
   "description": "jQuery lightSlider is a lightweight responsive content slider - carousel with animated thumbnails navigation",
   "main": [
-    "lightslider/js/jquery.lightSlider.min.js",
-    "lightslider/css/lightSlider.css",
-    "lightslider/img/controls.png"
+    "lightSlider/js/jquery.lightSlider.min.js",
+    "lightSlider/css/lightSlider.css",
+    "lightSlider/img/controls.png"
   ],
   "keywords": [
     "slider",
