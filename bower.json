@@ -30,6 +30,7 @@
   ],
   "license": "MLT",
   "ignore": [
-    "README.md"
+    "README.md",
+    "demo"
   ]
 }
