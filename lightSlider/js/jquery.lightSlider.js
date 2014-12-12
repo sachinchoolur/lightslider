@@ -758,8 +758,12 @@
                 var $this = this;
                 if (isTouch) {
                     var startCoords = {},
-                        endCoords = {};
+                        endCoords = {},
+						isScrollingVertically = null,
+						shouldIgnoreTouchEnd = null;
                     $slide.on('touchstart', function (e) {
+						isScrollingVertically = null;
+						shouldIgnoreTouchEnd = null;
                         endCoords = e.originalEvent.targetTouches[0];
                         startCoords.pageX = e.originalEvent.targetTouches[0].pageX;
                         startCoords.pageY = e.originalEvent.targetTouches[0].pageY;
@@ -780,10 +784,17 @@
                             }
                             $this.touchMove(endCoords.pageY, startCoords.pageY);
                         } else {
-                            if ((xMovement * 3) > yMovement) {
+						
+							if(isScrollingVertically === null) {
+								isScrollingVertically = (xMovement * 3) < yMovement;
+							}
+						
+                            if (!isScrollingVertically) {
                                 e.preventDefault();
-                            }
-                            $this.touchMove(endCoords.pageX, startCoords.pageX);
+								$this.touchMove(endCoords.pageX, startCoords.pageX);
+							} else {
+								shouldIgnoreTouchEnd = true;
+							}
                         }
 
                     });
@@ -798,7 +809,7 @@
                         } else {
                             var distance = endCoords.pageX - startCoords.pageX;
                         }
-                        $this.touchEnd(distance);
+                        shouldIgnoreTouchEnd || $this.touchEnd(distance);
                     });
                 }
             },
