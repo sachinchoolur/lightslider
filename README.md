@@ -182,6 +182,8 @@ add the Following code to the &lt;head&gt; of your document.
 ### sachi77n@gmail.com ###
 Email me if you have any questions or feedbacks regarding lightslider or [lightGallery](https://github.com/sachinchoolur/lightGallery)
 
+If you like lightSlider support me by staring this repository or tweet about this project.
+
 
 [![Bitdeli Badge](https://d2weczhvl823v0.cloudfront.net/sachinchoolur/lightslider/trend.png)](https://bitdeli.com/free "Bitdeli Badge")
 
