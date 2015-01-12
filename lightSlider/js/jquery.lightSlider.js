@@ -168,6 +168,7 @@
             keyPress: function () {
                 if (settings.keyPress) {
                     $(document).on('keyup.lightslider', function (e) {
+                      if (!$(':focus').is('input, textarea')) {
                         e.preventDefault();
                         if (e.keyCode === 37) {
                             $el.goToPrevSlide();
@@ -176,6 +177,7 @@
                             $el.goToNextSlide();
                             clearInterval(interval);
                         }
+                      }
                     });
                 }
             },
@@ -421,7 +423,7 @@
                     $slide.parent().find('.lSPager').css(gMargin, settings.galleryMargin + 'px');
                     refresh.createPager();
                 }
-                
+
                 setTimeout(function () {
                     refresh.init();
                 }, 0);
