@@ -87,8 +87,43 @@
             pagerWidth = 0,
             slideWidth = 0,
             thumbWidth = 0,
+            slideWidths = [],
+            slideHeights = [],
+            slideRatios = [],
+            widestSlide = 0,
             interval = null,
             isTouch = ('ontouchstart' in document.documentElement);
+            
+            // finding size
+            $children.each(function(key, val) { // MACnus
+	            var nkey = (settings.loop) ? key+2 : key;
+	            
+	            slideHeights[nkey] = $(this).height();
+	            slideWidths[nkey] = $(this).width();
+	            slideRatios[nkey] = $(this).width() / $(this).height();
+	            if($(this).width() > widestSlide)
+	           		widestSlide = $(this).width();
+            });
+            
+            if (settings.loop) {
+                // fix for clones
+                var tmpl = slideHeights.length;
+                // before
+                slideHeights[0] = slideHeights[tmpl-2];
+                slideHeights[1] = slideHeights[tmpl-1];
+                slideWidths[0] = slideWidths[tmpl-2];
+                slideWidths[1] = slideWidths[tmpl-1];
+                slideRatios[0] = slideRatios[tmpl-2];
+                slideRatios[1] = slideRatios[tmpl-1];
+                // after
+                slideHeights.push(slideHeights[2]);
+                slideHeights.push(slideHeights[3]);
+                slideWidths.push(slideWidths[2]);
+                slideWidths.push(slideWidths[3]);
+                slideRatios.push(slideRatios[2]);
+                slideRatios.push(slideRatios[3]);
+            }
+            
         var refresh = new Object();
 
         refresh.chbreakpoint = function () {
@@ -129,9 +164,9 @@
         };
 
         refresh.calSW = function () {
-            if (settings.autoWidth === false) {
+            //if (settings.autoWidth === false) {
                 slideWidth = (elSize - ((settings.item * (settings.slideMargin)) - settings.slideMargin)) / settings.item;
-            }
+            //}
         };
 
         refresh.calWidth = function (cln) {
@@ -288,6 +323,20 @@
                     }
                     if (settings.autoWidth === false) {
                         $children.css(property, slideWidth + 'px');
+                    } else {
+	                    
+	                    $children.each(function(key, val) {
+		                    // calculate all image sizes based on the widest image.
+		                    var newwidth = widestSlide;
+		                    if(widestSlide > slideWidth) {
+			                    newwidth = slideWidth;
+		                    }
+		                    var tmpratio = newwidth / slideWidths[key];
+		                    var tmpr = widestSlide / slideWidths[key];
+							var tmpw = (slideWidths[key] * tmpratio) / tmpr;
+							$(this).css('height', Math.round(tmpw / slideRatios[key]) + 'px');
+							$(this).css('width', tmpw + 'px');
+	                    });
                     }
                     $children.css(gutter, settings.slideMargin + 'px');
                     w = refresh.calWidth(false);
