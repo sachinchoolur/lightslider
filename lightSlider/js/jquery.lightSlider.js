@@ -71,7 +71,7 @@
         if (settings.mode === 'fade') {
             settings.vertical = false;
         }
-        var $children = $el.children(),
+        var $children = $el.children().filter(':visible'),
             windowW = $(window).width(),
             breakpoint = null,
             resposiveObj = null,
@@ -140,9 +140,9 @@
                 w = ln * (slideWidth + settings.slideMargin);
             } else {
                 w = 0;
-                for (var i = 0; i < ln; i++) {
-                    w += (parseInt($children.eq(i).width()) + settings.slideMargin);
-                }
+                $children.each(function(){
+                    w += (parseInt($(this).width()) + settings.slideMargin);
+                });
             }
             if (w % 1 !== 0) {
                 w = w + 1;
@@ -299,7 +299,7 @@
                     }
                 };
                 refresh.calL = function () {
-                    $children = $el.children();
+                    $children = $el.children().filter(':visible');
                     length = $children.length;
                 };
                 if (this.doCss()) {

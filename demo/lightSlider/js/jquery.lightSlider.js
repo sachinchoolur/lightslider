@@ -71,7 +71,7 @@
         if (settings.mode === 'fade') {
             settings.vertical = false;
         }
-        var $children = $el.children(),
+        var $children = $el.children().filter(':visible'),
             windowW = $(window).width(),
             breakpoint = null,
             resposiveObj = null,
@@ -140,9 +140,9 @@
                 w = ln * (slideWidth + settings.slideMargin);
             } else {
                 w = 0;
-                for (var i = 0; i < ln; i++) {
-                    w += (parseInt($children.eq(i).width()) + settings.slideMargin);
-                }
+                $children.each(function(){
+                    w += (parseInt($(this).width()) + settings.slideMargin);
+                });
             }
             if (w % 1 !== 0) {
                 w = w + 1;
@@ -199,6 +199,7 @@
                             $el.goToNextSlide();
                         }
                         clearInterval(interval);
+                        return false;
                     });
                 }
             },
@@ -298,7 +299,7 @@
                     }
                 };
                 refresh.calL = function () {
-                    $children = $el.children();
+                    $children = $el.children().filter(':visible');
                     length = $children.length;
                 };
                 if (this.doCss()) {
@@ -349,16 +350,16 @@
                         }
                         var thumb = $children.eq(i * settings.slideMove).attr('data-thumb');
                         if (settings.gallery === true) {
-                            pagers += '<li style="width:100%;' + property + ':' + thumbWidth + 'px;' + gutter + ':' + settings.thumbMargin + 'px"><a href="javascript:void(0)"><img src="' + thumb + '" /></a></li>';
+                            pagers += '<li style="width:100%;' + property + ':' + thumbWidth + 'px;' + gutter + ':' + settings.thumbMargin + 'px"><a href="#"><img src="' + thumb + '" /></a></li>';
                         } else {
-                            pagers += '<li><a href="javascript:void(0)">' + (i + 1) + '</a></li>';
+                            pagers += '<li><a href="#">' + (i + 1) + '</a></li>';
                         }
                         if (settings.mode === 'slide') {
                             if ((v) >= w - elSize - settings.slideMargin) {
                                 i = i + 1;
                                 var minPgr = 2;
                                 if (settings.autoWidth) {
-                                    pagers += '<li><a href="javascript:void(0)">' + (i + 1) + '</a></li>';
+                                    pagers += '<li><a href="#">' + (i + 1) + '</a></li>';
                                     minPgr = 1;
                                 }
                                 if (i < minPgr) {
@@ -407,6 +408,7 @@
                             $this.slideThumb();
                         }
                         clearInterval(interval);
+                        return false;
                     });
                 };
                 if (settings.pager) {
