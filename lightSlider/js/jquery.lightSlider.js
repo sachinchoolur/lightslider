@@ -833,6 +833,7 @@
             } else {
                 elSize = $slide.outerWidth();
             }
+            $el.css({ 'width': '', 'height': '' });
             if (settings.loop === true && settings.mode === 'slide') {
                 refresh.clone();
             }
