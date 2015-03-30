@@ -179,6 +179,11 @@ add the Following code to the &lt;head&gt; of your document.
     });
 </script>
 ```
+### Report an Issue ###
+If you think you might have found a bug or if you have a feature suggestion please use github [issue tracker](https://github.com/sachinchoolur/lightslider/issues/new). Also please try to add a jsfiddle that demonstrates your problem 
+
+If you need any help with implementing lightslider in your project or if have you any personal support requests i requset you to please use [stackoverflow](https://stackoverflow.com/) instead of github issue tracker
+
 
 If you like lightSlider support me by staring this repository or tweet about this project. 
 [@sachinchoolur](https://twitter.com/sachinchoolur)
