@@ -89,13 +89,14 @@
             thumbWidth = 0,
             interval = null,
             isTouch = ('ontouchstart' in document.documentElement);
-        var refresh = new Object();
+        var refresh = {};
 
         refresh.chbreakpoint = function () {
             windowW = $(window).width();
             if (settings.responsive.length) {
+                var item;
                 if (settings.autoWidth === false) {
-                    var item = settings.item;
+                    item = settings.item;
                 }
                 if (windowW < settings.responsive[0].breakpoint) {
                     for (var i = 0; i < settings.responsive.length; i++) {
@@ -105,17 +106,21 @@
                         }
                     }
                 }
-                if (typeof resposiveObj !== "undefined" && resposiveObj != null) {
-                    for (i in resposiveObj.settings) {
-                        if (typeof settingsTemp[i] == "undefined" || settingsTemp[i] == null) {
-                            settingsTemp[i] = settings[i];
+                if (typeof resposiveObj !== "undefined" && resposiveObj !== null) {
+                    for (var j in resposiveObj.settings) {
+                        if (resposiveObj.settings.hasOwnProperty(j)) {
+                            if (typeof settingsTemp[j] == "undefined" || settingsTemp[j] === null) {
+                                settingsTemp[j] = settings[j];
+                            }
+                            settings[j] = resposiveObj.settings[j];
                         }
-                        settings[i] = resposiveObj.settings[i];
                     }
                 }
                 if (!$.isEmptyObject(settingsTemp) && windowW > settings.responsive[0].breakpoint) {
-                    for (i in settingsTemp) {
-                        settings[i] = settingsTemp[i];
+                    for (var k in settingsTemp) {
+                        if (settingsTemp.hasOwnProperty(k)) {
+                            settings[k] = settingsTemp[k];
+                        }
                     }
                 }
                 if (settings.autoWidth === false) {
@@ -168,16 +173,16 @@
             keyPress: function () {
                 if (settings.keyPress) {
                     $(document).on('keyup.lightslider', function (e) {
-                      if (!$(':focus').is('input, textarea')) {
-                        e.preventDefault();
-                        if (e.keyCode === 37) {
-                            $el.goToPrevSlide();
-                            clearInterval(interval);
-                        } else if (e.keyCode === 39) {
-                            $el.goToNextSlide();
-                            clearInterval(interval);
+                        if (!$(':focus').is('input, textarea')) {
+                            e.preventDefault();
+                            if (e.keyCode === 37) {
+                                $el.goToPrevSlide();
+                                clearInterval(interval);
+                            } else if (e.keyCode === 39) {
+                                $el.goToNextSlide();
+                                clearInterval(interval);
+                            }
                         }
-                      }
                     });
                 }
             },
@@ -213,7 +218,7 @@
                 }
                 if (settings.auto) {
                     settings.slideEndAnimatoin = false;
-                };
+                }
                 if (settings.autoWidth) {
                     settings.slideMove = 1;
                     settings.item = 1;
@@ -266,8 +271,8 @@
                                 }
                             }
                             /**/
-                            for (var k = $el.find('.clone.right').length; k < tItem; k++) {
-                                $el.find('.ls-slide').eq(k).clone().removeClass('ls-slide').addClass('clone right').appendTo($el);
+                            for (var n = $el.find('.clone.right').length; n < tItem; n++) {
+                                $el.find('.ls-slide').eq(n).clone().removeClass('ls-slide').addClass('clone right').appendTo($el);
                                 scene++;
                             }
                             for (var m = $el.find('.ls-slide').length - $el.find('.clone.left').length; m > ($el.find('.ls-slide').length - tItem); m--) {
@@ -432,11 +437,11 @@
                 var obj = null;
                 if (loop) {
                     obj = ob.children(".ls-slide ").first();
-                }else{
+                } else {
                     obj = ob.children().first();
                 }
                 var setCss = function () {
-                    if (scene == 0) {
+                    if (scene === 0) {
                         var tH = obj.height(),
                             tP = 0,
                             tHT = tH;
@@ -452,9 +457,9 @@
                 };
                 setCss();
                 obj.find('img').load(function () {
-                    setTimeout(function(){
+                    setTimeout(function () {
                         setCss();
-                    },100);
+                    }, 100);
                 });
             },
             active: function (ob, t) {
@@ -467,19 +472,30 @@
                     if (!this.doCss() && settings.mode === "fade" && t === false) {
                         ob.fadeOut(settings.speed);
                     }
-                    t === true ? sc = scene : sc = scene * settings.slideMove;
                     if (t === true) {
-                        var l = ob.length;
-                        var nl = l - 1;
+                        sc = scene;
+                    } else {
+                        sc = scene * settings.slideMove;
+                    }
+                    //t === true ? sc = scene : sc = scene * settings.slideMove;
+                    var l, nl;
+                    if (t === true) {
+                        l = ob.length;
+                        nl = l - 1;
                         if (sc + 1 >= l) {
                             sc = nl;
                         }
                     }
                     if (settings.loop === true && settings.mode === 'slide') {
-                        t === true ? sc = scene - $el.find('.clone.left').length : sc = scene * settings.slideMove;
+                        //t === true ? sc = scene - $el.find('.clone.left').length : sc = scene * settings.slideMove;
                         if (t === true) {
-                            var l = ob.length;
-                            var nl = l - 1;
+                            sc = scene - $el.find('.clone.left').length;
+                        } else {
+                            sc = scene * settings.slideMove;
+                        }
+                        if (t === true) {
+                            l = ob.length;
+                            nl = l - 1;
                             if (sc + 1 == l) {
                                 sc = nl;
                             } else if (sc + 1 > l) {
@@ -669,7 +685,7 @@
                         if (!mxVal) {
                             if (next) {
                                 ad = 1;
-                            };
+                            }
                         }
                         if (!settings.autoWidth) {
                             var num = slideValue / ((slideWidth + settings.slideMargin) * settings.slideMove);
@@ -740,7 +756,7 @@
                             endCoords = (settings.vertical === true) ? e.pageY : e.pageX;
                             var distance = endCoords - startCoords;
                             if (Math.abs(distance) >= settings.swipeThreshold) {
-                                $(window).on('click.ls', function(e) {
+                                $(window).on('click.ls', function (e) {
                                     e.preventDefault();
                                     e.stopImmediatePropagation();
                                     e.stopPropagation();
@@ -797,10 +813,11 @@
                                 return false;
                             }
                         }
+                        var distance;
                         if (settings.vertical === true) {
-                            var distance = endCoords.pageY - startCoords.pageY;
+                            distance = endCoords.pageY - startCoords.pageY;
                         } else {
-                            var distance = endCoords.pageX - startCoords.pageX;
+                            distance = endCoords.pageX - startCoords.pageX;
                         }
                         $this.touchEnd(distance);
                     });
@@ -910,7 +927,7 @@
             var nextI = true;
             if (settings.mode === 'slide') {
                 var _slideValue = plugin.slideValue();
-                var nextI = _slideValue < w - elSize - settings.slideMargin;
+                nextI = _slideValue < w - elSize - settings.slideMargin;
             }
             if (((scene * settings.slideMove) < length - settings.slideMove) && nextI) {
                 settings.onBeforeNextSlide.call(this, $el, scene);
@@ -994,23 +1011,23 @@
             if (settings.loop) {
                 var ln = $slide.find('.ls-slide').length,
                     cl = $el.find('.clone.left').length;
-                if(scene<=cl-1){
-                    sc = ln  + (scene-cl);
-                }else if(scene >= (ln+cl)){
+                if (scene <= cl - 1) {
+                    sc = ln + (scene - cl);
+                } else if (scene >= (ln + cl)) {
                     sc = scene - ln - cl;
-                }else{
+                } else {
                     sc = scene - cl;
                 }
-            };
-            return sc+1;
+            }
+            return sc + 1;
         };
-        $el.getTotalSlideCount = function(){
+        $el.getTotalSlideCount = function () {
             return $slide.find('.ls-slide').length;
         };
         $el.goToSlide = function (s) {
             if (settings.loop) {
-                scene = (s + $el.find('.clone.left').length -1);
-            }else{
+                scene = (s + $el.find('.clone.left').length - 1);
+            } else {
                 scene = s;
             }
             $el.mode(false);
@@ -1018,9 +1035,9 @@
                 plugin.slideThumb();
             }
         };
-        setTimeout(function(){
+        setTimeout(function () {
             settings.onSliderLoad.call(this, $el);
-        },10);
+        }, 10);
         $(window).on('resize orientationchange', function (e) {
             setTimeout(function () {
                 e.preventDefault();
