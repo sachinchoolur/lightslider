@@ -1,6 +1,6 @@
 /** /!!! core css Should not edit !!!/**/
 
-.lSSlideOuter {
+.ls-slide-outer {
     overflow: hidden;
     -webkit-touch-callout: none;
     -webkit-user-select: none;
@@ -9,22 +9,22 @@
     -ms-user-select: none;
     user-select: none;
 }
-.lightSlider:before, .lightSlider:after {
+.light-slider:before, .light-slider:after {
     content: " ";
     display: table;
 }
-.lightSlider {
+.light-slider {
     overflow: hidden;
 }
-.lSSlideWrapper {
+.ls-slide-wrapper {
     max-width: 100%;
     overflow: hidden;
     position: relative;
 }
-.lSSlideWrapper > .lightSlider:after {
+.ls-slide-wrapper > .light-slider:after {
     clear: both;
 }
-.lSSlideWrapper .lSSlide {
+.ls-slide-wrapper .ls-slide {
     -webkit-transform: translate(0px, 0px);
     -ms-transform: translate(0px, 0px);
     transform: translate(0px, 0px);
@@ -37,10 +37,10 @@
     -webkit-transition-timing-function: inherit;
     transition-timing-function: inherit;
 }
-.lSSlideWrapper .lSFade {
+.ls-slide-wrapper .ls-fade {
     position: relative;
 }
-.lSSlideWrapper .lSFade > * {
+.ls-slide-wrapper .ls-fade > * {
     position: absolute !important;
     top: 0;
     left: 0;
@@ -48,7 +48,7 @@
     margin-right: 0;
     width: 100%;
 }
-.lSSlideWrapper.usingCss .lSFade > * {
+.ls-slide-wrapper.using-css .ls-fade > * {
     opacity: 0;
     -webkit-transition-delay: 0s;
     transition-delay: 0s;
@@ -59,26 +59,26 @@
     -webkit-transition-timing-function: inherit;
     transition-timing-function: inherit;
 }
-.lSSlideWrapper .lSFade > *.active {
+.ls-slide-wrapper .ls-fade > *.active {
     z-index: 10;
 }
-.lSSlideWrapper.usingCss .lSFade > *.active {
+.ls-slide-wrapper.using-css .ls-fade > *.active {
     opacity: 1;
 }
 /** /!!! End of core css Should not edit !!!/**/
 
 /* Pager */
-.lSSlideOuter .lSPager.lSpg {
+.ls-slide-outer .ls-pager.ls-pg {
     margin: 10px 0 0;
     padding: 0;
     text-align: center;
 }
-.lSSlideOuter .lSPager.lSpg > li {
+.ls-slide-outer .ls-pager.ls-pg > li {
     cursor: pointer;
     display: inline-block;
     padding: 0 5px;
 }
-.lSSlideOuter .lSPager.lSpg > li a {
+.ls-slide-outer .ls-pager.ls-pg > li a {
     background-color: #222222;
     border-radius: 30px;
     display: inline-block;
@@ -91,19 +91,19 @@
     -webkit-transition: all 0.5s linear 0s;
     transition: all 0.5s linear 0s;
 }
-.lSSlideOuter .lSPager.lSpg > li:hover a, .lSSlideOuter .lSPager.lSpg > li.active a {
+.ls-slide-outer .ls-pager.ls-pg > li:hover a, .ls-slide-outer .ls-pager.ls-pg > li.active a {
     background-color: #428bca;
 }
-.lSSlideOuter .media {
+.ls-slide-outer .media {
     opacity: 0.8;
 }
-.lSSlideOuter .media.active {
+.ls-slide-outer .media.active {
     opacity: 1;
 }
 /* End of pager */
 
 /** Gallery */
-.lSSlideOuter .lSPager.lSGallery {
+.ls-slide-outer .ls-pager.ls-gallery {
     list-style: none outside none;
     padding-left: 0;
     margin: 0;
@@ -122,31 +122,31 @@
     -ms-user-select: none;
     user-select: none;
 }
-.lSSlideOuter .lSPager.lSGallery li {
+.ls-slide-outer .ls-pager.ls-gallery li {
     opacity: 0.7;
     overflow: hidden;
     -webkit-transition: opacity 0.35s linear 0s;
     transition: opacity 0.35s linear 0s;
 }
-.lSSlideOuter .lSPager.lSGallery li.active, .lSSlideOuter .lSPager.lSGallery li:hover {
+.ls-slide-outer .ls-pager.ls-gallery li.active, .ls-slide-outer .ls-pager.ls-gallery li:hover {
     opacity: 1;
 }
-.lSSlideOuter .lSPager.lSGallery img {
+.ls-slide-outer .ls-pager.ls-gallery img {
     display: block;
     height: auto;
     max-width: 100%;
 }
-.lSSlideOuter .lSPager.lSGallery:before, .lSSlideOuter .lSPager.lSGallery:after {
+.ls-slide-outer .ls-pager.ls-gallery:before, .ls-slide-outer .ls-pager.ls-gallery:after {
     content: " ";
     display: table;
 }
-.lSSlideOuter .lSPager.lSGallery:after {
+.ls-slide-outer .ls-pager.ls-gallery:after {
     clear: both;
 }
 /* End of Gallery*/
 
 /* slider actions */
-.lSAction > a {
+.ls-action > a {
     width: 32px;
     display: block;
     top: 50%;
@@ -160,18 +160,18 @@
     -webkit-transition: opacity 0.35s linear 0s;
     transition: opacity 0.35s linear 0s;
 }
-.lSAction > a:hover {
+.ls-action > a:hover {
     opacity: 1;
 }
-.lSAction > .lSPrev {
+.ls-action > .ls-prev {
     background-position: 0 0;
     left: 10px;
 }
-.lSAction > .lSNext {
+.ls-action > .ls-next {
     background-position: -32px 0;
     right: 10px;
 }
-.lSAction > a.disabled {
+.ls-action > a.disabled {
     pointer-events: none;
 }
 .cS-hidden {
@@ -183,18 +183,18 @@
 
 
 /* vertical */
-.lSSlideOuter.vertical {
+.ls-slide-outer.vertical {
     position: relative;
 }
-.lSSlideOuter.vertical.noPager {
+.ls-slide-outer.vertical.no-pager {
     padding-right: 0px !important;
 }
-.lSSlideOuter.vertical .lSGallery {
+.ls-slide-outer.vertical .ls-gallery {
     position: absolute !important;
     right: 0;
     top: 0;
 }
-.lSSlideOuter.vertical .lightSlider > * {
+.ls-slide-outer.vertical .light-slider > * {
     width: 100% !important;
     max-width: none !important;
 }
@@ -202,20 +202,20 @@
 
 
 /* Rtl */
-.lSSlideOuter.lSrtl {
+.ls-slide-outer.ls-rtl {
     direction: rtl;
 }
-.lSSlideOuter .lightSlider, .lSSlideOuter .lSPager {
+.ls-slide-outer .light-slider, .ls-slide-outer .ls-pager {
     padding-left: 0;
     list-style: none outside none;
 }
-.lSSlideOuter.lSrtl .lightSlider, .lSSlideOuter.lSrtl .lSPager {
+.ls-slide-outer.ls-rtl .light-slider, .ls-slide-outer.ls-rtl .ls-pager {
     padding-right: 0;
 }
-.lSSlideOuter .lightSlider > *,  .lSSlideOuter .lSGallery li {
+.ls-slide-outer .light-slider > *,  .ls-slide-outer .ls-gallery li {
     float: left;
 }
-.lSSlideOuter.lSrtl .lightSlider > *,  .lSSlideOuter.lSrtl .lSGallery li {
+.ls-slide-outer.ls-rtl .light-slider > *,  .ls-slide-outer.ls-rtl .ls-gallery li {
     float: right !important;
 }
 /* Rtl */
@@ -324,32 +324,32 @@
         bottom: 0;
     }
 }
-.lSSlideOuter .rightEnd {
+.ls-slide-outer .right-end {
     -webkit-animation: rightEnd 0.3s;
     animation: rightEnd 0.3s;
     position: relative;
 }
-.lSSlideOuter .leftEnd {
+.ls-slide-outer .left-end {
     -webkit-animation: leftEnd 0.3s;
     animation: leftEnd 0.3s;
     position: relative;
 }
-.lSSlideOuter.vertical .rightEnd {
+.ls-slide-outer.vertical .right-end {
     -webkit-animation: topEnd 0.3s;
     animation: topEnd 0.3s;
     position: relative;
 }
-.lSSlideOuter.vertical .leftEnd {
+.ls-slide-outer.vertical .left-end {
     -webkit-animation: bottomEnd 0.3s;
     animation: bottomEnd 0.3s;
     position: relative;
 }
-.lSSlideOuter.lSrtl .rightEnd {
+.ls-slide-outer.ls-rtl .right-end {
     -webkit-animation: leftEnd 0.3s;
     animation: leftEnd 0.3s;
     position: relative;
 }
-.lSSlideOuter.lSrtl .leftEnd {
+.ls-slide-outer.ls-rtl .left-end {
     -webkit-animation: rightEnd 0.3s;
     animation: rightEnd 0.3s;
     position: relative;
