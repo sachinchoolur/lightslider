@@ -38,6 +38,7 @@
         galleryMargin: 5,
         thumbMargin: 5,
         currentPagerPosition: 'middle',
+        activeClass: 'active',
         enableTouch: true,
         enableDrag: true,
         freeMove: true,
@@ -323,13 +324,13 @@
                     this.setHeight($el, true, true);
                     $el.addClass('ls-fade');
                     if (!this.doCss()) {
-                        $children.not(".active").css('display', 'none');
+                        $children.not("." + settings.activeClass).css('display', 'none');
                     }
                 }
                 if (settings.loop === true && settings.mode === 'slide') {
-                    $children.eq(scene).addClass('active');
+                    $children.eq(scene).addClass(settings.activeClass);
                 } else {
-                    $children.first().addClass('active');
+                    $children.first().addClass(settings.activeClass);
                 }
             },
             pager: function () {
@@ -398,10 +399,10 @@
                         $cSouter.find('.ls-pager').css(property, pagerWidth + 'px');
                     }
                     var $pager = $cSouter.find('.ls-pager').find('li');
-                    $pager.first().addClass('active');
+                    $pager.first().addClass(settings.activeClass);
                     $pager.on('click', function () {
                         if (settings.loop === true && settings.mode === 'slide') {
-                            scene = scene + ($pager.index(this) - $cSouter.find('.ls-pager').find('li.active').index());
+                            scene = scene + ($pager.index(this) - $cSouter.find('.ls-pager').find('li.' + settings.activeClass).index());
                         } else {
                             scene = $pager.index(this);
                         }
@@ -463,7 +464,7 @@
                 }
                 var sc = 0;
                 if (scene * settings.slideMove < length) {
-                    ob.removeClass('active');
+                    ob.removeClass(settings.activeClass);
                     if (!this.doCss() && settings.mode === "fade" && t === false) {
                         ob.fadeOut(settings.speed);
                     }
@@ -491,10 +492,10 @@
                     if (!this.doCss() && settings.mode === "fade" && t === false) {
                         ob.eq(sc).fadeIn(settings.speed);
                     }
-                    ob.eq(sc).addClass('active');
+                    ob.eq(sc).addClass(settings.activeClass);
                 } else {
-                    ob.removeClass('active');
-                    ob.eq(ob.length - 1).addClass('active');
+                    ob.removeClass(settings.activeClass);
+                    ob.eq(ob.length - 1).addClass(settings.activeClass);
                     if (!this.doCss() && settings.mode === "fade" && t === false) {
                         ob.fadeOut(settings.speed);
                         ob.eq(sc).fadeIn(settings.speed);
