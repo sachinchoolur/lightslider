@@ -434,17 +434,19 @@
                     obj = ob.children().first();
                 }
                 var setCss = function () {
-                    var tH = obj.height(),
-                        tP = 0,
-                        tHT = tH;
-                    if (fade) {
-                        tH = 0;
-                        tP = ((tHT) * 100) / elSize;
+                    if (scene == 0) {
+                        var tH = obj.height(),
+                            tP = 0,
+                            tHT = tH;
+                        if (fade) {
+                            tH = 0;
+                            tP = ((tHT) * 100) / elSize;
+                        }
+                        ob.css({
+                            'height': tH + 'px',
+                            'padding-bottom': tP + '%'
+                        });
                     }
-                    ob.css({
-                        'height': tH + 'px',
-                        'padding-bottom': tP + '%'
-                    });
                 };
                 setCss();
                 obj.find('img').load(function () {
