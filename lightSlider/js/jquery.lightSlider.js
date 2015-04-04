@@ -174,7 +174,11 @@
                 if (settings.keyPress) {
                     $(document).on('keyup.lightslider', function (e) {
                         if (!$(':focus').is('input, textarea')) {
-                            e.preventDefault();
+                            if (e.preventDefault) {
+                                e.preventDefault();
+                            } else {
+                                e.returnValue = false;
+                            }
                             if (e.keyCode === 37) {
                                 $el.goToPrevSlide();
                                 clearInterval(interval);
@@ -199,7 +203,11 @@
                         }
                     }
                     $slide.find('.ls-action a').on('click', function (e) {
-                        e.preventDefault();
+                        if (e.preventDefault) {
+                            e.preventDefault();
+                        } else {
+                            e.returnValue = false;
+                        }
                         if ($(this).attr('class') === 'ls-prev') {
                             $el.goToPrevSlide();
                         } else {
@@ -642,6 +650,7 @@
             },
 
             touchMove: function (endCoords, startCoords) {
+                clearInterval(interval);
                 $slide.css('transition-duration', '0ms');
                 if (settings.mode === 'slide') {
                     var distance = endCoords - startCoords;
@@ -729,6 +738,7 @@
             enableDrag: function () {
                 var $this = this;
                 if (!isTouch) {
+                    $slide.find('.light-slider').addClass('lsGrab');
                     var startCoords = 0,
                         endCoords = 0,
                         isDraging = false;
@@ -741,7 +751,16 @@
                         if ($(e.target).attr('class') !== ('ls-prev') && $(e.target).attr('class') !== ('ls-next')) {
                             startCoords = (settings.vertical === true) ? e.pageY : e.pageX;
                             isDraging = true;
-                            e.preventDefault();
+                            if (e.preventDefault) {
+                                e.preventDefault();
+                            } else {
+                                e.returnValue = false;
+                            }
+                            // ** Fix for webkit cursor issue https://code.google.com/p/chromium/issues/detail?id=26723
+                            $slide.scrollLeft += 1;
+                            $slide.scrollLeft -= 1;
+                            // *
+                            $slide.find('.light-slider').removeClass('lsGrab').addClass('lsGrabbing');
                         }
                     });
                     $(window).on('mousemove', function (e) {
@@ -752,12 +771,17 @@
                     });
                     $(window).on('mouseup', function (e) {
                         if (isDraging) {
+                            $slide.find('.light-slider').removeClass('lsGrabbing').addClass('lsGrab');
                             isDraging = false;
                             endCoords = (settings.vertical === true) ? e.pageY : e.pageX;
                             var distance = endCoords - startCoords;
                             if (Math.abs(distance) >= settings.swipeThreshold) {
                                 $(window).on('click.ls', function (e) {
-                                    e.preventDefault();
+                                    if (e.preventDefault) {
+                                        e.preventDefault();
+                                    } else {
+                                        e.returnValue = false;
+                                    }
                                     e.stopImmediatePropagation();
                                     e.stopPropagation();
                                     $(window).off('click.ls');
@@ -874,7 +898,16 @@
                 refresh.createPager();
             }
             if (settings.adaptiveHeight === true && settings.vertical === false) {
-                $el.css('height', $children.eq(scene).height());
+                $el.css('height', $children.eq(scene).outerHeight(true));
+            }
+            if (settings.adaptiveHeight === false) {
+                if (settings.mode === "slide") {
+                    if (settings.vertical === false) {
+                        plugin.setHeight($el, false, true);
+                    }
+                } else {
+                    plugin.setHeight($el, true, true);
+                }
             }
             if (settings.gallery === true) {
                 plugin.slideThumb();
@@ -954,7 +987,7 @@
         };
         $el.mode = function (_touch) {
             if (settings.adaptiveHeight === true && settings.vertical === false) {
-                $el.css('height', $children.eq(scene).height());
+                $el.css('height', $children.eq(scene).outerHeight(true));
             }
             if (on === false) {
                 if (settings.mode === "slide") {
@@ -1040,7 +1073,11 @@
         }, 10);
         $(window).on('resize orientationchange', function (e) {
             setTimeout(function () {
-                e.preventDefault();
+                if (e.preventDefault) {
+                    e.preventDefault();
+                } else {
+                    e.returnValue = false;
+                }
                 refresh.init();
             }, 200);
         });
