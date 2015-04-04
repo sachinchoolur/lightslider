@@ -123,13 +123,12 @@
     user-select: none;
 }
 .ls-slide-outer .ls-pager.ls-gallery li {
-    opacity: 0.7;
     overflow: hidden;
-    -webkit-transition: opacity 0.35s linear 0s;
-    transition: opacity 0.35s linear 0s;
+    -webkit-transition: border-radius 0.12s linear 0s 0.35s linear 0s;
+    transition: border-radius 0.12s linear 0s 0.35s linear 0s;
 }
 .ls-slide-outer .ls-pager.ls-gallery li.active, .ls-slide-outer .ls-pager.ls-gallery li:hover {
-    opacity: 1;
+    border-radius: 5px;
 }
 .ls-slide-outer .ls-pager.ls-gallery img {
     display: block;
@@ -198,6 +197,25 @@
     width: 100% !important;
     max-width: none !important;
 }
+
+
+/* vertical controlls */
+.ls-slide-outer.vertical .ls-action > a {
+    left: 50%;
+    margin-left: -14px;
+    margin-top: 0;
+}
+.ls-slide-outer.vertical .ls-action > .ls-next {
+    background-position: 31px -31px;
+    bottom: 10px;
+    top: auto;
+}
+.ls-slide-outer.vertical .ls-action > .ls-prev {
+    background-position: 0 -31px;
+    bottom: auto;
+    top: 10px;
+}
+
 /* vertical */
 
 
@@ -353,4 +371,20 @@
     -webkit-animation: rightEnd 0.3s;
     animation: rightEnd 0.3s;
     position: relative;
+}
+
+.light-slider.lsGrab > * {
+  cursor: -webkit-grab;
+  cursor: -moz-grab;
+  cursor: -o-grab;
+  cursor: -ms-grab;
+  cursor: grab;
+}
+.light-slider.lsGrabbing > * {
+  cursor: move;
+  cursor: -webkit-grabbing;
+  cursor: -moz-grabbing;
+  cursor: -o-grabbing;
+  cursor: -ms-grabbing;
+  cursor: grabbing;
 }
