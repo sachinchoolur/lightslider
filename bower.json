@@ -30,8 +30,12 @@
     ],
     "license": "MLT",
     "ignore": [
-        "README.md",
-        "demo"
+        "demo",
+        "test",
+        "**/.*",
+        "contributing.md",
+        "Gruntfile.js",
+        "README.md"
     ],
 	"devDependencies": {
 		"qunit": "~1.12.0",
