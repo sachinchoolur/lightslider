@@ -19,7 +19,7 @@
         "swipe",
         "thumbnail"
     ],
-    "version":"1.1.1",
+    "version":"1.1.2",
     "author":{  
         "name":"Sachin N",
         "url":"https://github.com/sachinchoolur"
@@ -42,6 +42,6 @@
     "docs":"http://sachinchoolur.github.io/lightslider/",
     "download":"http://sachinchoolur.github.io/lightslider/lightSlider.zip",
     "dependencies":{  
-        "jquery":">=1.5"
+        "jquery":">=1.7.0"
     }
 }

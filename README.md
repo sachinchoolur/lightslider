@@ -1,3 +1,8 @@
+![license](https://img.shields.io/npm/l/lightslider.svg)
+![travis](https://travis-ci.org/sachinchoolur/lightslider.svg?branch=master)
+![bower](https://img.shields.io/bower/v/lightslider.svg)
+![npm](https://img.shields.io/npm/v/lightslider.svg)
+
 jQuery lightSlider
 =============
 
@@ -10,33 +15,6 @@ Description
 ----------------
 JQuery lightSlider is a lightweight responsive Content slider with carousel thumbnails navigation
 
-whats new
-----------------
-### Version 1.1.1 ###
-+   Infinite loop.
-+   Auto width.
-+   SlideEnd animation.
-+   Improved swipe support.
-+   Improved perfomance.
-
-
-### Version 1.1.0 ###
-### Added ###
-+   Separate settings per breakpoints.
-+   RTL support.
-+   AdaptiveHeight.
-+   Vertical mode
-+   MouseDrag support for desktop browsers.
-+   Improved swipe support.
-+   Slide item instead of slideWidth.
-+   ThumbItem instead of thumbwidth.
-
-### Removed ###
-+   slidewidth.
-+   minslide
-+   maxslide
-+   thumbWidth
-
 Main Features
 ----------------
 +    Fully responsive - will adapt to any device.
@@ -44,7 +22,7 @@ Main Features
 +    Gallery mode to create an image slideshow with thumbnails
 +    Supports swipe and mouseDrag
 +    Add or remove slides dynamically.
-+    Small file size (7kb) (minified), fully themed, simple to implement.
++    Small file size, fully themed, simple to implement.
 +    CSS transitions with jQuery fallback.
 +    Full callback API and public methods.
 +    Auto play and infinite loop to create a content carousel.
@@ -79,10 +57,10 @@ $ npm install lightslider
 ### The code ###
 add the Following code to the &lt;head&gt; of your document.
 ```html
-<link type="text/css" rel="stylesheet" href="css/lightSlider.css" />
+<link type="text/css" rel="stylesheet" href="css/lightslider.css" />
 <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
-<script src="js/lightSlider.js"></script>
-    // Do not include both lightSlider.js and lightSlider.min.js
+<script src="js/lightslider.js"></script>
+    // Do not include both lightslider.js and lightslider.min.js
 ```
 ### HTML Structure ###
 ```html
@@ -187,4 +165,8 @@ If you need any help with implementing lightslider in your project or if have yo
 
 If you like lightSlider support me by staring this repository or tweet about this project.
 [@sachinchoolur](https://twitter.com/sachinchoolur)
+
+#### [guidelines for contributors](https://github.com/sachinchoolur/lightslider/blob/master/contributing.md)
+
+#### MIT © [Sachin](https://twitter.com/sachinchoolur)
 
