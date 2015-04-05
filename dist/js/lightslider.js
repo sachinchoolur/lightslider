@@ -1,22 +1,17 @@
-/** ==========================================================
-
-* jquery lightSlider.js v1.1.1
-* http://sachinchoolur.github.io/lightslider/
-* Released under the MIT License - http://opensource.org/licenses/mit-license.html  ---- FREE ----
-
-=========================================================/**/
-;
+/*! lightslider - v1.1.2 - 2015-04-05
+* https://github.com/sachinchoolur/lightslider
+* Copyright (c) 2015 Sachin N; Licensed MIT */
 (function ($, undefined) {
-    "use strict";
+    'use strict';
     var defaults = {
         item: 3,
         autoWidth: false,
         slideMove: 1,
         slideMargin: 10,
         addClass: '',
-        mode: "slide",
+        mode: 'slide',
         useCSS: true,
-        cssEasing: 'ease', //'cubic-bezier(0.25, 0, 0.25, 1)',//
+        cssEasing: 'ease', //'cubic-bezier(0.25, 0, 0.25, 1)',
         easing: 'linear', //'for jquery animation',//
         speed: 400, //ms'
         auto: false,
@@ -43,12 +38,14 @@
         freeMove: true,
         swipeThreshold: 40,
         responsive: [],
+        /* jshint ignore:start */
         onBeforeStart: function ($el) {},
         onSliderLoad: function ($el) {},
         onBeforeSlide: function ($el, scene) {},
         onAfterSlide: function ($el, scene) {},
         onBeforeNextSlide: function ($el, scene) {},
         onBeforePrevSlide: function ($el, scene) {}
+        /* jshint ignore:end */
     };
     $.fn.lightSlider = function (options) {
         if (this.length === 0) {
@@ -81,8 +78,8 @@
             elSize = 0,
             $slide = '',
             scene = 0,
-            property = (settings.vertical === true) ? "height" : "width",
-            gutter = (settings.vertical === true) ? "margin-bottom" : "margin-right",
+            property = (settings.vertical === true) ? 'height' : 'width',
+            gutter = (settings.vertical === true) ? 'margin-bottom' : 'margin-right',
             slideValue = 0,
             pagerWidth = 0,
             slideWidth = 0,
@@ -106,10 +103,10 @@
                         }
                     }
                 }
-                if (typeof resposiveObj !== "undefined" && resposiveObj !== null) {
+                if (typeof resposiveObj !== 'undefined' && resposiveObj !== null) {
                     for (var j in resposiveObj.settings) {
                         if (resposiveObj.settings.hasOwnProperty(j)) {
-                            if (typeof settingsTemp[j] == "undefined" || settingsTemp[j] === null) {
+                            if (typeof settingsTemp[j] === 'undefined' || settingsTemp[j] === null) {
                                 settingsTemp[j] = settings[j];
                             }
                             settings[j] = resposiveObj.settings[j];
@@ -140,7 +137,7 @@
         };
 
         refresh.calWidth = function (cln) {
-            var ln = cln === true ? $slide.find('.ls-slide').length : $children.length;
+            var ln = cln === true ? $slide.find('.lslide').length : $children.length;
             if (settings.autoWidth === false) {
                 w = ln * (slideWidth + settings.slideMargin);
             } else {
@@ -192,23 +189,23 @@
             },
             controls: function () {
                 if (settings.controls) {
-                    $el.after('<div class="ls-action"><a class="ls-prev">' + settings.prevHtml + '</a><a class="ls-next">' + settings.nextHtml + '</a></div>');
+                    $el.after('<div class="lSAction"><a class="lSPrev">' + settings.prevHtml + '</a><a class="lSNext">' + settings.nextHtml + '</a></div>');
                     if (!settings.autoWidth) {
                         if (length <= settings.item) {
-                            $slide.find('.ls-action').hide();
+                            $slide.find('.lSAction').hide();
                         }
                     } else {
                         if (refresh.calWidth(false) < elSize) {
-                            $slide.find('.ls-action').hide();
+                            $slide.find('.lSAction').hide();
                         }
                     }
-                    $slide.find('.ls-action a').on('click', function (e) {
+                    $slide.find('.lSAction a').on('click', function (e) {
                         if (e.preventDefault) {
                             e.preventDefault();
                         } else {
                             e.returnValue = false;
                         }
-                        if ($(this).attr('class') === 'ls-prev') {
+                        if ($(this).attr('class') === 'lSPrev') {
                             $el.goToPrevSlide();
                         } else {
                             $el.goToNextSlide();
@@ -237,10 +234,10 @@
                 }
                 settings.onBeforeStart.call(this, $el);
                 refresh.chbreakpoint();
-                $el.addClass('light-slider').wrap("<div class='ls-slide-outer " + settings.addClass + "'><div class='ls-slide-wrapper'></div></div>");
-                $slide = $el.parent('.ls-slide-wrapper');
+                $el.addClass('lightSlider').wrap('<div class="lSSlideOuter ' + settings.addClass + '"><div class="lSSlideWrapper"></div></div>');
+                $slide = $el.parent('.lSSlideWrapper');
                 if (settings.rtl === true) {
-                    $slide.parent().addClass('ls-rtl');
+                    $slide.parent().addClass('lSrtl');
                 }
                 if (settings.vertical) {
                     $slide.parent().addClass('vertical');
@@ -249,7 +246,7 @@
                 } else {
                     elSize = $el.outerWidth();
                 }
-                $children.addClass('ls-slide');
+                $children.addClass('lslide');
                 if (settings.loop === true && settings.mode === 'slide') {
                     refresh.calSW();
                     refresh.clone = function () {
@@ -258,7 +255,7 @@
                             var tWr = 0,
                                 tI = 0;
                             for (var k = 0; k < $children.length; k++) {
-                                tWr += (parseInt($el.find('.ls-slide').eq(k).width()) + settings.slideMargin);
+                                tWr += (parseInt($el.find('.lslide').eq(k).width()) + settings.slideMargin);
                                 tI++;
                                 if (tWr >= (elSize + settings.slideMargin)) {
                                     break;
@@ -280,11 +277,11 @@
                             }
                             /**/
                             for (var n = $el.find('.clone.right').length; n < tItem; n++) {
-                                $el.find('.ls-slide').eq(n).clone().removeClass('ls-slide').addClass('clone right').appendTo($el);
+                                $el.find('.lslide').eq(n).clone().removeClass('lslide').addClass('clone right').appendTo($el);
                                 scene++;
                             }
-                            for (var m = $el.find('.ls-slide').length - $el.find('.clone.left').length; m > ($el.find('.ls-slide').length - tItem); m--) {
-                                $el.find('.ls-slide').eq(m - 1).clone().removeClass('ls-slide').addClass('clone left').prependTo($el);
+                            for (var m = $el.find('.lslide').length - $el.find('.clone.left').length; m > ($el.find('.lslide').length - tItem); m--) {
+                                $el.find('.lslide').eq(m - 1).clone().removeClass('lslide').addClass('clone left').prependTo($el);
                             }
                             $children = $el.children();
                         } else {
@@ -299,7 +296,7 @@
                 refresh.sSW = function () {
                     length = $children.length;
                     if (settings.rtl === true && settings.vertical === false) {
-                        gutter = "margin-left";
+                        gutter = 'margin-left';
                     }
                     if (settings.autoWidth === false) {
                         $children.css(property, slideWidth + 'px');
@@ -318,10 +315,10 @@
                     length = $children.length;
                 };
                 if (this.doCss()) {
-                    $slide.addClass('using-css');
+                    $slide.addClass('usingCss');
                 }
                 refresh.calL();
-                if (settings.mode === "slide") {
+                if (settings.mode === 'slide') {
                     refresh.calSW();
                     refresh.sSW();
                     if (settings.loop === true) {
@@ -334,9 +331,9 @@
 
                 } else {
                     this.setHeight($el, true, true);
-                    $el.addClass('ls-fade');
+                    $el.addClass('lSFade');
                     if (!this.doCss()) {
-                        $children.not(".active").css('display', 'none');
+                        $children.not('.active').css('display', 'none');
                     }
                 }
                 if (settings.loop === true && settings.mode === 'slide') {
@@ -349,8 +346,8 @@
                 var $this = this;
                 refresh.createPager = function () {
                     thumbWidth = (elSize - ((settings.thumbItem * (settings.thumbMargin)) - settings.thumbMargin)) / settings.thumbItem;
-                    var $children = $slide.find('.ls-slide');
-                    var length = $slide.find('.ls-slide').length;
+                    var $children = $slide.find('.lslide');
+                    var length = $slide.find('.lslide').length;
                     var i = 0,
                         pagers = '',
                         v = 0;
@@ -379,18 +376,18 @@
                                 }
                                 if (i < minPgr) {
                                     pagers = null;
-                                    $slide.parent().addClass('no-pager');
+                                    $slide.parent().addClass('noPager');
                                 } else {
-                                    $slide.parent().removeClass('no-pager');
+                                    $slide.parent().removeClass('noPager');
                                 }
                                 break;
                             }
                         }
                     }
                     var $cSouter = $slide.parent();
-                    $cSouter.find('.ls-pager').html(pagers);
+                    $cSouter.find('.lSPager').html(pagers);
                     if (!settings.vertical && settings.gallery) {
-                        var $pgr = $slide.parent().find('.ls-gallery');
+                        var $pgr = $slide.parent().find('.lSGallery');
                         setTimeout(function () {
                             $this.setHeight($pgr, false, false);
                         });
@@ -398,23 +395,23 @@
                     if (settings.gallery === true) {
                         if (settings.vertical === true) {
                             // set Gallery thumbnail width
-                            $cSouter.find('.ls-pager').css('width', settings.vThumbWidth + 'px');
+                            $cSouter.find('.lSPager').css('width', settings.vThumbWidth + 'px');
                         }
                         pagerWidth = (i * (settings.thumbMargin + thumbWidth)) + 0.5;
-                        $cSouter.find('.ls-pager').css({
+                        $cSouter.find('.lSPager').css({
                             property: pagerWidth + 'px',
                             'transition-duration': settings.speed + 'ms'
                         });
                         if (settings.vertical === true) {
                             $slide.parent().css('padding-right', (settings.vThumbWidth + settings.galleryMargin) + 'px');
                         }
-                        $cSouter.find('.ls-pager').css(property, pagerWidth + 'px');
+                        $cSouter.find('.lSPager').css(property, pagerWidth + 'px');
                     }
-                    var $pager = $cSouter.find('.ls-pager').find('li');
+                    var $pager = $cSouter.find('.lSPager').find('li');
                     $pager.first().addClass('active');
                     $pager.on('click', function () {
                         if (settings.loop === true && settings.mode === 'slide') {
-                            scene = scene + ($pager.index(this) - $cSouter.find('.ls-pager').find('li.active').index());
+                            scene = scene + ($pager.index(this) - $cSouter.find('.lSPager').find('li.active').index());
                         } else {
                             scene = $pager.index(this);
                         }
@@ -427,13 +424,13 @@
                     });
                 };
                 if (settings.pager) {
-                    var cl = 'ls-pg';
+                    var cl = 'lSpg';
                     if (settings.gallery) {
-                        cl = 'ls-gallery';
+                        cl = 'lSGallery';
                     }
-                    $slide.after('<ul class="ls-pager ' + cl + '"></ul>');
-                    var gMargin = (settings.vertical) ? "margin-left" : "margin-top";
-                    $slide.parent().find('.ls-pager').css(gMargin, settings.galleryMargin + 'px');
+                    $slide.after('<ul class="lSPager ' + cl + '"></ul>');
+                    var gMargin = (settings.vertical) ? 'margin-left' : 'margin-top';
+                    $slide.parent().find('.lSPager').css(gMargin, settings.galleryMargin + 'px');
                     refresh.createPager();
                 }
 
@@ -444,7 +441,7 @@
             setHeight: function (ob, fade, loop) {
                 var obj = null;
                 if (loop) {
-                    obj = ob.children(".ls-slide ").first();
+                    obj = ob.children('.lslide ').first();
                 } else {
                     obj = ob.children().first();
                 }
@@ -471,13 +468,13 @@
                 });
             },
             active: function (ob, t) {
-                if (this.doCss() && settings.mode === "fade") {
+                if (this.doCss() && settings.mode === 'fade') {
                     $slide.addClass('on');
                 }
                 var sc = 0;
                 if (scene * settings.slideMove < length) {
                     ob.removeClass('active');
-                    if (!this.doCss() && settings.mode === "fade" && t === false) {
+                    if (!this.doCss() && settings.mode === 'fade' && t === false) {
                         ob.fadeOut(settings.speed);
                     }
                     if (t === true) {
@@ -504,7 +501,7 @@
                         if (t === true) {
                             l = ob.length;
                             nl = l - 1;
-                            if (sc + 1 == l) {
+                            if (sc + 1 === l) {
                                 sc = nl;
                             } else if (sc + 1 > l) {
                                 sc = 0;
@@ -512,14 +509,14 @@
                         }
                     }
 
-                    if (!this.doCss() && settings.mode === "fade" && t === false) {
+                    if (!this.doCss() && settings.mode === 'fade' && t === false) {
                         ob.eq(sc).fadeIn(settings.speed);
                     }
                     ob.eq(sc).addClass('active');
                 } else {
                     ob.removeClass('active');
                     ob.eq(ob.length - 1).addClass('active');
-                    if (!this.doCss() && settings.mode === "fade" && t === false) {
+                    if (!this.doCss() && settings.mode === 'fade' && t === false) {
                         ob.fadeOut(settings.speed);
                         ob.eq(sc).fadeIn(settings.speed);
                     }
@@ -552,12 +549,12 @@
                         }, settings.speed, settings.easing);
                     }
                 }
-                var $thumb = $slide.parent().find('.ls-pager').find('li');
+                var $thumb = $slide.parent().find('.lSPager').find('li');
                 this.active($thumb, true);
             },
             fade: function () {
                 this.active($children, false);
-                var $thumb = $slide.parent().find('.ls-pager').find('li');
+                var $thumb = $slide.parent().find('.lSPager').find('li');
                 this.active($thumb, true);
             },
             slide: function () {
@@ -577,7 +574,7 @@
                                 $this.resetSlide($el.find('.clone.left').length);
                             }
                             if (scene === 0) {
-                                $this.resetSlide($slide.find('.ls-slide').length);
+                                $this.resetSlide($slide.find('.lslide').length);
                             }
                         }
                     }
@@ -586,7 +583,7 @@
             },
             resetSlide: function (s) {
                 var $this = this;
-                $slide.find('.ls-action a').addClass('disabled');
+                $slide.find('.lSAction a').addClass('disabled');
                 setTimeout(function () {
                     scene = s;
                     $slide.css('transition-duration', '0ms');
@@ -595,7 +592,7 @@
                     plugin.move($el, slideValue);
                     setTimeout(function () {
                         $slide.css('transition-duration', settings.speed + 'ms');
-                        $slide.find('.ls-action a').removeClass('disabled');
+                        $slide.find('.lSAction a').removeClass('disabled');
                     }, 50);
                 }, settings.speed + 100);
             },
@@ -624,7 +621,7 @@
                     position = elSize - thumbWidth;
                 }
                 var sc = scene - $el.find('.clone.left').length;
-                var $pager = $slide.parent().find('.ls-pager');
+                var $pager = $slide.parent().find('.lSPager');
                 if (settings.mode === 'slide' && settings.loop === true) {
                     if (sc >= $pager.children().length) {
                         sc = 0;
@@ -738,17 +735,17 @@
             enableDrag: function () {
                 var $this = this;
                 if (!isTouch) {
-                    $slide.find('.light-slider').addClass('lsGrab');
                     var startCoords = 0,
                         endCoords = 0,
                         isDraging = false;
+                    $slide.find('.lightSlider').addClass('lsGrab');
                     $slide.on('mousedown', function (e) {
                         if (w < elSize) {
                             if (w !== 0) {
                                 return false;
                             }
                         }
-                        if ($(e.target).attr('class') !== ('ls-prev') && $(e.target).attr('class') !== ('ls-next')) {
+                        if ($(e.target).attr('class') !== ('lSPrev') && $(e.target).attr('class') !== ('lSNext')) {
                             startCoords = (settings.vertical === true) ? e.pageY : e.pageX;
                             isDraging = true;
                             if (e.preventDefault) {
@@ -760,7 +757,7 @@
                             $slide.scrollLeft += 1;
                             $slide.scrollLeft -= 1;
                             // *
-                            $slide.find('.light-slider').removeClass('lsGrab').addClass('lsGrabbing');
+                            $slide.find('.lightSlider').removeClass('lsGrab').addClass('lsGrabbing');
                         }
                     });
                     $(window).on('mousemove', function (e) {
@@ -771,7 +768,7 @@
                     });
                     $(window).on('mouseup', function (e) {
                         if (isDraging) {
-                            $slide.find('.light-slider').removeClass('lsGrabbing').addClass('lsGrab');
+                            $slide.find('.lightSlider').removeClass('lsGrabbing').addClass('lsGrab');
                             isDraging = false;
                             endCoords = (settings.vertical === true) ? e.pageY : e.pageX;
                             var distance = endCoords - startCoords;
@@ -882,16 +879,16 @@
                 refresh.clone();
             }
             refresh.calL();
-            if (settings.mode === "slide") {
-                $el.removeClass('ls-slide');
+            if (settings.mode === 'slide') {
+                $el.removeClass('lSSlide');
             }
-            if (settings.mode === "slide") {
+            if (settings.mode === 'slide') {
                 refresh.calSW();
                 refresh.sSW();
             }
             setTimeout(function () {
-                if (settings.mode === "slide") {
-                    $el.addClass('ls-slide');
+                if (settings.mode === 'slide') {
+                    $el.addClass('lSSlide');
                 }
             }, 1000);
             if (settings.pager) {
@@ -901,7 +898,7 @@
                 $el.css('height', $children.eq(scene).outerHeight(true));
             }
             if (settings.adaptiveHeight === false) {
-                if (settings.mode === "slide") {
+                if (settings.mode === 'slide') {
                     if (settings.vertical === false) {
                         plugin.setHeight($el, false, true);
                     }
@@ -912,20 +909,20 @@
             if (settings.gallery === true) {
                 plugin.slideThumb();
             }
-            if (settings.mode === "slide") {
+            if (settings.mode === 'slide') {
                 plugin.slide();
             }
             if (settings.autoWidth === false) {
                 if ($children.length <= settings.item) {
-                    $slide.find('.ls-action').hide();
+                    $slide.find('.lSAction').hide();
                 } else {
-                    $slide.find('.ls-action').show();
+                    $slide.find('.lSAction').show();
                 }
             } else {
                 if ((refresh.calWidth(false) < elSize) && (w !== 0)) {
-                    $slide.find('.ls-action').hide();
+                    $slide.find('.lSAction').hide();
                 } else {
-                    $slide.find('.ls-action').show();
+                    $slide.find('.lSAction').show();
                 }
             }
         };
@@ -949,9 +946,9 @@
                         plugin.slideThumb();
                     }
                 } else if (settings.slideEndAnimatoin === true) {
-                    $el.addClass('left-end');
+                    $el.addClass('leftEnd');
                     setTimeout(function () {
-                        $el.removeClass('left-end');
+                        $el.removeClass('leftEnd');
                     }, 400);
                 }
             }
@@ -978,9 +975,9 @@
                         plugin.slideThumb();
                     }
                 } else if (settings.slideEndAnimatoin === true) {
-                    $el.addClass('right-end');
+                    $el.addClass('rightEnd');
                     setTimeout(function () {
-                        $el.removeClass('right-end');
+                        $el.removeClass('rightEnd');
                     }, 400);
                 }
             }
@@ -990,9 +987,9 @@
                 $el.css('height', $children.eq(scene).outerHeight(true));
             }
             if (on === false) {
-                if (settings.mode === "slide") {
+                if (settings.mode === 'slide') {
                     if (plugin.doCss()) {
-                        $el.addClass('ls-slide');
+                        $el.addClass('lSSlide');
                         if (settings.speed !== '') {
                             $slide.css('transition-duration', settings.speed + 'ms');
                         }
@@ -1014,7 +1011,7 @@
             if (!_touch) {
                 settings.onBeforeSlide.call(this, $el, scene);
             }
-            if (settings.mode === "slide") {
+            if (settings.mode === 'slide') {
                 plugin.slide();
             } else {
                 plugin.fade();
@@ -1042,7 +1039,7 @@
         $el.getCurrentSlideCount = function () {
             var sc = scene;
             if (settings.loop) {
-                var ln = $slide.find('.ls-slide').length,
+                var ln = $slide.find('.lslide').length,
                     cl = $el.find('.clone.left').length;
                 if (scene <= cl - 1) {
                     sc = ln + (scene - cl);
@@ -1055,7 +1052,7 @@
             return sc + 1;
         };
         $el.getTotalSlideCount = function () {
-            return $slide.find('.ls-slide').length;
+            return $slide.find('.lslide').length;
         };
         $el.goToSlide = function (s) {
             if (settings.loop) {

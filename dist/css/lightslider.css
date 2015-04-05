@@ -1,6 +1,9 @@
+/*! lightslider - v1.1.2 - 2015-04-05
+* https://github.com/sachinchoolur/lightslider
+* Copyright (c) 2015 Sachin N; Licensed MIT */
 /** /!!! core css Should not edit !!!/**/
 
-.ls-slide-outer {
+.lSSlideOuter {
     overflow: hidden;
     -webkit-touch-callout: none;
     -webkit-user-select: none;
@@ -9,22 +12,22 @@
     -ms-user-select: none;
     user-select: none;
 }
-.light-slider:before, .light-slider:after {
+.lightSlider:before, .lightSlider:after {
     content: " ";
     display: table;
 }
-.light-slider {
+.lightSlider {
     overflow: hidden;
 }
-.ls-slide-wrapper {
+.lSSlideWrapper {
     max-width: 100%;
     overflow: hidden;
     position: relative;
 }
-.ls-slide-wrapper > .light-slider:after {
+.lSSlideWrapper > .lightSlider:after {
     clear: both;
 }
-.ls-slide-wrapper .ls-slide {
+.lSSlideWrapper .lSSlide {
     -webkit-transform: translate(0px, 0px);
     -ms-transform: translate(0px, 0px);
     transform: translate(0px, 0px);
@@ -37,10 +40,10 @@
     -webkit-transition-timing-function: inherit;
     transition-timing-function: inherit;
 }
-.ls-slide-wrapper .ls-fade {
+.lSSlideWrapper .lSFade {
     position: relative;
 }
-.ls-slide-wrapper .ls-fade > * {
+.lSSlideWrapper .lSFade > * {
     position: absolute !important;
     top: 0;
     left: 0;
@@ -48,7 +51,7 @@
     margin-right: 0;
     width: 100%;
 }
-.ls-slide-wrapper.using-css .ls-fade > * {
+.lSSlideWrapper.usingCss .lSFade > * {
     opacity: 0;
     -webkit-transition-delay: 0s;
     transition-delay: 0s;
@@ -59,26 +62,26 @@
     -webkit-transition-timing-function: inherit;
     transition-timing-function: inherit;
 }
-.ls-slide-wrapper .ls-fade > *.active {
+.lSSlideWrapper .lSFade > *.active {
     z-index: 10;
 }
-.ls-slide-wrapper.using-css .ls-fade > *.active {
+.lSSlideWrapper.usingCss .lSFade > *.active {
     opacity: 1;
 }
 /** /!!! End of core css Should not edit !!!/**/
 
 /* Pager */
-.ls-slide-outer .ls-pager.ls-pg {
+.lSSlideOuter .lSPager.lSpg {
     margin: 10px 0 0;
     padding: 0;
     text-align: center;
 }
-.ls-slide-outer .ls-pager.ls-pg > li {
+.lSSlideOuter .lSPager.lSpg > li {
     cursor: pointer;
     display: inline-block;
     padding: 0 5px;
 }
-.ls-slide-outer .ls-pager.ls-pg > li a {
+.lSSlideOuter .lSPager.lSpg > li a {
     background-color: #222222;
     border-radius: 30px;
     display: inline-block;
@@ -91,19 +94,19 @@
     -webkit-transition: all 0.5s linear 0s;
     transition: all 0.5s linear 0s;
 }
-.ls-slide-outer .ls-pager.ls-pg > li:hover a, .ls-slide-outer .ls-pager.ls-pg > li.active a {
+.lSSlideOuter .lSPager.lSpg > li:hover a, .lSSlideOuter .lSPager.lSpg > li.active a {
     background-color: #428bca;
 }
-.ls-slide-outer .media {
+.lSSlideOuter .media {
     opacity: 0.8;
 }
-.ls-slide-outer .media.active {
+.lSSlideOuter .media.active {
     opacity: 1;
 }
 /* End of pager */
 
 /** Gallery */
-.ls-slide-outer .ls-pager.ls-gallery {
+.lSSlideOuter .lSPager.lSGallery {
     list-style: none outside none;
     padding-left: 0;
     margin: 0;
@@ -122,30 +125,30 @@
     -ms-user-select: none;
     user-select: none;
 }
-.ls-slide-outer .ls-pager.ls-gallery li {
+.lSSlideOuter .lSPager.lSGallery li {
     overflow: hidden;
     -webkit-transition: border-radius 0.12s linear 0s 0.35s linear 0s;
     transition: border-radius 0.12s linear 0s 0.35s linear 0s;
 }
-.ls-slide-outer .ls-pager.ls-gallery li.active, .ls-slide-outer .ls-pager.ls-gallery li:hover {
+.lSSlideOuter .lSPager.lSGallery li.active, .lSSlideOuter .lSPager.lSGallery li:hover {
     border-radius: 5px;
 }
-.ls-slide-outer .ls-pager.ls-gallery img {
+.lSSlideOuter .lSPager.lSGallery img {
     display: block;
     height: auto;
     max-width: 100%;
 }
-.ls-slide-outer .ls-pager.ls-gallery:before, .ls-slide-outer .ls-pager.ls-gallery:after {
+.lSSlideOuter .lSPager.lSGallery:before, .lSSlideOuter .lSPager.lSGallery:after {
     content: " ";
     display: table;
 }
-.ls-slide-outer .ls-pager.ls-gallery:after {
+.lSSlideOuter .lSPager.lSGallery:after {
     clear: both;
 }
 /* End of Gallery*/
 
 /* slider actions */
-.ls-action > a {
+.lSAction > a {
     width: 32px;
     display: block;
     top: 50%;
@@ -159,18 +162,18 @@
     -webkit-transition: opacity 0.35s linear 0s;
     transition: opacity 0.35s linear 0s;
 }
-.ls-action > a:hover {
+.lSAction > a:hover {
     opacity: 1;
 }
-.ls-action > .ls-prev {
+.lSAction > .lSPrev {
     background-position: 0 0;
     left: 10px;
 }
-.ls-action > .ls-next {
+.lSAction > .lSNext {
     background-position: -32px 0;
     right: 10px;
 }
-.ls-action > a.disabled {
+.lSAction > a.disabled {
     pointer-events: none;
 }
 .cS-hidden {
@@ -182,58 +185,56 @@
 
 
 /* vertical */
-.ls-slide-outer.vertical {
+.lSSlideOuter.vertical {
     position: relative;
 }
-.ls-slide-outer.vertical.no-pager {
+.lSSlideOuter.vertical.noPager {
     padding-right: 0px !important;
 }
-.ls-slide-outer.vertical .ls-gallery {
+.lSSlideOuter.vertical .lSGallery {
     position: absolute !important;
     right: 0;
     top: 0;
 }
-.ls-slide-outer.vertical .light-slider > * {
+.lSSlideOuter.vertical .lightSlider > * {
     width: 100% !important;
     max-width: none !important;
 }
 
-
 /* vertical controlls */
-.ls-slide-outer.vertical .ls-action > a {
+.lSSlideOuter.vertical .lSAction > a {
     left: 50%;
     margin-left: -14px;
     margin-top: 0;
 }
-.ls-slide-outer.vertical .ls-action > .ls-next {
+.lSSlideOuter.vertical .lSAction > .lSNext {
     background-position: 31px -31px;
     bottom: 10px;
     top: auto;
 }
-.ls-slide-outer.vertical .ls-action > .ls-prev {
+.lSSlideOuter.vertical .lSAction > .lSPrev {
     background-position: 0 -31px;
     bottom: auto;
     top: 10px;
 }
-
 /* vertical */
 
 
 /* Rtl */
-.ls-slide-outer.ls-rtl {
+.lSSlideOuter.lSrtl {
     direction: rtl;
 }
-.ls-slide-outer .light-slider, .ls-slide-outer .ls-pager {
+.lSSlideOuter .lightSlider, .lSSlideOuter .lSPager {
     padding-left: 0;
     list-style: none outside none;
 }
-.ls-slide-outer.ls-rtl .light-slider, .ls-slide-outer.ls-rtl .ls-pager {
+.lSSlideOuter.lSrtl .lightSlider, .lSSlideOuter.lSrtl .lSPager {
     padding-right: 0;
 }
-.ls-slide-outer .light-slider > *,  .ls-slide-outer .ls-gallery li {
+.lSSlideOuter .lightSlider > *,  .lSSlideOuter .lSGallery li {
     float: left;
 }
-.ls-slide-outer.ls-rtl .light-slider > *,  .ls-slide-outer.ls-rtl .ls-gallery li {
+.lSSlideOuter.lSrtl .lightSlider > *,  .lSSlideOuter.lSrtl .lSGallery li {
     float: right !important;
 }
 /* Rtl */
@@ -342,45 +343,45 @@
         bottom: 0;
     }
 }
-.ls-slide-outer .right-end {
+.lSSlideOuter .rightEnd {
     -webkit-animation: rightEnd 0.3s;
     animation: rightEnd 0.3s;
     position: relative;
 }
-.ls-slide-outer .left-end {
+.lSSlideOuter .leftEnd {
     -webkit-animation: leftEnd 0.3s;
     animation: leftEnd 0.3s;
     position: relative;
 }
-.ls-slide-outer.vertical .right-end {
+.lSSlideOuter.vertical .rightEnd {
     -webkit-animation: topEnd 0.3s;
     animation: topEnd 0.3s;
     position: relative;
 }
-.ls-slide-outer.vertical .left-end {
+.lSSlideOuter.vertical .leftEnd {
     -webkit-animation: bottomEnd 0.3s;
     animation: bottomEnd 0.3s;
     position: relative;
 }
-.ls-slide-outer.ls-rtl .right-end {
+.lSSlideOuter.lSrtl .rightEnd {
     -webkit-animation: leftEnd 0.3s;
     animation: leftEnd 0.3s;
     position: relative;
 }
-.ls-slide-outer.ls-rtl .left-end {
+.lSSlideOuter.lSrtl .leftEnd {
     -webkit-animation: rightEnd 0.3s;
     animation: rightEnd 0.3s;
     position: relative;
 }
-
-.light-slider.lsGrab > * {
+/*/  GRab cursor */
+.lightSlider.lsGrab > * {
   cursor: -webkit-grab;
   cursor: -moz-grab;
   cursor: -o-grab;
   cursor: -ms-grab;
   cursor: grab;
 }
-.light-slider.lsGrabbing > * {
+.lightSlider.lsGrabbing > * {
   cursor: move;
   cursor: -webkit-grabbing;
   cursor: -moz-grabbing;
