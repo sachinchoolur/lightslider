@@ -103,7 +103,7 @@ add the Following code to the &lt;head&gt; of your document.
             speed: 400, //ms'
             auto: false,
             loop: false,
-            slideEndAnimatoin: true,
+            slideEndAnimation: true,
             pause: 2000,
 
             keyPress: false,

@@ -13,7 +13,7 @@
         speed: 400, //ms'
         auto: false,
         loop: false,
-        slideEndAnimatoin: true,
+        slideEndAnimation: true,
         pause: 2000,
         keyPress: false,
         controls: true,
@@ -143,9 +143,6 @@
                     w += (parseInt($children.eq(i).width()) + settings.slideMargin);
                 }
             }
-            if (w % 1 !== 0) {
-                w = w + 1;
-            }
             return w;
         };
         plugin = {
@@ -216,10 +213,10 @@
                 var $this = this;
                 if (settings.mode === 'fade') {
                     settings.autoWidth = false;
-                    settings.slideEndAnimatoin = false;
+                    settings.slideEndAnimation = false;
                 }
                 if (settings.auto) {
-                    settings.slideEndAnimatoin = false;
+                    settings.slideEndAnimation = false;
                 }
                 if (settings.autoWidth) {
                     settings.slideMove = 1;
@@ -943,7 +940,7 @@
                     if (settings.gallery === true) {
                         plugin.slideThumb();
                     }
-                } else if (settings.slideEndAnimatoin === true) {
+                } else if (settings.slideEndAnimation === true) {
                     $el.addClass('leftEnd');
                     setTimeout(function () {
                         $el.removeClass('leftEnd');
@@ -972,7 +969,7 @@
                     if (settings.gallery === true) {
                         plugin.slideThumb();
                     }
-                } else if (settings.slideEndAnimatoin === true) {
+                } else if (settings.slideEndAnimation === true) {
                     $el.addClass('rightEnd');
                     setTimeout(function () {
                         $el.removeClass('rightEnd');
