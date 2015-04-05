@@ -32,10 +32,10 @@
     -webkit-transition-property: -webkit-transform,height;
     -moz-transition-property: -moz-transform,height;
     transition-property: transform,height;
-    -webkit-transition-duration: inherit;
-    transition-duration: inherit;
-    -webkit-transition-timing-function: inherit;
-    transition-timing-function: inherit;
+    -webkit-transition-duration: inherit !important;
+    transition-duration: inherit !important;
+    -webkit-transition-timing-function: inherit !important;
+    transition-timing-function: inherit !important;
 }
 .lSSlideWrapper .lSFade {
     position: relative;
@@ -52,12 +52,12 @@
     opacity: 0;
     -webkit-transition-delay: 0s;
     transition-delay: 0s;
-    -webkit-transition-duration: inherit;
-    transition-duration: inherit;
+    -webkit-transition-duration: inherit !important;
+    transition-duration: inherit !important;
     -webkit-transition-property: opacity;
     transition-property: opacity;
-    -webkit-transition-timing-function: inherit;
-    transition-timing-function: inherit;
+    -webkit-transition-timing-function: inherit !important;
+    transition-timing-function: inherit !important;
 }
 .lSSlideWrapper .lSFade > *.active {
     z-index: 10;

@@ -647,7 +647,6 @@
             },
 
             touchMove: function (endCoords, startCoords) {
-                clearInterval(interval);
                 $slide.css('transition-duration', '0ms');
                 if (settings.mode === 'slide') {
                     var distance = endCoords - startCoords;
@@ -758,6 +757,7 @@
                             $slide.scrollLeft -= 1;
                             // *
                             $slide.find('.lightSlider').removeClass('lsGrab').addClass('lsGrabbing');
+                            clearInterval(interval);
                         }
                     });
                     $(window).on('mousemove', function (e) {
@@ -804,6 +804,7 @@
                         endCoords = e.originalEvent.targetTouches[0];
                         startCoords.pageX = e.originalEvent.targetTouches[0].pageX;
                         startCoords.pageY = e.originalEvent.targetTouches[0].pageY;
+                        clearInterval(interval);
                     });
                     $slide.on('touchmove', function (e) {
                         if (w < elSize) {
