@@ -379,13 +379,7 @@
                         }
                     }
                     var $cSouter = $slide.parent();
-                    $cSouter.find('.lSPager').html(pagers);
-                    if (!settings.vertical && settings.gallery) {
-                        var $pgr = $slide.parent().find('.lSGallery');
-                        setTimeout(function () {
-                            $this.setHeight($pgr, false, false);
-                        });
-                    }
+                    $cSouter.find('.lSPager').html(pagers); 
                     if (settings.gallery === true) {
                         if (settings.vertical === true) {
                             // set Gallery thumbnail width
