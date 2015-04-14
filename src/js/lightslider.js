@@ -320,11 +320,11 @@
                         this.move($el, slideValue);
                     }
                     if (settings.vertical === false) {
-                        this.setHeight($el, false, true);
+                        this.setHeight($el, false);
                     }
 
                 } else {
-                    this.setHeight($el, true, true);
+                    this.setHeight($el, true);
                     $el.addClass('lSFade');
                     if (!this.doCss()) {
                         $children.not('.active').css('display', 'none');
@@ -426,34 +426,42 @@
                     refresh.init();
                 }, 0);
             },
-            setHeight: function (ob, fade, loop) {
-                var obj = null;
-                if (loop) {
+            setHeight: function (ob, fade) {
+                var obj = null,
+                    $this = this;
+                if (settings.loop) {
                     obj = ob.children('.lslide ').first();
                 } else {
                     obj = ob.children().first();
                 }
                 var setCss = function () {
-                    if (scene === 0) {
-                        var tH = obj.height(),
-                            tP = 0,
-                            tHT = tH;
-                        if (fade) {
-                            tH = 0;
-                            tP = ((tHT) * 100) / elSize;
-                        }
-                        ob.css({
-                            'height': tH + 'px',
-                            'padding-bottom': tP + '%'
-                        });
+                    var tH = obj.outerHeight(),
+                        tP = 0,
+                        tHT = tH;
+                    if (fade) {
+                        tH = 0;
+                        tP = ((tHT) * 100) / elSize;
                     }
+                    ob.css({
+                        'height': tH + 'px',
+                        'padding-bottom': tP + '%'
+                    });
                 };
                 setCss();
-                obj.find('img').load(function () {
-                    setTimeout(function () {
-                        setCss();
-                    }, 100);
-                });
+                if (obj.has('img')) {
+                    obj.find('img').load(function () {
+                        setTimeout(function () {
+                            setCss();
+                            if (!interval) {
+                                $this.auto();
+                            }
+                        }, 100);
+                    });
+                }else{
+                    if (!interval) {
+                        $this.auto();
+                    }
+                }
             },
             active: function (ob, t) {
                 if (this.doCss() && settings.mode === 'fade') {
@@ -836,7 +844,6 @@
             build: function () {
                 var $this = this;
                 $this.initialStyle();
-                $this.auto();
                 if (this.doCss()) {
 
                     if (settings.enableTouch === true) {
@@ -889,10 +896,10 @@
             if (settings.adaptiveHeight === false) {
                 if (settings.mode === 'slide') {
                     if (settings.vertical === false) {
-                        plugin.setHeight($el, false, true);
+                        plugin.setHeight($el, false);
                     }
                 } else {
-                    plugin.setHeight($el, true, true);
+                    plugin.setHeight($el, true);
                 }
             }
             if (settings.gallery === true) {
