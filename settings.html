@@ -384,10 +384,19 @@
             </div>
         </div>
     </div>
+    <div class="spread">
+        <h3>Please spread the word if you like lightSlider</h3>
+        <div class="clearfix">
+            <div id="twitter" data-url="http://sachinchoolur.github.io/lightslider/" data-text="#jQuery lightSlider - Lightweight responsive content slider with carousel thumbnails navigation #javascript"></div>
+            <div id="facebook" data-url="http://sachinchoolur.github.io/lightslider/" data-text="jQuery lightSlider - Lightweight responsive content slider with carousel thumbnails navigation" ></div>
+            <div id="googleplus" data-url="http://sachinchoolur.github.io/lightslider/" data-text="#jQuery lightSlider - Lightweight  responsive content slider with carousel thumbnails navigation"></div>    
+        </div>
+    </div>
 </div>
 <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script> 
 <script src="light-gallery/js/lightGallery.js"></script> 
 <script src="js/prettify.js"></script> 
+<script src="js/jquery.sharrre.min.js"></script>
 <script type="text/javascript">
 	var site = $('#site');
 	
@@ -429,6 +438,40 @@
             }else if(!site.hasClass('translate')){
                 $("#mast-head").css('display','none');      
             }
+        });
+        $('#twitter').sharrre({
+          share: {
+            twitter: true
+          },
+          enableHover: false,
+          enableTracking: true,
+          buttons: { twitter: {}},
+          click: function(api, options){
+            api.simulateClick();
+            api.openPopup('twitter');
+          }
+        });
+        $('#facebook').sharrre({
+          share: {
+            facebook: true
+          },
+          enableHover: false,
+          enableTracking: true,
+          click: function(api, options){
+            api.simulateClick();
+            api.openPopup('facebook');
+          }
+        });
+        $('#googleplus').sharrre({
+          share: {
+            googlePlus: true
+          },
+          enableHover: false,
+          enableTracking: true,
+          click: function(api, options){
+            api.simulateClick();
+            api.openPopup('googlePlus');
+          }
         });
 	});
 </script>

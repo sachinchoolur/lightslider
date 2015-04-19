@@ -3977,3 +3977,52 @@ ul.note {
     font-size: 14px;
     padding: 0 0 50px;
 }
+
+
+
+
+.spread {
+  background-color: #f1f1f1;
+  padding: 60px 0;
+  text-align: center;
+}
+.spread > h3 {
+  margin: 0 0 40px;
+}
+
+.sharrre .box {
+    height: 40px;
+    width: 40px;
+}
+#twitter .box {
+    background-image: url("../img/social/twitter-icon.svg");
+    background-size: contain;
+}
+#facebook .box {
+    background-image: url("../img/social/facebook-icon.svg");
+    background-size: contain;
+}
+#googleplus .box {
+    background-image: url("../img/social/googleplus-icon.svg");
+    background-size: contain;
+}
+.sharrre {
+    padding: 20px;
+    border-radius: 50%;
+    cursor: pointer;
+    display: inline-block;
+    vertical-align: middle;
+    margin-right: 10px;
+}
+.sharrre .count{
+    display: none;
+}
+.sharrre#twitter{
+    background-color: #00acee;    
+}
+.sharrre#facebook{
+    background-color: #3b5998;   
+}
+.sharrre#googleplus{
+    background-color: #dd4b39;
+}
