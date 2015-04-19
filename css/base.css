@@ -4002,10 +4002,6 @@ ul.note {
     background-image: url("../img/social/facebook-icon.svg");
     background-size: contain;
 }
-#googleplus .box {
-    background-image: url("../img/social/googleplus-icon.svg");
-    background-size: contain;
-}
 .sharrre {
     padding: 20px;
     border-radius: 50%;
@@ -4025,4 +4021,12 @@ ul.note {
 }
 .sharrre#googleplus{
     background-color: #dd4b39;
+}
+#googleplus.sharrre::after {
+  background-image: url("../img/social/googleplus-icon.svg");
+  background-size: contain;
+  content: "";
+  display: block;
+  height: 40px;
+  width: 40px;
 }
