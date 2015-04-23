@@ -60,7 +60,7 @@
             settings = $.extend(true, {}, defaults, options),
             settingsTemp = {},
             $el = this;
-        plugin.$el = this;
+            plugin.$el = this;
 
         if (settings.mode === 'fade') {
             settings.vertical = false;
@@ -547,6 +547,7 @@
                 }
                 var $thumb = $slide.parent().find('.lSPager').find('li');
                 this.active($thumb, true);
+		this.setLastVisible();
             },
             fade: function () {
                 this.active($children, false);
@@ -856,7 +857,17 @@
                 $this.pager();
                 $this.controls();
                 $this.keyPress();
-            }
+            },
+	    setLastVisible : function() {
+		if ($el.getCurrentSlideCount)	{
+			var $this = $($slide).find("ul");
+			var lis = $this.find("li");
+			var pos = ($el.getCurrentSlideCount() + $this.find(".clone").length - 2) % lis.length;
+			var li = lis.get(pos);
+			lis.removeClass("lastVisible");
+			$(li).addClass("lastVisible");
+		}
+	    }
         };
         plugin.build();
         refresh.init = function () {
@@ -921,6 +932,7 @@
                     $slide.find('.lSAction').show();
                 }
             }
+	    plugin.setLastVisible();
         };
         $el.goToPrevSlide = function () {
             if (scene > 0) {
