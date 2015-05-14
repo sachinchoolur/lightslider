@@ -860,12 +860,12 @@
             },
 	    setLastVisible : function() {
 		if ($el.getCurrentSlideCount)	{
-			var $this = $($slide).find("ul");
-			var lis = $this.find("li");
-			var pos = ($el.getCurrentSlideCount() + $this.find(".clone").length - 2) % lis.length;
+			var $this = $($slide).find('ul');
+			var lis = $this.find('li');
+			var pos = ($el.getCurrentSlideCount() + $this.find('.clone').length - 2) % lis.length;
 			var li = lis.get(pos);
-			lis.removeClass("lastVisible");
-			$(li).addClass("lastVisible");
+			lis.removeClass('lastVisible');
+			$(li).addClass('lastVisible');
 		}
 	    }
         };
