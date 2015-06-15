@@ -112,6 +112,7 @@ add the Following code to the &lt;head&gt; of your document.
             nextHtml: '',
 
             rtl:false,
+            centerSlide:false,//center the active slide
             adaptiveHeight:false,
 
             vertical:false,
