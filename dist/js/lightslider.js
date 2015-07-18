@@ -1,4 +1,4 @@
-/*! lightslider - v1.1.2 - 2015-07-18
+/*! lightslider - v1.1.3 - 2015-07-18
 * https://github.com/sachinchoolur/lightslider
 * Copyright (c) 2015 Sachin N; Licensed MIT */
 (function ($, undefined) {
@@ -1059,7 +1059,7 @@
                 }
             }
             return sc + 1;
-        };
+        }; 
         $el.getTotalSlideCount = function () {
             return $slide.find('.lslide').length;
         };

@@ -1056,7 +1056,7 @@
                 }
             }
             return sc + 1;
-        };
+        }; 
         $el.getTotalSlideCount = function () {
             return $slide.find('.lslide').length;
         };
