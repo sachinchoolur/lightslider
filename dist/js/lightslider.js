@@ -1,4 +1,4 @@
-/*! lightslider - v1.1.2 - 2015-04-14
+/*! lightslider - v1.1.3 - 2015-07-18
 * https://github.com/sachinchoolur/lightslider
 * Copyright (c) 2015 Sachin N; Licensed MIT */
 (function ($, undefined) {
@@ -330,7 +330,8 @@
                     this.setHeight($el, true);
                     $el.addClass('lSFade');
                     if (!this.doCss()) {
-                        $children.not('.active').css('display', 'none');
+                        $children.fadeOut(0);
+                        $children.eq(scene).fadeIn(0);
                     }
                 }
                 if (settings.loop === true && settings.mode === 'slide') {
@@ -451,15 +452,22 @@
                     });
                 };
                 setCss();
-                if (obj.has('img')) {
-                    obj.find('img').load(function () {
-                        setTimeout(function () {
-                            setCss();
-                            if (!interval) {
-                                $this.auto();
-                            }
-                        }, 100);
-                    });
+                if (obj.find('img').length) {
+                    if ( obj.find('img')[0].complete) {
+                        setCss();
+                        if (!interval) {
+                            $this.auto();
+                        }   
+                    }else{
+                        obj.find('img').load(function () {
+                            setTimeout(function () {
+                                setCss();
+                                if (!interval) {
+                                    $this.auto();
+                                }
+                            }, 100);
+                        });
+                    }
                 }else{
                     if (!interval) {
                         $this.auto();
@@ -900,6 +908,8 @@
                 if (settings.mode === 'slide') {
                     if (settings.vertical === false) {
                         plugin.setHeight($el, false);
+                    }else{
+                        plugin.auto();
                     }
                 } else {
                     plugin.setHeight($el, true);
@@ -1049,7 +1059,7 @@
                 }
             }
             return sc + 1;
-        };
+        }; 
         $el.getTotalSlideCount = function () {
             return $slide.find('.lslide').length;
         };
