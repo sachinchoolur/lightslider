@@ -448,7 +448,7 @@
                     });
                 };
                 setCss();
-                if (obj.has('img')) {
+                if (obj.find('img').length) {
                     obj.find('img').load(function () {
                         setTimeout(function () {
                             setCss();
