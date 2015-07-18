@@ -327,7 +327,8 @@
                     this.setHeight($el, true);
                     $el.addClass('lSFade');
                     if (!this.doCss()) {
-                        $children.not('.active').css('display', 'none');
+                        $children.fadeOut(0);
+                        $children.eq(scene).fadeIn(0);
                     }
                 }
                 if (settings.loop === true && settings.mode === 'slide') {
@@ -449,14 +450,21 @@
                 };
                 setCss();
                 if (obj.find('img').length) {
-                    obj.find('img').load(function () {
-                        setTimeout(function () {
-                            setCss();
-                            if (!interval) {
-                                $this.auto();
-                            }
-                        }, 100);
-                    });
+                    if ( obj.find('img')[0].complete) {
+                        setCss();
+                        if (!interval) {
+                            $this.auto();
+                        }   
+                    }else{
+                        obj.find('img').load(function () {
+                            setTimeout(function () {
+                                setCss();
+                                if (!interval) {
+                                    $this.auto();
+                                }
+                            }, 100);
+                        });
+                    }
                 }else{
                     if (!interval) {
                         $this.auto();
@@ -897,6 +905,8 @@
                 if (settings.mode === 'slide') {
                     if (settings.vertical === false) {
                         plugin.setHeight($el, false);
+                    }else{
+                        plugin.auto();
                     }
                 } else {
                     plugin.setHeight($el, true);

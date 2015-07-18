@@ -1,3 +1,6 @@
+/*! lightslider - v1.1.2 - 2015-04-14
+* https://github.com/sachinchoolur/lightslider
+* Copyright (c) 2015 Sachin N; Licensed MIT */
 /** /!!! core css Should not edit !!!/**/
 
 .lSSlideOuter {
@@ -21,21 +24,26 @@
     overflow: hidden;
     position: relative;
 }
-.lightSlider:after {
+.lSSlideWrapper > .lightSlider:after {
     clear: both;
 }
-.lSSlide {
-    -webkit-transform: translate(0, 0);
-    -ms-transform: translate(0, 0);
-    transform: translate(0, 0);
+.lSSlideWrapper .lSSlide {
+    -webkit-transform: translate(0px, 0px);
+    -ms-transform: translate(0px, 0px);
+    transform: translate(0px, 0px);
     -webkit-transition: all 1s;
-    -ms-transition: all 1s;
-    transition: all 1s;
+    -webkit-transition-property: -webkit-transform,height;
+    -moz-transition-property: -moz-transform,height;
+    transition-property: transform,height;
+    -webkit-transition-duration: inherit !important;
+    transition-duration: inherit !important;
+    -webkit-transition-timing-function: inherit !important;
+    transition-timing-function: inherit !important;
 }
-.lSFade {
+.lSSlideWrapper .lSFade {
     position: relative;
 }
-.lSFade > * {
+.lSSlideWrapper .lSFade > * {
     position: absolute !important;
     top: 0;
     left: 0;
@@ -43,33 +51,38 @@
     margin-right: 0;
     width: 100%;
 }
-.usingCss .lSFade > * {
+.lSSlideWrapper.usingCss .lSFade > * {
     opacity: 0;
-    -ms-transition: opacity inherit 0 inherit !important;
-    -webkit-transition: opacity inherit 0 inherit !important;
-    transition: opacity inherit 0 inherit !important;
+    -webkit-transition-delay: 0s;
+    transition-delay: 0s;
+    -webkit-transition-duration: inherit !important;
+    transition-duration: inherit !important;
+    -webkit-transition-property: opacity;
+    transition-property: opacity;
+    -webkit-transition-timing-function: inherit !important;
+    transition-timing-function: inherit !important;
 }
-.lSFade > *.active {
+.lSSlideWrapper .lSFade > *.active {
     z-index: 10;
 }
-.usingCss .lSFade > *.active {
+.lSSlideWrapper.usingCss .lSFade > *.active {
     opacity: 1;
 }
 /** /!!! End of core css Should not edit !!!/**/
 
 /* Pager */
-.lSPager {
+.lSSlideOuter .lSPager.lSpg {
     margin: 10px 0 0;
     padding: 0;
     text-align: center;
 }
-.lSPager > li {
+.lSSlideOuter .lSPager.lSpg > li {
     cursor: pointer;
     display: inline-block;
     padding: 0 5px;
 }
-.lSPager > li a {
-    background-color: #222;
+.lSSlideOuter .lSPager.lSpg > li a {
+    background-color: #222222;
     border-radius: 30px;
     display: inline-block;
     height: 8px;
@@ -78,14 +91,14 @@
     width: 8px;
     position: relative;
     z-index: 99;
-    -webkit-transition: all .5s linear 0;
-    transition: all .5s linear 0;
+    -webkit-transition: all 0.5s linear 0s;
+    transition: all 0.5s linear 0s;
 }
-.lSPager > li:hover a, .lSPager > li.active a {
+.lSSlideOuter .lSPager.lSpg > li:hover a, .lSSlideOuter .lSPager.lSpg > li.active a {
     background-color: #428bca;
 }
 .lSSlideOuter .media {
-    opacity: .8;
+    opacity: 0.8;
 }
 .lSSlideOuter .media.active {
     opacity: 1;
@@ -93,16 +106,16 @@
 /* End of pager */
 
 /** Gallery */
-.lSGallery {
+.lSSlideOuter .lSPager.lSGallery {
     list-style: none outside none;
     padding-left: 0;
     margin: 0;
     overflow: hidden;
-    transform: translate3d(0, 0, 0);
-    -moz-transform: translate3d(0, 0, 0);
-    -ms-transform: translate3d(0, 0, 0);
-    -webkit-transform: translate3d(0, 0, 0);
-    -o-transform: translate3d(0, 0, 0);
+    transform: translate3d(0px, 0px, 0px);
+    -moz-transform: translate3d(0px, 0px, 0px);
+    -ms-transform: translate3d(0px, 0px, 0px);
+    -webkit-transform: translate3d(0px, 0px, 0px);
+    -o-transform: translate3d(0px, 0px, 0px);
     -webkit-transition-property: -webkit-transform;
     -moz-transition-property: -moz-transform;
     -webkit-touch-callout: none;
@@ -112,24 +125,24 @@
     -ms-user-select: none;
     user-select: none;
 }
-.lSGallery li {
+.lSSlideOuter .lSPager.lSGallery li {
     overflow: hidden;
-    -webkit-transition: border-radius .12s linear 0 .35s linear 0;
-    transition: border-radius .12s linear 0 .35s linear 0;
+    -webkit-transition: border-radius 0.12s linear 0s 0.35s linear 0s;
+    transition: border-radius 0.12s linear 0s 0.35s linear 0s;
 }
-.lSGallery li.active, .lSGallery li:hover {
+.lSSlideOuter .lSPager.lSGallery li.active, .lSSlideOuter .lSPager.lSGallery li:hover {
     border-radius: 5px;
 }
-.lSGallery img {
+.lSSlideOuter .lSPager.lSGallery img {
     display: block;
     height: auto;
     max-width: 100%;
 }
-.lSGallery:before, .lSGallery:after {
+.lSSlideOuter .lSPager.lSGallery:before, .lSSlideOuter .lSPager.lSGallery:after {
     content: " ";
     display: table;
 }
-.lSGallery:after {
+.lSSlideOuter .lSPager.lSGallery:after {
     clear: both;
 }
 /* End of Gallery*/
@@ -145,22 +158,22 @@
     position: absolute;
     z-index: 9999;
     margin-top: -16px;
-    opacity: .5;
-    -webkit-transition: opacity .35s linear 0;
-    transition: opacity .35s linear 0;
+    opacity: 0.5;
+    -webkit-transition: opacity 0.35s linear 0s;
+    transition: opacity 0.35s linear 0s;
 }
 .lSAction > a:hover {
     opacity: 1;
 }
-.lSPrev {
+.lSAction > .lSPrev {
     background-position: 0 0;
     left: 10px;
 }
-.lSNext {
+.lSAction > .lSNext {
     background-position: -32px 0;
     right: 10px;
 }
-.lSAction > .disabled {
+.lSAction > a.disabled {
     pointer-events: none;
 }
 .cS-hidden {
@@ -176,7 +189,7 @@
     position: relative;
 }
 .lSSlideOuter.vertical.noPager {
-    padding-right: 0 !important;
+    padding-right: 0px !important;
 }
 .lSSlideOuter.vertical .lSGallery {
     position: absolute !important;
@@ -194,12 +207,12 @@
     margin-left: -14px;
     margin-top: 0;
 }
-.lSSlideOuter.vertical .lSNext {
+.lSSlideOuter.vertical .lSAction > .lSNext {
     background-position: 31px -31px;
     bottom: 10px;
     top: auto;
 }
-.lSSlideOuter.vertical .lSPrev {
+.lSSlideOuter.vertical .lSAction > .lSPrev {
     background-position: 0 -31px;
     bottom: auto;
     top: 10px;
@@ -208,20 +221,20 @@
 
 
 /* Rtl */
-.lSrtl {
+.lSSlideOuter.lSrtl {
     direction: rtl;
 }
-.lightSlider, .lSPager {
+.lSSlideOuter .lightSlider, .lSSlideOuter .lSPager {
     padding-left: 0;
     list-style: none outside none;
 }
-.lSrtl .lightSlider, .lSrtl .lSPager {
+.lSSlideOuter.lSrtl .lightSlider, .lSSlideOuter.lSrtl .lSPager {
     padding-right: 0;
 }
-.lightSlider > *,  .lSGallery li {
+.lSSlideOuter .lightSlider > *,  .lSSlideOuter .lSGallery li {
     float: left;
 }
-.lSrtl .lightSlider > *,  .lSrtl .lSGallery li {
+.lSSlideOuter.lSrtl .lightSlider > *,  .lSSlideOuter.lSrtl .lSGallery li {
     float: right !important;
 }
 /* Rtl */
@@ -331,33 +344,33 @@
     }
 }
 .lSSlideOuter .rightEnd {
-    -webkit-animation: rightEnd .3s;
-    animation: rightEnd .3s;
+    -webkit-animation: rightEnd 0.3s;
+    animation: rightEnd 0.3s;
     position: relative;
 }
 .lSSlideOuter .leftEnd {
-    -webkit-animation: leftEnd .3s;
-    animation: leftEnd .3s;
+    -webkit-animation: leftEnd 0.3s;
+    animation: leftEnd 0.3s;
     position: relative;
 }
 .lSSlideOuter.vertical .rightEnd {
-    -webkit-animation: topEnd .3s;
-    animation: topEnd .3s;
+    -webkit-animation: topEnd 0.3s;
+    animation: topEnd 0.3s;
     position: relative;
 }
 .lSSlideOuter.vertical .leftEnd {
-    -webkit-animation: bottomEnd .3s;
-    animation: bottomEnd .3s;
+    -webkit-animation: bottomEnd 0.3s;
+    animation: bottomEnd 0.3s;
     position: relative;
 }
 .lSSlideOuter.lSrtl .rightEnd {
-    -webkit-animation: leftEnd .3s;
-    animation: leftEnd .3s;
+    -webkit-animation: leftEnd 0.3s;
+    animation: leftEnd 0.3s;
     position: relative;
 }
 .lSSlideOuter.lSrtl .leftEnd {
-    -webkit-animation: rightEnd .3s;
-    animation: rightEnd .3s;
+    -webkit-animation: rightEnd 0.3s;
+    animation: rightEnd 0.3s;
     position: relative;
 }
 /*/  GRab cursor */
