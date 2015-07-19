@@ -694,7 +694,9 @@ $(document).ready(function() {
         slider.getCurrentSlideCount(); 
     });
     $('#addSlide').click(function() {
-        var newEl = ' &lt;li&gt; &lt;a href="javascript:void(0)"&gt;&lt;img src="img/cS-1.jpg" /&gt;&lt;/a&gt; &lt;/li&gt;';
+
+        // Class 'lslide' needs to be added with new slide item
+        var newEl = ' &lt;li class="lslide"&gt; &lt;a href="javascript:void(0)"&gt;&lt;img src="img/cS-1.jpg" /&gt;&lt;/a&gt; &lt;/li&gt;';
         $('#publicMethods').prepend(newEl);
         slider.refresh();
     });
@@ -937,7 +939,7 @@ $(document).ready(function() {
             alert(slider.getCurrentSlideCount());
         });
 		$('#addSlide').click(function() {
-            var newEl = ' <li> <a href="javascript:void(0)"><img src="img/cS-1.jpg" /></a> </li>';
+            var newEl = ' <li class="lslide"> <a href="javascript:void(0)"><img src="img/cS-1.jpg" /></a> </li>';
             $('#publicMethods').prepend(newEl);
             slider.refresh();
         });
