@@ -339,7 +339,7 @@ $(document).ready(function() {
 </div>
 
 <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script> 
-<script src="dist/js/lightslider.min.js"></script> 
+<script src="src/js/lightslider.js"></script> 
 <script src="js/prettify.js"></script> 
 <script src="js/jquery.sharrre.min.js"></script> 
 <script type="text/javascript">
@@ -347,7 +347,7 @@ $(document).ready(function() {
     
     $(document).ready(function() {
         window.prettyPrint && prettyPrint()
-        $('#lightSlider').lightSlider({
+        var slider = $('#lightSlider').lightSlider({
             gallery:true,
             item:1,
             thumbItem:9,
@@ -355,6 +355,7 @@ $(document).ready(function() {
             speed:500,
             auto:true,
             loop:true,
+            pause: 10000,
             onSliderLoad: function() {
                 $('#lightSlider').removeClass('cS-hidden');
             }     

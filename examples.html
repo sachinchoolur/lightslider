@@ -608,18 +608,13 @@ $(document).ready(function() {
 $(document).ready(function() {
     var autoplaySlider = $('#autoplay').lightSlider({
         auto:true,
-        loop:true
+        loop:true,
+        pauseOnHover: true,
         onBeforeSlide: function (el) {
             $('#current').text(el.getCurrentSlideCount());
         } 
     });
     $('#total').text(autoplaySlider.getTotalSlideCount());
-    $('#autoplay').parent().on('mouseenter',function(){
-        autoplaySlider.pause();
-    });
-    $('#autoplay').parent().on('mouseleave',function(){
-        autoplaySlider.play();
-    });
 });</pre>
                     </div>
                     </section>
@@ -674,6 +669,8 @@ $(document).ready(function() {
                                 <button class="btn btn-success" type="button" id="addSlide">add Slide</button>
                                 <button class="btn btn-success" type="button" id="play">Play</button>
                                 <button class="btn btn-success" type="button" id="pause">Pause</button>
+                                <button class="btn btn-success" type="button" id="destroy">Destroy</button>
+                                <button class="btn btn-success" type="button" id="rebuild">Rebuild</button>
                             </div>
                         </div>
                         <div class="call">
@@ -708,6 +705,18 @@ $(document).ready(function() {
     });
     $('#pause').click(function(){
         slider.pause();    
+    });
+    $('#destroy').click(function(){
+        slider.destroy();    
+    });
+    $('#rebuild').click(function(){
+        if (!slider.lightSlider) {
+            slider = $('#publicMethods').lightSlider({
+                slideMargin:4,
+                slideWidth:200,
+                loop:false
+            });  
+        }
     });
   });</pre>
                         </div>
@@ -860,6 +869,7 @@ $(document).ready(function() {
         var autoplaySlider = $('#autoplay').lightSlider({
             auto:true,
             loop:true,
+            pauseOnHover: true,
             onSliderLoad: function() {
                 $('#autoplay').removeClass('cS-hidden');
             },
@@ -868,12 +878,7 @@ $(document).ready(function() {
             } 
         });
         $('#total').text(autoplaySlider.getTotalSlideCount());
-        $('#autoplay').parent().on('mouseenter',function(){
-            autoplaySlider.pause();
-        });
-        $('#autoplay').parent().on('mouseleave',function(){
-            autoplaySlider.play();
-        });
+
         $('#rtl').lightSlider({
 			rtl:true,
             onSliderLoad: function() {
@@ -951,6 +956,18 @@ $(document).ready(function() {
         });
         $('#pause').click(function(){
             slider.pause();    
+        });
+        $('#destroy').click(function(){
+            slider.destroy();    
+        });
+        $('#rebuild').click(function(){
+            if (!slider.lightSlider) {
+                slider = $('#publicMethods').lightSlider({
+                    slideMargin:4,
+                    slideWidth:200,
+                    item:4
+                });  
+            }
         });
         var clk = true;
         $('.btn-navbar').on('click',function(){
