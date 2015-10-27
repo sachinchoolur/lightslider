@@ -102,6 +102,7 @@ add the Following code to the &lt;head&gt; of your document.
 
             speed: 400, //ms'
             auto: false,
+            pauseOnHover: false,
             loop: false,
             slideEndAnimation: true,
             pause: 2000,
@@ -154,6 +155,7 @@ add the Following code to the &lt;head&gt; of your document.
         slider.refresh();
         slider.play();
         slider.pause();
+        slider.destroy();
     });
 </script>
 ```
