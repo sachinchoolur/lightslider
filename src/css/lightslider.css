@@ -18,6 +18,7 @@
 }
 .lightSlider {
     overflow: hidden;
+    margin: 0;
 }
 .lSSlideWrapper {
     max-width: 100%;
