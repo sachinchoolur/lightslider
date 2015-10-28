@@ -19,6 +19,7 @@
         "swipe",
         "thumbnail"
     ],
+    "main": "dist/js/lightslider.js",
     "author": {
         "name": "Sachin N",
         "email": "sachi77n@gmail.com",
