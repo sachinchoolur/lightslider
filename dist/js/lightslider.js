@@ -1,4 +1,4 @@
-/*! lightslider - v1.1.4 - 2015-10-28
+/*! lightslider - v1.1.5 - 2015-10-31
 * https://github.com/sachinchoolur/lightslider
 * Copyright (c) 2015 Sachin N; Licensed MIT */
 (function ($, undefined) {
@@ -876,6 +876,15 @@
                         $this.enableDrag();
                     }
                 }
+
+                $(window).on('focus', function(){
+                    $this.auto();
+                });
+                
+                $(window).on('blur', function(){
+                    clearInterval(interval);
+                });
+
                 $this.pager();
                 $this.pauseOnHover();
                 $this.controls();
