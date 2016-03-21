@@ -83,7 +83,7 @@
             slideWidth = 0,
             thumbWidth = 0,
             interval = null,
-            isTouch = ('ontouchstart' in document.documentElement);
+            isTouch = ('ontouchstart' in document.documentElement) || ('ontouchstart' in window);
         var refresh = {};
 
         refresh.chbreakpoint = function () {
