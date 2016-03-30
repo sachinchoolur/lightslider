@@ -1,6 +1,6 @@
-/*! lightslider - v1.1.5 - 2015-10-31
+/*! lightslider - v1.1.5 - 2016-03-30
 * https://github.com/sachinchoolur/lightslider
-* Copyright (c) 2015 Sachin N; Licensed MIT */
+* Copyright (c) 2016 Sachin N; Licensed MIT */
 (function ($, undefined) {
     'use strict';
     var defaults = {
@@ -24,6 +24,7 @@
         prevHtml: '',
         nextHtml: '',
         rtl: false,
+        centerSlide: false,
         adaptiveHeight: false,
         vertical: false,
         verticalHeight: 500,
@@ -608,6 +609,12 @@
                     _sV = 0;
                     for (var i = 0; i < scene; i++) {
                         _sV += (parseInt($children.eq(i).width()) + settings.slideMargin);
+                    }
+                }
+                if (settings.centerSlide) {
+                    var extraWidth = elSize - $children.eq(scene).width();
+                    if (extraWidth > 1) {
+                        _sV -= Math.round(extraWidth / 2);
                     }
                 }
                 return _sV;
