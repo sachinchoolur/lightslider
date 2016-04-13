@@ -354,8 +354,12 @@
                             }
                         }
                         var thumb = $children.eq(i * settings.slideMove).attr('data-thumb');
+
+                        // add by jabbar
+                        // I nedd caption for thumbs
+                        var thumbCaption = $children.eq(i * settings.slideMove).attr('data-caption');
                         if (settings.gallery === true) {
-                            pagers += '<li style="width:100%;' + property + ':' + thumbWidth + 'px;' + gutter + ':' + settings.thumbMargin + 'px"><a href="#"><img src="' + thumb + '" /></a></li>';
+                            pagers += '<li style="width:100%;' + property + ':' + thumbWidth + 'px;' + gutter + ':' + settings.thumbMargin + 'px"><a href="#"><img src="' + thumb + '" /></a><p class="thumb-caption">' + thumbCaption + '</p></li>';
                         } else {
                             pagers += '<li><a href="#">' + (i + 1) + '</a></li>';
                         }
