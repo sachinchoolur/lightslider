@@ -453,7 +453,7 @@
                             $this.auto();
                         }   
                     }else{
-                        obj.find('img').on('load', function () {
+                        obj.find('img').load(function () {
                             setTimeout(function () {
                                 setCss();
                                 if (!interval) {
