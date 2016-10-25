@@ -1,6 +1,6 @@
-/*! lightslider - v1.1.5 - 2015-10-31
+/*! lightslider - v1.1.6 - 2016-10-25
 * https://github.com/sachinchoolur/lightslider
-* Copyright (c) 2015 Sachin N; Licensed MIT */
+* Copyright (c) 2016 Sachin N; Licensed MIT */
 (function ($, undefined) {
     'use strict';
     var defaults = {
@@ -456,7 +456,7 @@
                             $this.auto();
                         }   
                     }else{
-                        obj.find('img').load(function () {
+                        obj.find('img').on('load', function () {
                             setTimeout(function () {
                                 setCss();
                                 if (!interval) {
