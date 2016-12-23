@@ -1,4 +1,4 @@
-/*! lightslider - v1.1.6 - 2016-10-25
+/*! lightslider - v1.1.6 - 2016-12-23
 * https://github.com/sachinchoolur/lightslider
 * Copyright (c) 2016 Sachin N; Licensed MIT */
 (function ($, undefined) {
@@ -851,7 +851,7 @@
                     $slide.on('touchend', function () {
                         if (w < elSize) {
                             if (w !== 0) {
-                                return false;
+                                return true;
                             }
                         }
                         var distance;
