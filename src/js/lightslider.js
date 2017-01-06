@@ -144,6 +144,10 @@
                     w += (parseInt($children.eq(i).width()) + settings.slideMargin);
                 }
             }
+            // fix issue of missing last slide when autoWidth option is set to be True
+            // http://stackoverflow.com/questions/35591467/customizing-lightslider-slide
+            // the width of holder is mis-calculated, so far I plus more 10px to help it to display correctly
+            w += 10;
             return w;
         };
         plugin = {
