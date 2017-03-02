@@ -141,10 +141,10 @@
             } else {
                 w = 0;
                 for (var i = 0; i < ln; i++) {
-                    w += (parseInt($children.eq(i).width()) + settings.slideMargin);
+                    w += ($children.eq(i)[0].getBoundingClientRect().width + settings.slideMargin);
                 }
             }
-            return w;
+            return Math.ceil(w);
         };
         plugin = {
             doCss: function () {
