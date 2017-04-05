@@ -581,6 +581,21 @@
                                 $this.resetSlide($slide.find('.lslide').length);
                             }
                         }
+						// disabled arrow control
+                        if (settings.loop === false) {
+                            if ($el.getCurrentSlideCount() === 1) {
+                                $slide.parent().find(".lSAction a.lSPrev").addClass("disabled");
+                            } else {
+                                $slide.parent().find(".lSAction a.lSPrev").removeClass("disabled");
+                            }
+
+                            if (slideValue === (w - elSize - settings.slideMargin)) {
+                                $slide.parent().find(".lSAction a.lSNext").addClass("disabled");
+                            } else {
+                                $slide.parent().find(".lSAction a.lSNext").removeClass("disabled");
+                            }
+                        }
+                        // disabled arrow control
                     }
                 };
                 refresh.calSlide();
