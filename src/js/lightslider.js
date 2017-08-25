@@ -37,15 +37,14 @@
         swipeThreshold: 40,
         responsive: [],
         /* jshint ignore:start */
-        onBeforeStart: function ($el) { },
-        onSliderLoad: function ($el) { },
-        onBeforeSlide: function ($el, scene) { },
-        onAfterSlide: function ($el, scene) { },
-        onBeforeNextSlide: function ($el, scene) { },
-        onBeforePrevSlide: function ($el, scene) { }
+        onBeforeStart: function ($el) {},
+        onSliderLoad: function ($el) {},
+        onBeforeSlide: function ($el, scene) {},
+        onAfterSlide: function ($el, scene) {},
+        onBeforeNextSlide: function ($el, scene) {},
+        onBeforePrevSlide: function ($el, scene) {}
         /* jshint ignore:end */
     };
-
     $.fn.lightSlider = function (options) {
         if (this.length === 0) {
             return this;
@@ -173,7 +172,7 @@
                             } else {
                                 e.returnValue = false;
                             }
-                            if (!slideLock) {
+                            if(!slideLock){
                                 if (e.keyCode === 37) {
                                     $el.goToPrevSlide();
                                 } else if (e.keyCode === 39) {
@@ -382,7 +381,7 @@
                         }
                     }
                     var $cSouter = $slide.parent();
-                    $cSouter.find('.lSPager').html(pagers);
+                    $cSouter.find('.lSPager').html(pagers); 
                     if (settings.gallery === true) {
                         if (settings.vertical === true) {
                             // set Gallery thumbnail width
@@ -451,12 +450,12 @@
                 };
                 setCss();
                 if (obj.find('img').length) {
-                    if (obj.find('img')[0].complete) {
+                    if ( obj.find('img')[0].complete) {
                         setCss();
                         if (!interval) {
                             $this.auto();
-                        }
-                    } else {
+                        }   
+                    }else{
                         obj.find('img').on('load', function () {
                             setTimeout(function () {
                                 setCss();
@@ -466,7 +465,7 @@
                             }, 100);
                         });
                     }
-                } else {
+                }else{
                     if (!interval) {
                         $this.auto();
                     }
@@ -618,14 +617,14 @@
             slideThumb: function () {
                 var position;
                 switch (settings.currentPagerPosition) {
-                    case 'left':
-                        position = 0;
-                        break;
-                    case 'middle':
-                        position = (elSize / 2) - (thumbWidth / 2);
-                        break;
-                    case 'right':
-                        position = elSize - thumbWidth;
+                case 'left':
+                    position = 0;
+                    break;
+                case 'middle':
+                    position = (elSize / 2) - (thumbWidth / 2);
+                    break;
+                case 'right':
+                    position = elSize - thumbWidth;
                 }
                 var sc = scene - $el.find('.clone.left').length;
                 var $pager = $slide.parent().find('.lSPager');
@@ -653,15 +652,15 @@
                     }, settings.pause);
                 }
             },
-            pauseOnHover: function () {
+            pauseOnHover: function(){
                 var $this = this;
                 if (settings.auto && settings.pauseOnHover) {
-                    $slide.on('mouseenter', function () {
+                    $slide.on('mouseenter', function(){
                         $(this).addClass('ls-hover');
                         $el.pause();
                         settings.auto = true;
                     });
-                    $slide.on('mouseleave', function () {
+                    $slide.on('mouseleave',function(){
                         $(this).removeClass('ls-hover');
                         if (!$slide.find('.lightSlider').hasClass('lsGrabbing')) {
                             $this.auto();
@@ -880,11 +879,11 @@
                     }
                 }
 
-                $(window).on('focus', function () {
+                $(window).on('focus', function(){
                     $this.auto();
                 });
-
-                $(window).on('blur', function () {
+                
+                $(window).on('blur', function(){
                     clearInterval(interval);
                 });
 
@@ -933,7 +932,7 @@
                 if (settings.mode === 'slide') {
                     if (settings.vertical === false) {
                         plugin.setHeight($el, false);
-                    } else {
+                    }else{
                         plugin.auto();
                     }
                 } else {
@@ -1086,7 +1085,7 @@
                 }
             }
             return sc + 1;
-        };
+        }; 
         $el.getTotalSlideCount = function () {
             return $slide.find('.lslide').length;
         };
@@ -1103,18 +1102,18 @@
         };
         $el.destroy = function () {
             if ($el.lightSlider) {
-                $el.goToPrevSlide = function () { };
-                $el.goToNextSlide = function () { };
-                $el.mode = function () { };
-                $el.play = function () { };
-                $el.pause = function () { };
-                $el.refresh = function () { };
-                $el.getCurrentSlideCount = function () { };
-                $el.getTotalSlideCount = function () { };
-                $el.goToSlide = function () { };
+                $el.goToPrevSlide = function(){};
+                $el.goToNextSlide = function(){};
+                $el.mode = function(){};
+                $el.play = function(){};
+                $el.pause = function(){};
+                $el.refresh = function(){};
+                $el.getCurrentSlideCount = function(){};
+                $el.getTotalSlideCount = function(){};
+                $el.goToSlide = function(){}; 
                 $el.lightSlider = null;
                 refresh = {
-                    init: function () { }
+                    init : function(){}
                 };
                 $el.parent().parent().find('.lSAction, .lSPager').remove();
                 $el.removeClass('lightSlider lSFade lSSlide lsGrab lsGrabbing leftEnd right').removeAttr('style').unwrap().unwrap();
