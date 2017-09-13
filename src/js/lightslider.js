@@ -226,7 +226,9 @@
                 }
                 settings.onBeforeStart.call(this, $el);
                 refresh.chbreakpoint();
-                $el.addClass('lightSlider').wrap('<div class="lSSlideOuter ' + settings.addClass + '"><div class="lSSlideWrapper"></div></div>');
+                if (!$el.addClass('lightSlider').parents('.lSSlideOuter').length) {
+                    $el.addClass('lightSlider').wrap('<div class="lSSlideOuter ' + settings.addClass + '"><div class="lSSlideWrapper"></div></div>');
+                }
                 $slide = $el.parent('.lSSlideWrapper');
                 if (settings.rtl === true) {
                     $slide.parent().addClass('lSrtl');
