@@ -34,7 +34,7 @@
     },
     "license": {
         "type": "MIT",
-        "url": "http://opensource.org/licenses/MIT"
+        "url": "https://opensource.org/licenses/MIT"
     },
     "dependencies": {
         "jquery": ">= 1.7.0"
