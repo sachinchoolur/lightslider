@@ -133,6 +133,8 @@ add the Following code to the &lt;head&gt; of your document.
 
             responsive : [],
 
+            biggestHeight: false,
+
             onBeforeStart: function (el) {},
             onSliderLoad: function (el) {},
             onBeforeSlide: function (el) {},
