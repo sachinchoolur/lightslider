@@ -21,6 +21,7 @@
         prevHtml: '',
         nextHtml: '',
         rtl: false,
+        centerSlide: false,
         adaptiveHeight: false,
         vertical: false,
         verticalHeight: 500,
@@ -230,6 +231,9 @@
                 $slide = $el.parent('.lSSlideWrapper');
                 if (settings.rtl === true) {
                     $slide.parent().addClass('lSrtl');
+                }
+                if (settings.centerSlide === true) {
+                    $slide.parent().addClass('lScenterSlide');
                 }
                 if (settings.vertical) {
                     $slide.parent().addClass('vertical');
@@ -524,6 +528,9 @@
                 }
             },
             move: function (ob, v) {
+                if (settings.centerSlide === true) {
+                    v -= (windowW - slideWidth) / 2;
+                }
                 if (settings.rtl === true) {
                     v = -v;
                 }
