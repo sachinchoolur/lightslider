@@ -268,9 +268,11 @@
                                 }
                             }
                             /**/
-                            for (var n = $el.find('.clone.right').length; n < tItem; n++) {
-                                $el.find('.lslide').eq(n).clone().removeClass('lslide').addClass('clone right').appendTo($el);
-                                scene++;
+                            if($el.find('.clone.right').length > 0){
+                                for (var n = $el.find('.clone.right').length; n < tItem; n++) {
+                                    $el.find('.lslide').eq(n).clone().removeClass('lslide').addClass('clone right').appendTo($el);
+                                    scene++;
+                                }
                             }
                             for (var m = $el.find('.lslide').length - $el.find('.clone.left').length; m > ($el.find('.lslide').length - tItem); m--) {
                                 $el.find('.lslide').eq(m - 1).clone().removeClass('lslide').addClass('clone left').prependTo($el);
@@ -571,7 +573,7 @@
                         }
                         $this.move($el, slideValue);
                         if (settings.loop === true && settings.mode === 'slide') {
-                            if (scene >= (length - ($el.find('.clone.left').length / settings.slideMove))) {
+                            if (scene > (length - ($el.find('.clone.left').length / settings.slideMove))) {
                                 $this.resetSlide($el.find('.clone.left').length);
                             }
                             if (scene === 0) {
@@ -590,7 +592,7 @@
                     $slide.css('transition-duration', '0ms');
                     slideValue = $this.slideValue();
                     $this.active($children, false);
-                    plugin.move($el, slideValue);
+                    plugin.move($el, scene);
                     setTimeout(function () {
                         $slide.css('transition-duration', settings.speed + 'ms');
                         $slide.find('.lSAction a').removeClass('disabled');
