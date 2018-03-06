@@ -920,8 +920,15 @@
             if (settings.pager) {
                 refresh.createPager();
             }
-            if (settings.adaptiveHeight === true && settings.vertical === false) {
+            if (settings.mode === 'slide' && settings.adaptiveHeight === true && settings.vertical === false) {
                 $el.css('height', $children.eq(scene).outerHeight(true));
+            } else if(settings.adaptiveHeight === true && settings.vertical === false) {
+                var tH = $children.eq(scene).outerHeight(true),
+                tP = ((tH) * 100) / $el.outerWidth();
+                $el.css({
+                    'height': '0px',
+                    'padding-bottom': tP + '%'
+                });
             }
             if (settings.adaptiveHeight === false) {
                 if (settings.mode === 'slide') {
@@ -1011,8 +1018,15 @@
             }
         };
         $el.mode = function (_touch) {
-            if (settings.adaptiveHeight === true && settings.vertical === false) {
+            if (settings.mode === 'slide' && settings.adaptiveHeight === true && settings.vertical === false) {
                 $el.css('height', $children.eq(scene).outerHeight(true));
+            } else if(settings.adaptiveHeight === true && settings.vertical === false) {
+                var tH = $children.eq(scene).outerHeight(true),
+                tP = ((tH) * 100) / $el.outerWidth();
+                $el.css({
+                    'height': '0px',
+                    'padding-bottom': tP + '%'
+                });
             }
             if (on === false) {
                 if (settings.mode === 'slide') {
