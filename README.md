@@ -54,6 +54,14 @@ You can also find lightslider on [npm](http://npmjs.org).
 $ npm install lightslider
 ```
 
+### CDN
+
+You can also use lightslider via [jsDelivr](https://www.jsdelivr.com/package/npm/lightslider)
+
+```html
+<script src="https://cdn.jsdelivr.net/npm/lightslider@1/dist/js/lightslider.min.js"></script>
+```
+
 ### The code ###
 add the Following code to the &lt;head&gt; of your document.
 ```html
