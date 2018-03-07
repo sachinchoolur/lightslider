@@ -83,6 +83,7 @@
             slideWidth = 0,
             thumbWidth = 0,
             interval = null,
+            debounceTimeout = null,
             isTouch = ('ontouchstart' in document.documentElement);
         var refresh = {};
 
@@ -1126,7 +1127,10 @@
             settings.onSliderLoad.call(this, $el);
         }, 10);
         $(window).on('resize orientationchange', function (e) {
-            setTimeout(function () {
+            if (debounceTimeout) {
+                clearTimeout(debounceTimeout);
+            }
+            debounceTimeout = setTimeout(function () {
                 if (e.preventDefault) {
                     e.preventDefault();
                 } else {
