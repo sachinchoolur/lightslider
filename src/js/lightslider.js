@@ -536,7 +536,7 @@
                     } else {
                         ob.css({
                             'transform': 'translate3d(' + (-v) + 'px, 0px, 0px)',
-                            '-webkit-transform': 'translate3d(' + (-v) + 'px, 0px, 0px)',
+                            '-webkit-transform': 'translate3d(' + (-v) + 'px, 0px, 0px)'
                         });
                     }
                 } else {
