@@ -36,6 +36,7 @@
         freeMove: true,
         swipeThreshold: 40,
         responsive: [],
+        biggestHeight: false,
         /* jshint ignore:start */
         onBeforeStart: function ($el) {},
         onSliderLoad: function ($el) {},
@@ -426,16 +427,26 @@
             },
             setHeight: function (ob, fade) {
                 var obj = null,
+                    children = null,
                     $this = this;
                 if (settings.loop) {
-                    obj = ob.children('.lslide ').first();
+                    children = ob.children('.lslide ');
                 } else {
-                    obj = ob.children().first();
+                    children = ob.children();
                 }
+                obj = children.first();
                 var setCss = function () {
                     var tH = obj.outerHeight(),
                         tP = 0,
                         tHT = tH;
+                    if (settings.biggestHeight) {
+                        children.each(function() {
+                            if ($(this).outerHeight() > tH) {
+                                tH = $(this).outerHeight();
+                            }
+                        });
+                        tHT = tH;
+                    }
                     if (fade) {
                         tH = 0;
                         tP = ((tHT) * 100) / elSize;
