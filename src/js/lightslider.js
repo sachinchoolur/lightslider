@@ -1088,7 +1088,7 @@
             if (settings.loop) {
                 scene = (s + $el.find('.clone.left').length - 1);
             } else {
-                scene = s;
+                scene = Math.max(0, Math.ceil((s + 1 - settings.item) / settings.slideMove));
             }
             $el.mode(false);
             if (settings.gallery === true) {
