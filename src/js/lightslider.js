@@ -67,7 +67,7 @@
             settings.vertical = false;
         }
         var $children = $el.children(),
-            windowW = $(window).width(),
+            windowW = window.innerWidth || document.documentElement.clientWidth || document.body.clientWidth,
             breakpoint = null,
             resposiveObj = null,
             length = 0,
@@ -87,7 +87,7 @@
         var refresh = {};
 
         refresh.chbreakpoint = function () {
-            windowW = $(window).width();
+            windowW = window.innerWidth || document.documentElement.clientWidth || document.body.clientWidth;
             if (settings.responsive.length) {
                 var item;
                 if (settings.autoWidth === false) {
