@@ -269,11 +269,11 @@
                             }
                             /**/
                             for (var n = $el.find('.clone.right').length; n < tItem; n++) {
-                                $el.find('.lslide').eq(n).clone().removeClass('lslide').addClass('clone right').appendTo($el);
+                                $el.find('.lslide').eq(n).clone(true,true).removeClass('lslide').addClass('clone right').appendTo($el);
                                 scene++;
                             }
                             for (var m = $el.find('.lslide').length - $el.find('.clone.left').length; m > ($el.find('.lslide').length - tItem); m--) {
-                                $el.find('.lslide').eq(m - 1).clone().removeClass('lslide').addClass('clone left').prependTo($el);
+                                $el.find('.lslide').eq(m - 1).clone(true,true).removeClass('lslide').addClass('clone left').prependTo($el);
                             }
                             $children = $el.children();
                         } else {
