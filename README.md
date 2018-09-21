@@ -130,6 +130,7 @@ add the Following code to the &lt;head&gt; of your document.
             enableDrag:true,
             freeMove:true,
             swipeThreshold: 40,
+            freezeOnTabSwitch : false,
 
             responsive : [],
 
