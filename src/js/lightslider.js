@@ -36,6 +36,7 @@
         freeMove: true,
         swipeThreshold: 40,
         responsive: [],
+        freezeOnTabSwitch : false,
         /* jshint ignore:start */
         onBeforeStart: function ($el) {},
         onSliderLoad: function ($el) {},
@@ -874,13 +875,15 @@
                     }
                 }
 
-                $(window).on('focus', function(){
-                    $this.auto();
-                });
-                
-                $(window).on('blur', function(){
-                    clearInterval(interval);
-                });
+                if(settings.freezeOnTabSwitch){
+                    $(window).on('focus', function(){
+                        $this.auto();
+                    });
+                    
+                    $(window).on('blur', function(){
+                        clearInterval(interval);
+                    });
+                }
 
                 $this.pager();
                 $this.pauseOnHover();
