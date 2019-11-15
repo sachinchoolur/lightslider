@@ -433,7 +433,7 @@
                     obj = ob.children().first();
                 }
                 var setCss = function () {
-                    var tH = obj.outerHeight(),
+                    var tH = obj.prop('scrollHeight'),
                         tP = 0,
                         tHT = tH;
                     if (fade) {
