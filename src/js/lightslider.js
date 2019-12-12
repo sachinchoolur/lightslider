@@ -525,7 +525,7 @@
             },
             move: function (ob, v) {
                 if (settings.rtl === true) {
-                    v = -v;
+                    v = v;
                 }
                 if (this.doCss()) {
                     if (settings.vertical === true) {
