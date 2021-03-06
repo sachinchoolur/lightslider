@@ -839,9 +839,11 @@
                             $this.touchMove(endCoords.pageY, startCoords.pageY);
                         } else {
                             if ((xMovement * 3) > yMovement) {
-                                e.preventDefault();
+                                if(e.cancelable){
+                                    e.preventDefault();
+                                    $this.touchMove(endCoords.pageX, startCoords.pageX);
+                                }
                             }
-                            $this.touchMove(endCoords.pageX, startCoords.pageX);
                         }
 
                     });
